@@ -23,7 +23,6 @@ const Search = () => {
           > 
             <SearchIcon/>
           </button>
-
         </div>
     )
 }

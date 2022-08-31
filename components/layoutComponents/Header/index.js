@@ -13,6 +13,8 @@ import Container from '@mui/material/Container';
 import Subheader from "../SubHeader";
 import Navbar from "../Navbar";
 import Catalog from "../Catalog"; 
+import {Desktop , TabletMobile , Mobile ,  DesktopTablet} from "../../../ui/Breakpoints" ; 
+import DrawerComponent from "../Drawer";
 
 
 const Header = () => {
@@ -25,18 +27,25 @@ const Header = () => {
             <header>
                 <div className={styles.baseContainer}>
                     <div className={styles.headerContainer}>
-                        <Image src="/logo-dark.svg" width="170" height="50" alt="logo" />
-                        <button 
-                        type="submit"
-                        className={styles.customButton} 
-                        >
-                            <WindowIcon/>
-                            Catalog
-                            <div className={styles.showCatalog}>
-                                <Catalog />
-                            </div>
-                        </button>
-                       
+                        <Desktop>
+                            <Image src="/logo-dark.svg" width="170" height="50" alt="logo" />
+                        </Desktop>
+                        <TabletMobile>
+                            <Image src="/logo-mini-dark.svg" width="70" height="70" alt="logo" />
+                        </TabletMobile>
+
+                        <Desktop>
+                            <button 
+                            type="submit"
+                            className={styles.customButton} 
+                            >
+                                <WindowIcon/>
+                                Catalog
+                                <div className={styles.showCatalog}>
+                                    <Catalog />
+                                </div>
+                            </button>
+                        </Desktop>
                         <Search/>
                     </div>
                     <div
@@ -47,8 +56,10 @@ const Header = () => {
                         onClick={()=>setOpenLogin(!openLogin)}
                         >
                             <InputIcon/>
-                            Log in
-                            <ExpandMoreIcon/>
+                            <Desktop>
+                                Log in
+                                <ExpandMoreIcon/>
+                            </Desktop>
                         </button>
                         {
                             openLogin ?
@@ -71,8 +82,16 @@ const Header = () => {
                             :null
                         }
                     </div>
+
+                    <Mobile>
+                        <DrawerComponent/>
+                    </Mobile>
+
                 </div> 
-                <Subheader/> 
+                <DesktopTablet>
+                    <Subheader/> 
+                </DesktopTablet>
+                
             </header>
         </Container>
         </>

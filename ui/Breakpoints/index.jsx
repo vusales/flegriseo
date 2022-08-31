@@ -1,4 +1,4 @@
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export const Desktop = ({ children }) => {
     const isDesktop = useMediaQuery('(min-width:991px)');

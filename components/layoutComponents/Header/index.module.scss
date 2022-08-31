@@ -1,4 +1,6 @@
 
+@import "../../../utils/mixins.scss";
+
 .baseContainer{
     display: flex;
     padding: 10px ;
@@ -63,6 +65,10 @@
 
     &:hover{
         color: #ff9800;
+    }
+
+    @include breakpoint-down("small"){
+        width: 50px;
     }
 }
 .loginButtonContainer{

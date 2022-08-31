@@ -130,3 +130,8 @@ $breakpoints-down: (
   align-items: center;
   justify-content: center;
 }
+
+@mixin button {
+  outline: none;
+  border: none;
+}

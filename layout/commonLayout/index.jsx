@@ -21,7 +21,10 @@ const  CommonLayout = ({children , metaTitle , }) => {
                 {children}
             </main>
 
-            {/* <Footer/> */}
+            <div style={{backgroundColor:"#fff"}}>
+                <Footer/>
+            </div>
+
         </div>
     )
 }
