@@ -22,7 +22,9 @@ const Header = () => {
 
     return (
         <>
-        <Navbar/>
+        <DesktopTablet>
+            <Navbar/>
+        </DesktopTablet>
         <Container minWidth="sm" >
             <header>
                 <div className={styles.baseContainer}>
@@ -91,7 +93,7 @@ const Header = () => {
                 <DesktopTablet>
                     <Subheader/> 
                 </DesktopTablet>
-                
+
             </header>
         </Container>
         </>

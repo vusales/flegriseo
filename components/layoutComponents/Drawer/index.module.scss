@@ -4,3 +4,14 @@
     padding: 10px;
     @include button ;
 }
+
+.drawer {
+    width: 250px;
+}
+
+.drawerItemContainer {
+    width: 100%;
+    text-align: center;
+    padding: 24px 10px;
+
+}
