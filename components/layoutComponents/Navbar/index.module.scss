@@ -1,0 +1,36 @@
+.baseContainer {
+    background-color: #F5F5F5;
+    border-top: .3px solid #eee;
+    border-bottom: .3px solid #eee;
+}
+
+.navbarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 40px;
+}
+
+.navbarUl {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    >div {
+        list-style-type: none;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        padding:10px;
+        border-right: .3px solid #eee;
+
+        >a {
+            height: 100%;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+        }
+
+    }
+}

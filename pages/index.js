@@ -6,10 +6,12 @@ import CommonLayout from "../layout/commonLayout";
 
 export default function Home() {
   return (
-    <Container minWidth="sm" style={{backgroundColor: "green"}} >
+    
       <CommonLayout>
-        <div>childreen</div>
+        <Container>
+          <div>hELLO</div>
+        </Container>
+        {/* <div>childreen</div> */}
       </CommonLayout>
-    </Container>
   )
 }

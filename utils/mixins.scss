@@ -1,0 +1,132 @@
+$breakpoints-up: (
+  "medium": 768px,
+  "large": 992px,
+  "xlarge": 1200px,
+);
+
+$breakpoints-down: (
+  "xsmall": 281px,
+  "smallerThanSubSmall":375px,
+  "subsmall": 425px,
+  "small": 767px,
+  "small-medium": 812px , 
+  "medium-grid": 960px ,
+  "medium": 991px,
+  "large-tablet": 1024px,
+  "large": 1199px,
+  "large-xlarge" : 1500px,
+);
+
+@mixin breakpoint-up($size) {
+  @if map-has-key($breakpoints-up, $size) {
+    @media (min-width: map-get($breakpoints-up, $size)) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @if map-has-key($breakpoints-down, $size) {
+    @media (max-width: map-get($breakpoints-down, $size)) {
+      @content;
+    }
+  }
+}
+
+@mixin flexbox($display: flex,
+  $direction: row,
+  $placeContent: null,
+  $placeItems: null,
+  $wrap: null,
+  $shrink: null,
+  $grow: null,
+  $alignContent: null,
+  $justifyContent: null,
+  $alignItems: null,
+  $justifyItems: null) {
+  display: $display;
+  flex-direction: $direction;
+
+  @if $placeContent==null {
+    @if $alignContent {
+      align-content: $alignContent;
+    }
+
+    @if $justifyContent {
+      justify-content: $justifyContent;
+    }
+  }
+
+  @else {
+    place-content: $placeContent;
+  }
+
+  @if $placeItems==null {
+    @if $alignItems {
+      align-items: $alignItems;
+    }
+
+    @if $justifyItems {
+      justify-items: $justifyItems;
+    }
+  }
+
+  @else {
+    place-items: $placeItems;
+  }
+
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+
+  @if $shrink {
+    flex-shrink: $shrink;
+  }
+
+  @if $grow {
+    flex-grow: $grow;
+  }
+}
+
+@mixin padding($padding: null, $paddingTop: null, $paddingRight: null, $paddingBottom: null, $paddingLeft: null) {
+  @if $padding==null {
+    @if $paddingTop {
+      padding-top: $paddingTop;
+    }
+
+    @if $paddingRight {
+      padding-right: $paddingRight;
+    }
+
+    @if $paddingBottom {
+      padding-bottom: $paddingBottom;
+    }
+
+    @if $paddingLeft {
+      padding-left: $paddingLeft;
+    }
+  }
+
+  @else {
+    padding: $padding;
+  }
+}
+
+@mixin font($size: 14px, $weight: normal) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

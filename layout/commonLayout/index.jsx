@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./index.module.scss";
 import Head from 'next/head';
-
-
+import Header from "../../components/layoutComponents/Header";
+import Footer from "../../components/layoutComponents/Footer";
 
 
 const  CommonLayout = ({children , metaTitle , }) => {
@@ -13,13 +13,15 @@ const  CommonLayout = ({children , metaTitle , }) => {
                 <meta name="description" content="seo smm sem" />
                 {/* <link rel="icon" href="/favicon.ico" /> */}
             </Head>
-
+            <div style={{backgroundColor:"#fff"}}>
+                <Header/>
+            </div>
 
             <main className={styles.main}>
                 {children}
             </main>
 
-            <footer></footer>
+            {/* <Footer/> */}
         </div>
     )
 }
