@@ -1,0 +1,17 @@
+.catalogContainer {
+    width: 250px;
+    padding: 16px 0px 0px 0px;
+    box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    -webkit-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    -moz-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    background-color: #fff;
+    text-align: left;
+
+    >p {
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 18px;
+        color:black;
+        margin-left: 10px;
+    }
+}

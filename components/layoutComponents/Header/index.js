@@ -12,6 +12,8 @@ import Link from 'next/link';
 import Container from '@mui/material/Container';
 import Subheader from "../SubHeader";
 import Navbar from "../Navbar";
+import Catalog from "../Catalog"; 
+
 
 const Header = () => {
     const [openLogin , setOpenLogin] = useState(false); 
@@ -26,10 +28,15 @@ const Header = () => {
                         <Image src="/logo-dark.svg" width="170" height="50" alt="logo" />
                         <button 
                         type="submit"
-                        className={styles.customButton} >
+                        className={styles.customButton} 
+                        >
                             <WindowIcon/>
                             Catalog
+                            <div className={styles.showCatalog}>
+                                <Catalog />
+                            </div>
                         </button>
+                       
                         <Search/>
                     </div>
                     <div
@@ -43,7 +50,6 @@ const Header = () => {
                             Log in
                             <ExpandMoreIcon/>
                         </button>
-
                         {
                             openLogin ?
                             <div
