@@ -1,0 +1,16 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+
+.anouncmentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 16px;
+    @include breakpoint-down("small"){
+        flex-direction: column;
+    }
+}
+

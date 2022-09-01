@@ -17,7 +17,7 @@ const  CommonLayout = ({children , metaTitle , }) => {
                 <Header/>
             </div>
 
-            <main className={styles.main}>
+            <main className={styles.main} >
                 {children}
             </main>
 
