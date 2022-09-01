@@ -16,7 +16,6 @@ const SampleNextArrow = (props) => {
             // ...styles.nextArrow ,
             backgroundColor: "#DADADA", 
             borderRadius: 100 ,
-
         }}
         onClick={onClick}
       ></div>
@@ -41,7 +40,7 @@ const SamplePrevArrow = (props) => {
         onClick={onClick}
       />
     );
-  }
+}
 
 var settings = {
     dots: false,
@@ -72,13 +71,11 @@ const demoData = [
 ]; 
 
 
-
-
 const Banner = () => {
 
 
     return(
-        <div>
+        <div className={styles.bannerContainer}>
             <Slider {...settings} >
                 {
                     demoData.map((item , index)=>{

@@ -75,6 +75,7 @@
 }
 .loginButtonContainer{
     position: relative;
+    z-index: 10;
 }
 
 .smallModal {
@@ -85,6 +86,9 @@
     top: 100%;
     left: 0;
     min-width: 110px;
+    box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    -webkit-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    -moz-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
 }
 
 .loginsignupLinks {

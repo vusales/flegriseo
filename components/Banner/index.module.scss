@@ -1,5 +1,9 @@
 @import "../../utils/mixins.scss";
+@import "../../utils/colors.scss";
 
+.bannerContainer {
+    padding: 16px;
+}
 
 .imageContainer {
     width: 100%;
