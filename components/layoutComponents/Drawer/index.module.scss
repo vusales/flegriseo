@@ -1,8 +1,9 @@
 @import "../../../utils/mixins.scss"; 
 
 .menuDrawerButton{
-    padding: 10px;
     @include button ;
+    padding: 6px 10px;
+    border-radius: 2px;
 }
 
 .drawer {
