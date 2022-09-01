@@ -8,7 +8,10 @@
     display: flex;
     align-items: center;
     color: $black ;
+    padding:10px 0;
     padding-left: 10px;
+    border-radius: 2px;
+
 
     &:hover{
         color: $second ;
@@ -19,11 +22,11 @@
     }
 
     >p {
+        @include text;
+        color:$text;
         font-size: 16px;
         line-height: 18px;
-        font-weight: 400;
         margin-left: 5px;
-
     }
 }
 
@@ -33,11 +36,12 @@
     top:0;
     width: 250px;
     display: none;
-    color: $black;
+    color: $text;
     box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
     -webkit-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
     -moz-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
     background-color: $main;
+    border-radius: 2px;
     
     >a {
 
@@ -56,11 +60,14 @@
             display: flex;
             align-items: center;
             padding: 0 10px;
+            padding: 10px 0;
+            padding-left: 10px;
 
             >p{
+                @include text;
+                color:$text;
                 font-size: 16px;
                 line-height: 18px;
-                font-weight: 400;
                 margin-left: 5px;
             }
 

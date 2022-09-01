@@ -3,14 +3,15 @@
 
 .container {
     padding: 10px;
-    display: flex;
+    @include center;
     flex-direction: column;
 
     >p {
+        @include text;
         font-size: 16px;
         line-height: 18px;
         font-weight: 500;
-        color:$black;
+        color:$text;
     }
 
     >a {

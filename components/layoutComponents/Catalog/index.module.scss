@@ -1,3 +1,7 @@
+
+@import "../../../utils/colors.scss"; 
+@import "../../../utils/mixins.scss"; 
+
 .catalogContainer {
     width: 250px;
     padding: 16px 0px 0px 0px;
@@ -8,10 +12,12 @@
     text-align: left;
 
     >p {
+        @include text;
         font-weight: 500;
         font-size: 17px;
         line-height: 18px;
-        color:black;
+        color:$text;
         margin-left: 10px;
+        margin-bottom: 10px;
     }
 }

@@ -10,6 +10,7 @@
     width: 24%;
     border-radius: 2px;
     padding: 16px;
+    height: 190px;
 
     @include breakpoint-down("small"){
         width: 100%;
@@ -26,9 +27,11 @@
     }
 
     >p {
+        @include text ; 
         font-size: 15px;
         line-height: 18px;
-        font-weight: 400;
+        color:$text;
+        margin-top: 16px;
     }
 
     .title{

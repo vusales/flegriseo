@@ -50,10 +50,12 @@
     height: 35px;
 
     >p {
+        @include text ; 
         margin-left: 5px;
         font-size: 16px;
         line-height: 18px;
         font-weight: 600;
+        color:$text;
     }
 
     >svg {
@@ -63,6 +65,7 @@
 
 .detailsContainer {
     width: 100%;
+    padding: 10px 0;
 
     >div{
         width: 100%;
@@ -78,9 +81,9 @@
             align-items: center;
             >p{
                 margin-left: 5px;
-                font-size: 14px;
+                @include text;
                 line-height: 18px;
-                font-weight: 400;
+                color:$text;
             }
         }
     }

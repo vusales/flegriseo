@@ -18,6 +18,12 @@
    >.line {
       @include titleLine ; 
    }
+
+   >span {
+      @include text;
+      color:$second; 
+      margin-bottom: 10px;
+   }
 }
 
 .description {

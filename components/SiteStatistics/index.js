@@ -49,7 +49,7 @@ const SiteStatistics = () => {
                 {
                     data.map((item , index)=>{
                         return(
-                            <Grid key={`${item.id}${index}-statistics`} item xs={12} md={3}>
+                            <Grid key={`${item.id}${index}-statistics`} item xs={6} md={3}>
                                 <div className={styles.descriptionCon}>
                                     <div className={styles.iconCon}>
                                         {item.icon}
