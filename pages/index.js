@@ -6,6 +6,7 @@ import CommonLayout from "../layout/commonLayout";
 import Catalog from "../components/layoutComponents/Catalog";
 import Banner from "../components/Banner";
 import Anouncment from "../components/Anouncment";
+import CatalogSection from "../components/CatalogSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Container>
           <Banner />
           <Anouncment /> 
+          <CatalogSection />
         </Container>
       </CommonLayout>
   )
