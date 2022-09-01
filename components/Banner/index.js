@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import Image from "next/image"; 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
 
 
 const SampleNextArrow = (props) => {
@@ -80,13 +81,38 @@ const Banner = () => {
                 {
                     demoData.map((item , index)=>{
                         return(
-                            <div key={`slickBanner${index}`} className={styles.imageContainer}>
-                                <Image src={item.imagesrc} width={500} height={500} alt="banner" /> 
-                            </div>
+                            <div key={`slickBanner${index}`} className={styles.subContainer}>
+                                <div className={styles.textContainer}>
+                                    <div>
+                                        <p className={styles.subTitle}>Дисконтная система</p>
+                                        <p className={styles.title}>Постоянные скидки</p>
+                                        <p className={styles.subTitleSecond}>Бонусы и кешбэк система!</p>
+                                    </div>
+                                    
+                                    <p className={styles.description}>Накопительная система скидок и бонусы за пополнение баланса. Заказывай больше и плати меньше. Возможность максимальной экономии для оптовых клиентов и крупных разовых заказов. Мы до мелочей продумали систему взаимодействия с нашей аудиторией заказчиков. Она получила такой формат, при котором вы гарантированно а останетесь с нами. Получение бонуса за разовое пополнения баланса от 45 тысяч рублей и больше.</p>
+                                    
+                                    <div className={styles.buttonsContainer}>
+                                        <Link href="/">
+                                            <a  className={styles.bannerButton}>Раскрутка Ютуб</a>
+                                        </Link>
+                                        <Link href="/">
+                                            <a 
+                                            className={styles.bannerButton}
+                                            style={{backgroundColor: "#000"}}
+                                            >Система подписок</a>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className={styles.imageContainer}>
+                                    <Image src={item.imagesrc} width={300} height={300} alt="banner" /> 
+                                </div>
+                         </div>
                         )
                     })
                 }
             </Slider>
+
+           
         </div>
     )
 } 

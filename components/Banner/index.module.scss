@@ -5,17 +5,81 @@
     padding: 16px;
 }
 
-.imageContainer {
-    width: 100%;
+.subContainer {
+    width: 95%;
     height: 100%;
-    text-align: center;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: $main;
+    border-radius: 2px;
+
+    box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    -webkit-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    -moz-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
 }
 
-.nextArrow {
-
+.textContainer {
+    width: 49%;
+    height: 100%;
 }
 
-.prevArrow{
-
-
+.imageContainer {
+    width:49%;
+    @include center;
 }
+
+.subTitle{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    color: $second;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    color: $black;
+}
+
+.subTitleSecond {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $black;
+}
+
+.description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    color: $black;
+    text-align: justify;
+}
+
+.buttonsContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0 ; 
+}
+
+.bannerButton {
+    @include button ; 
+    padding: 16px;
+    background-color: green;
+    width: 48%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // fonts
+    font-weight: 600;
+    color: $main ;
+    font-size: 17px;
+    line-height: 20px;
+    border-radius: 3px;
+    background-color: $second;
+}
+
