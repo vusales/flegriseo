@@ -23,11 +23,17 @@
 .textContainer {
     width: 49%;
     height: 100%;
+    @include breakpoint-down("small"){
+        width: 100%;
+    }
 }
 
 .imageContainer {
     width:49%;
     @include center;
+    @include breakpoint-down("small"){
+        display: none;
+    }
 }
 
 .subTitle{
@@ -64,6 +70,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px 0 ; 
+    @include breakpoint-down("small"){
+        flex-direction: column;
+    }
 }
 
 .bannerButton {
@@ -81,5 +90,11 @@
     line-height: 20px;
     border-radius: 3px;
     background-color: $second;
+    @include breakpoint-down("small"){
+        width: 100%;
+        &:first-child{
+            margin-bottom: 10px;
+        }
+    }
 }
 
