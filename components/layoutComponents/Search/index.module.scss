@@ -1,3 +1,7 @@
+@import "../../../utils/mixins.scss"; 
+@import "../../../utils/colors.scss"; 
+
+
 .searchContainer {
     display: flex; 
     width: 50%;
@@ -6,7 +10,7 @@
 
     form{
         width: 90%;
-        border:1px solid #DADADA;
+        border:1px solid $border;
         border-top-left-radius: 2px;
         border-bottom-left-radius: 2px;
     }
@@ -27,8 +31,8 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background-color: #ff9800 ;
-    color: #fff ;
+    background-color: $second ;
+    color: $main ;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
 }

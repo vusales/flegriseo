@@ -1,7 +1,10 @@
+@import "../../../utils/mixins.scss";
+@import "../../../utils/colors.scss";
+
 .subHeaderContainer {
     display: flex;
     align-items: center;
-    border-top: 1px solid #FAFAFA;
+    border-top: 1px solid $subtext;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
@@ -27,13 +30,13 @@
     &:hover{
         // border-bottom: 1px solid #ff9800;
         >a {
-            color: #ff9800;
+            color: $second;
         }
     }
 }
 
 .items {
-    color:#000;
+    color: $black;
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
@@ -45,8 +48,8 @@
     border-radius: 2px;
     padding: 10px;
     background-color: rgba(255,152,0,0.03);
-    color:#ff9800;
-    border: 1px solid #ff9800;
+    color:$second;
+    border: 1px solid $second;
 
     // fonts 
     font-size: 14px;
@@ -54,7 +57,7 @@
     font-weight: 600;
 
     &:hover{
-        background-color: #ff9800;
-        color:#fff;
+        background-color: $second;
+        color:$main;
     }
 }

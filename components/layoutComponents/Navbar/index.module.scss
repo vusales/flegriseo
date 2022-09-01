@@ -1,7 +1,9 @@
+@import "../../../utils/colors.scss";
+@import "../../../utils/mixins.scss";
 .baseContainer {
-    background-color: #F5F5F5;
-    border-top: .3px solid #eee;
-    border-bottom: .3px solid #eee;
+    background-color: $secondGray;
+    border-top: .3px solid $gray;
+    border-bottom: .3px solid $gray;
 }
 
 .navbarContainer {
@@ -23,7 +25,7 @@
         justify-content: center;
         align-items: center;
         padding:10px;
-        border-right: .3px solid #eee;
+        border-right: .3px solid $gray;
 
         >a {
             height: 100%;
