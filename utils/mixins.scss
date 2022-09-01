@@ -143,3 +143,9 @@ $breakpoints-down: (
   margin-top: 24px;
   margin-bottom: 24px;
 }
+
+@mixin text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
