@@ -7,6 +7,8 @@ import Catalog from "../components/layoutComponents/Catalog";
 import Banner from "../components/Banner";
 import Anouncment from "../components/Anouncment";
 import CatalogSection from "../components/CatalogSection";
+import SubScription from "../components/Subscription";
+import WhyUs from "../components/WhyUs";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
           <Banner />
           <Anouncment /> 
           <CatalogSection />
+          <SubScription/>
+          <WhyUs/>
         </Container>
       </CommonLayout>
   )

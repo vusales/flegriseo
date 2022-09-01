@@ -134,4 +134,12 @@ $breakpoints-down: (
 @mixin button {
   outline: none;
   border: none;
+  text-decoration: none;
+}
+
+@mixin papper {
+  border-radius: 2px;
+  padding:24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }

@@ -1,0 +1,59 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+
+.paper {
+   @include papper ; 
+}
+
+.titleContainer {
+   @include center;
+   flex-direction: column;
+   &:hover{
+      >.line {
+          width: 100px;
+      }
+   }
+
+   >.line {
+      width: 40px;
+      height: 2px;
+      background-color: $second;
+      margin-top: auto;
+      transition: all .7s;
+   }
+}
+
+.description {
+   width:100%;
+   display: flex;
+   padding: 24px;
+   border: 1px solid $border;
+   border-radius: 2px;
+   @include center ;
+   justify-content: space-between;
+   align-items: flex-start;
+   min-height: 115px;
+   
+   >svg {
+      fill: $second ;
+   }
+
+   >div {
+      width: 80%;
+      >p {
+         font-size: 16px;
+         line-height: 18px;
+         font-weight: 400;
+         padding: 0 ; 
+         margin: 0 ;
+
+         &:first-child {
+            font-weight: 600;
+            margin-bottom: 10px;
+
+         }
+      }
+      
+   }
+}

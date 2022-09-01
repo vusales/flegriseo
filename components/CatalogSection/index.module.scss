@@ -2,14 +2,12 @@
 @import "../../utils/mixins.scss";
 
 .container {
-    padding: 16px;
+    // padding: 16px;
 
 }
 
 .paper {
-    border-radius: 2px;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    @include papper;
     position: relative;
 }
 
