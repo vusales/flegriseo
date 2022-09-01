@@ -5,3 +5,47 @@
     @include papper ; 
 }
 
+.titleCon {
+    width: 100%;
+    @include center ;
+    flex-direction: column;
+
+    &:hover {
+        >.line{
+            width: 100px;
+        }
+    }
+
+    >h2 {
+    }
+
+    >.line {
+        @include titleLine ; 
+    }
+}
+
+.descriptionCon {
+    width: 100%;
+    @include center;
+    flex-direction: column;
+    padding: 24px 16px;
+    >.iconCon {
+        border-radius: 50%;
+        border: 1px solid $border;
+        width: 100px;
+        height: 100px;
+        @include center;
+        >svg{
+            fill: $second ;
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    >p {
+        @include text ; 
+        font-size: 17px;
+        margin-top: 24px;
+        color:$text;
+    }
+}

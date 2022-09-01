@@ -149,3 +149,13 @@ $breakpoints-down: (
   font-size: 14px;
   line-height: 16px;
 }
+
+@mixin titleLine {
+  width: 40px;
+  height: 2px;
+  background-color: $second;
+  margin-top: auto;
+  transition: all .7s;
+  margin-top: 10px;
+  border-radius: 10px;
+}

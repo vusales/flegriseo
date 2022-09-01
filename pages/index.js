@@ -9,6 +9,7 @@ import Anouncment from "../components/Anouncment";
 import CatalogSection from "../components/CatalogSection";
 import SubScription from "../components/Subscription";
 import WhyUs from "../components/WhyUs";
+import SiteStatistics from "../components/SiteStatistics";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
           <CatalogSection />
           <SubScription/>
           <WhyUs/>
+          <SiteStatistics />
         </Container>
       </CommonLayout>
   )

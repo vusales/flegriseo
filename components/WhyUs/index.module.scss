@@ -16,11 +16,7 @@
    }
 
    >.line {
-      width: 40px;
-      height: 2px;
-      background-color: $second;
-      margin-top: auto;
-      transition: all .7s;
+      @include titleLine ; 
    }
 }
 
