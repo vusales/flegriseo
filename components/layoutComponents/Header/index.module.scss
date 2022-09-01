@@ -15,6 +15,10 @@
     align-items: center;
     justify-content: space-between; 
     width: 70%;
+
+    @include breakpoint-down("small"){
+        width: 80%;
+    }
 }
 
 
@@ -58,6 +62,18 @@
     background-color: $gray;
     color:$black;
 
+    @include breakpoint-down("small"){
+        background-color: transparent;
+        width: auto;
+        height: auto;
+        >svg{
+            &:last-child{
+                width: 32px !important;
+                height: 32px !important;
+            }
+        }
+    }
+
     >svg {
         &:last-child{
             width: 20px;
@@ -68,11 +84,8 @@
     &:hover{
         color: $second;
     }
-
-    @include breakpoint-down("small"){
-        width: 50px;
-    }
 }
+
 .loginButtonContainer{
     position: relative;
     z-index: 10;
@@ -92,11 +105,13 @@
 }
 
 .loginsignupLinks {
-    color: $black; 
+    color: $text; 
     padding: 10px;
     background-color: $main;
     display: flex;
     align-items: center;
+    @include text;
+
 
     >svg{
         margin-right: 10px;

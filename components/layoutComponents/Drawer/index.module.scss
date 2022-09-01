@@ -2,8 +2,18 @@
 
 .menuDrawerButton{
     @include button ;
-    padding: 6px 10px;
+    // padding: 6px 10px;
+    width: 50px;
+    height: 41px;
     border-radius: 2px;
+
+    @include breakpoint-down("small"){
+        background-color: transparent;
+        >svg{
+            height: 40px;
+            width: 40px;
+        }
+    }
 }
 
 .drawer {

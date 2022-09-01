@@ -24,6 +24,24 @@ const demodata = [
         description: "If your order is not completed, we will issue a full refund.", 
         icon: <VolunteerActivismIcon/> ,
     }, 
+    {
+        id: 4 , 
+        title: "Performance guarantee", 
+        description: "If your order is not completed, we will issue a full refund.", 
+        icon: <VolunteerActivismIcon/> ,
+    }, 
+    {
+        id: 5 , 
+        title: "Performance guarantee", 
+        description: "If your order is not completed, we will issue a full refund.", 
+        icon: <VolunteerActivismIcon/> ,
+    }, 
+    {
+        id: 6 , 
+        title: "Performance guarantee", 
+        description: "If your order is not completed, we will issue a full refund.", 
+        icon: <VolunteerActivismIcon/> ,
+    }, 
 ]; 
 
 const WhyUs = () => {

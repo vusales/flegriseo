@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import styles from "./index.module.scss";
 import Image from 'next/image';
 import WindowIcon from '@mui/icons-material/Window';
-import { Button } from "@mui/material";
 import Search from "../Search";
 import InputIcon from '@mui/icons-material/Input';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -33,7 +32,7 @@ const Header = () => {
                             <Image src="/logo-dark.svg" width="170" height="50" alt="logo" />
                         </Desktop>
                         <TabletMobile>
-                            <Image src="/logo-mini-dark.svg" width="70" height="70" alt="logo" />
+                            <Image src="/logo-mini-dark.svg" width="50" height="50" alt="logo" />
                         </TabletMobile>
 
                         <Desktop>
@@ -84,11 +83,9 @@ const Header = () => {
                             :null
                         }
                     </div>
-
                     <Mobile>
                         <DrawerComponent/>
                     </Mobile>
-
                 </div> 
                 <DesktopTablet>
                     <Subheader/> 
