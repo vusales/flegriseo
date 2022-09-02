@@ -23,7 +23,7 @@ const Card = ({data}) => {
 
 
     return (
-        <Grid item xs={6} md={3} >
+        <Grid item xs={12} md={3} >
             <div className={styles.container}>
                 { Promotion(data?.promotion , data?.color)}
                 <Link href="/">
@@ -43,13 +43,11 @@ const Card = ({data}) => {
                     </p>
                 </div>
                 <p className={styles.description}>{data?.description}</p>
-
                 <Link href="/">
                     <a className={styles.button}>
                         Design
                     </a>
                 </Link>
-                
             </div>
         </Grid>
     )
