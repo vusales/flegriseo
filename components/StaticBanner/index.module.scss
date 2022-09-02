@@ -1,0 +1,56 @@
+@import "../../utils/mixins.scss";
+@import "../../utils/colors.scss";
+
+.paper {
+    @include papper; 
+}
+
+.imageContainer {
+    width: 100%;
+    height: 100%;
+    @include center;
+    padding: 16px;
+}
+
+.descriptionConatiner {
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+
+    >p{
+        @include text; 
+        color: $text; 
+        line-height: 24px;
+        margin-top: 24px; 
+        margin-bottom: 32px;
+        text-align: justify;
+    }
+}
+
+.titleConatiner {
+    >h1{
+        @include text;
+        color: $text ; 
+        font-size: 27px; 
+        line-height: 30px ; 
+        font-weight: 800;
+    }
+    >p{
+        @include text;
+        color: $second;
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+}
+
+.button {
+    text-transform: uppercase;
+    @include text;
+    font-weight: 500;
+    text-align: center;
+    padding: 14px 20px;
+    background-color: $second;
+    color: $main !important;
+    border-radius: 2px;
+    margin-bottom: 24px;
+}

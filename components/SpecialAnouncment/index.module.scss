@@ -1,0 +1,69 @@
+@import "../../utils/mixins.scss";
+@import "../../utils/colors.scss";
+
+.papper {
+    // @include papper;
+    @include center ; 
+    justify-content: space-between;
+}
+
+.cardContainer {
+    border-radius: 2px;
+    box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    -webkit-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    -moz-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    padding: 10px;
+    @include center; 
+    flex-direction: column;
+    width: 24%;
+    background-color: $main;
+
+    &:hover{
+
+        >div{
+            
+            >div{
+                width: 35% ; 
+                &:last-child {
+                    width: 20% ; 
+                }   
+            }
+        }
+
+
+    }
+
+    >div{
+        width: 100%;
+        @include center; 
+        align-items: flex-end;
+        flex-direction: column;
+        padding: 5px;
+        >div{
+            height: 1px;
+            background-color: $border;
+            width: 20% ; 
+            transition: all .7s;
+            margin-bottom: 10px;
+            &:last-child {
+                width: 10% ; 
+            }   
+        }
+    }
+
+    >p {
+        @include text; 
+        line-height: 20px;
+        color: $text;
+        margin-top: 24px;
+        margin-bottom: 16px;
+    }
+
+    >svg{
+        width: 30px;
+        height: 30px;
+    }
+
+
+
+}
