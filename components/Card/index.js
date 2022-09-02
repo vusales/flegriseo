@@ -6,7 +6,7 @@ import Image from "next/image";
 
 
 
-const Card = ({data}) => {
+const Card = ({data , xs , md }) => {
 
     const Promotion = (decription , color) => {
         if(decription){
@@ -23,7 +23,7 @@ const Card = ({data}) => {
 
 
     return (
-        <Grid item xs={12} md={3} >
+        <Grid item xs={xs ? xs : 12} md={md ? md : 3} >
             <div className={styles.container}>
                 { Promotion(data?.promotion , data?.color)}
                 <Link href="/">

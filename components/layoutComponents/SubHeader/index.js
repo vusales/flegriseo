@@ -7,7 +7,7 @@ const Subheader =  () => {
         <div className={styles.subHeaderContainer}>
             <ul className={styles.servicesContainer}>
                 <li className={styles.servicesLi}>
-                    <Link href="/serviceDetails">
+                    <Link href="/filter">
                         <a className={styles.items}>Servicess</a>
                     </Link>
                 </li>

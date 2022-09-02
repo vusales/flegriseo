@@ -1,0 +1,58 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.container {
+    box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    -webkit-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    -moz-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
+    border-radius: 2px;
+    background-color: $main;
+
+    @include breakpoint-down("medium-grid"){
+        display: flex;
+        overflow-x: auto;
+    }
+
+    
+
+}
+
+.titleContainer {
+    @include center;
+    justify-content: flex-start;
+    padding: 10px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom: 1px solid $border;
+    background-color: $secondGray;
+    margin-bottom: 10px;
+
+    @include breakpoint-down("medium-grid"){
+        display: none ;
+    }
+
+    >p {
+        @include text; 
+        margin-left: 5px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+
+.catalogItem {
+    @include center;
+    justify-content: flex-start;
+    padding: 10px;
+
+    @include breakpoint-down("medium-grid"){
+        min-width: 150px ;
+        border-right: 1px solid $gray ; 
+        border-left: 1px solid $gray;
+        padding: 10px 16px;
+    }
+
+    >p {
+        @include text;
+        margin-left: 5px;
+    }
+}
