@@ -29,10 +29,18 @@ const Header = () => {
                 <div className={styles.baseContainer}>
                     <div className={styles.headerContainer}>
                         <Desktop>
-                            <Image src="/logo-dark.svg" width="170" height="50" alt="logo" />
+                            <Link href="/">
+                                <a>
+                                    <Image src="/logo-dark.svg" width="170" height="50" alt="logo" />
+                                </a>
+                            </Link>
                         </Desktop>
                         <TabletMobile>
-                            <Image src="/logo-mini-dark.svg" width="50" height="50" alt="logo" />
+                            <Link href="/">
+                                <a>
+                                    <Image src="/logo-mini-dark.svg" width="50" height="50" alt="logo" />
+                                </a>
+                            </Link>
                         </TabletMobile>
 
                         <Desktop>

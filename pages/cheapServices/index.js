@@ -5,6 +5,8 @@ import StaticBanner from "../../components/StaticBanner";
 import CommonLayout from "../../layout/commonLayout";
 import SpecialAnouncment from "../../components/SpecialAnouncment";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import Card from "../../components/Card";
+import { Grid } from "@mui/material";
 
 
 
@@ -44,6 +46,46 @@ const specialAnounc = [
 
 ]; 
 
+const cardDemo  = [
+    {
+        id: 1 , 
+        imgSrc: "/cardImg.png", 
+        title: "LIKES ON PHOTO, VIDEO, ALBUm (STANDARD)", 
+        price: "0.29 RUB for 1 like", 
+        description: "Likes on photos from active users. Likes come from mobile applications.", 
+        promotion: "" , 
+        color: "green" , 
+    }, 
+    {
+        id: 2 , 
+        imgSrc: "/cardImg.png", 
+        title: "LIKES ON PHOTO, VIDEO, ALBUm (STANDARD)", 
+        price: "0.29 RUB for 1 like", 
+        description: "Likes on photos from active users. Likes come from mobile applications.", 
+        promotion: "Sale %" , 
+        color: "green" , 
+
+    },
+    {
+        id: 3  , 
+        imgSrc: "/cardImg.png", 
+        title: "LIKES ON PHOTO, VIDEO, ALBUm (STANDARD)", 
+        price: "0.29 RUB for 1 like", 
+        description: "Likes on photos from active users. Likes come from mobile applications.", 
+        promotion: "Sale %" , 
+        color: "orange" , 
+    }, 
+    {
+        id: 4 , 
+        imgSrc: "/cardImg.png", 
+        title: "LIKES ON PHOTO, VIDEO, ALBUm (STANDARD)", 
+        price: "0.29 RUB for 1 like", 
+        description: "Likes on photos from active users. Likes come from mobile applications.", 
+        promotion: "" , 
+        color: "green" , 
+    }, 
+]; 
+
 
 
 
@@ -63,6 +105,28 @@ const CheapServices = () => {
                 <SpecialAnouncment
                 data={specialAnounc}
                 />
+
+
+                <Grid container spacing={2} sx={{marginTop:2,  marginBottom:2}}>
+                    <Grid item xs={12} >
+                        <div className={styles.title}>
+                            <h2>INEXPENSIVE AND HIGH-QUALITY SMM SERVICES</h2>
+                            <div className={styles.line}></div>
+                        </div>
+                    </Grid>
+
+                    {
+                        cardDemo.map((item, index)=> {
+                            return (
+                                <Card
+                                key={`cardCheap=${index}`}
+                                data={item}
+                                />
+                            )
+                        })
+                    }
+
+                </Grid>
             </Container>
         </CommonLayout>  
     )

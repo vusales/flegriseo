@@ -13,7 +13,7 @@ const Subheader =  () => {
                 </li>
                 <li className={styles.servicesLi}>
                     <Link href="/cheapServices">
-                        <a className={styles.items}>Sale</a>
+                        <a className={styles.items}>Cheap services</a>
                     </Link>
                 </li>
                 <li className={styles.servicesLi}>

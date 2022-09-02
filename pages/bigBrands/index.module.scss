@@ -1,2 +1,8 @@
 @import "../../utils/colors.scss";
 @import "../../utils/mixins.scss";
+
+.title {
+    @include title;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
