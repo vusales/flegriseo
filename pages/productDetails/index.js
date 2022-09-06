@@ -9,6 +9,7 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import AvTimerIcon from '@mui/icons-material/AvTimer';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
+import CommentsComponent from "../../components/CommentsComponent";
 
 
 const detailsCardDemo = [
@@ -37,6 +38,20 @@ const detailsCardDemo = [
         detail: "Официальные источники", 
     },
 ]; 
+
+const demoComments = [
+    {
+    image: "/cardImg.png" , 
+    title: "Дарья Шапошник" , 
+    comment: "Супер смм-сервис. Очень оперативно работают. Обратилась к ним, чтоб раскрутили мой аккаунт в Инстаграм и помогли набрать целевую аудиторию. Они с поставленной задачей справились. Всё сделали качественно, быстро и самое главное недорого. Очень довольна, что обратилась именно к ним. Спасибо." , 
+    },
+    {
+    image: "" , 
+    title: "Дарья Шапошник" , 
+    comment: "Очень оперативно работают. Спасибо." , 
+    },
+
+]
 
 
 
@@ -74,6 +89,11 @@ const ProductDetails = () => {
 
                                 Лайки СМО Сервис повышают охват и вовлеченность, положительно влияют на статистику коммерческих бизнес аккаунтов. Наши лайки для Инстаграм абсолютно безопасны для ваших личных и бизнес профилей, фото и видео публикаций. Качественные лайки от реальных живых и активных пользователей социальной сети, которые помогут попасть вашим постам (видео и фото) в рекомендации Инстаграм.</p>
                             </div>
+
+
+                            <CommentsComponent 
+                            data={demoComments}
+                            />
 
 
                         </Paper>
