@@ -46,7 +46,7 @@ const ProductDetailsComponent = () => {
                         </div>
 
                         <Link 
-                        href="/"
+                        href="/order"
                         >
                             <a className={styles.button}>Order</a>
                         </Link>

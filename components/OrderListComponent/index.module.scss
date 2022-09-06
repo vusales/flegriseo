@@ -1,0 +1,119 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.titleContainer {
+    background-color: $subtext;
+    border-bottom: .5px solid $gray;
+}
+
+.listItemContainer {
+    width: 100%;
+    height: 100%;
+    @include center ;
+    justify-content: flex-start;
+    padding: 16px 0;
+
+}
+
+.productName {
+    @include button ; 
+    @include text; 
+    font-size: 15px;
+    font-weight: 500;
+    color:$text; 
+    transition: all .7s;
+    margin-left: 16px;
+
+    &:hover{
+        color: $second !important;
+    }
+}
+
+
+.addRemoveContainer {
+    @include center ; 
+    justify-content: space-between;
+    height: 41px;
+    border: 1px solid $border ; 
+    border-radius: 2px;
+
+    @include breakpoint-down("small"){
+        margin-top: 16px;
+        margin-bottom: 16px;
+        // width: 100%;
+
+    }
+
+    >div{
+        min-width: 130px ; 
+        height: 100% ; 
+        @include center ; 
+        justify-content: space-between;
+        padding: 0 10px;
+
+
+        >p{
+            @include text; 
+            color: $text;
+            font-size: 15px ; 
+
+            // &:first-child{
+            //     margin-right: 30px;
+            // }
+
+            &:last-child {
+                color: $infotext;
+                font-weight: 500;
+
+            }
+        }
+    }
+
+    >button {
+        @include button; 
+        @include center;
+        height: 100%;
+        width: 41px;
+        background-color: $gray;
+        &:hover {
+            background-color: $darkgray ;
+            color: $main !important;
+            >svg {
+                fill: $main !important;
+            }
+        }
+
+        >svg {
+            fill: $black;
+            width: 16px;
+            height: 16px;
+        }
+         
+        &:first-child{
+            border-top-left-radius:2px;
+            border-bottom-left-radius:2px;
+            border-right: 1px solid $border ; 
+
+        }
+        &:last-child {
+            border-top-right-radius:2px;
+            border-bottom-right-radius:2px;
+            border-left: 1px solid $border ; 
+        }
+    }
+}
+
+.price {
+    @include text; 
+    color: $text;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.td{
+    @include text; 
+    color: $text;
+    font-weight: 600;
+
+}

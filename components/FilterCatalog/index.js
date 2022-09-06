@@ -1,4 +1,4 @@
-import react from "react"
+import React from "react"
 import styles from "./index.module.scss";
 import ListIcon from '@mui/icons-material/List';
 import Link from "next/link";
