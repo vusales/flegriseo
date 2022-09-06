@@ -1,0 +1,56 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.singleSubscriptionContainer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    padding: 10px;
+    border: 1px solid $border;
+    border-radius: 4px;
+
+    >div {
+        height: 100%;
+        @include center ;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &:first-child {
+            // @include center ;
+            padding: 10px;
+        }
+
+        &:last-child {
+            >p {
+                @include text ; 
+                color: $infotext; 
+                font-size: 12px;
+            }
+
+            >.title {
+                font-size: 17px; 
+                font-weight: 500;
+                line-height: 18px;
+                margin-bottom: 10px;
+                color: $text;
+            }
+
+        }
+
+    }
+
+   
+}
+
+.agreementCon {
+    display: flex;
+    width: 100%;
+    background-color: red;
+
+    >p {
+        @include text; 
+        color: $infotext;
+
+    }
+}
+

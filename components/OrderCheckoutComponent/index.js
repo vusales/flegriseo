@@ -14,7 +14,7 @@ const OrderCheckoutComponent = () => {
             <Grid container spacing={2} p={2}  >
                 <Grid item  xs={12} p={2} pl={0} className={styles.titleBorder}>
                     <div className={styles.cover}>
-                        <p className={styles.title} >Checkout</p>
+                        <p className={styles.title}>Checkout</p>
                     </div>
                 </Grid>
                 <Grid item  xs={12}>

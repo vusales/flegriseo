@@ -4,6 +4,7 @@ import { Grid , Container , Paper } from "@mui/material";
 import CommonLayout from "../../layout/commonLayout";
 import OrderListComponent from "../../components/OrderListComponent";
 import OrderCheckoutComponent from "../../components/OrderCheckoutComponent";
+import OrderSubscriptions from "../../components/OrderSubscriptions";
 
 const Order = () => {
     return (
@@ -13,6 +14,7 @@ const Order = () => {
                     <Grid container spacing={2} >
                         <OrderListComponent />
                         <OrderCheckoutComponent />
+                        <OrderSubscriptions />
                     </Grid>
                 </Paper>
             </Container>
