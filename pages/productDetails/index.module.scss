@@ -1,0 +1,20 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.papper {
+    @include papper ;
+}
+
+.productDescriptionContainer {
+    padding: 10px 24px;
+    text-align: justify;
+
+    >p {
+        @include text; 
+        color:$text;
+        &:first-child{
+            margin-bottom: 16px;
+            color:$infotext;
+        }
+    }
+}

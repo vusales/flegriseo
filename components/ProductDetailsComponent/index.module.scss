@@ -1,0 +1,168 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.promotion {
+    padding: 3px 8px; 
+    background-color: green;
+    border-radius: 2px;
+    @include text;
+    color: $main !important;
+    font-weight: 300;
+    text-align: center;
+    min-width: 50px;
+    max-width: max-content;
+    margin-bottom: 10px;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 100%;
+    @include center;
+    flex-direction: column;
+}
+
+.descriptionCon {
+    width: 100%;
+    height: 100%;
+  
+
+    >h1 {
+        @include text ; 
+        font-weight: 600;
+        font-size: 15px;
+        color:$text;
+        padding-bottom: 16px;
+
+        @include breakpoint-down("small"){
+            margin-top: 16px;
+            text-align: center;
+    
+        }
+    }
+
+}
+
+.middleSection {
+    @include center ; 
+    justify-content: space-between;
+    padding: 16px 0 ; 
+    border-top: 1px solid $gray;
+
+    @include breakpoint-down("small"){
+        flex-direction: column;
+
+    }
+
+    >p {
+        @include text ; 
+        font-size: 20px;
+        line-height: 24px;
+        color:$text;
+    }
+
+    >.button {
+        @include button ; 
+        @include text; 
+        @include center ;
+        background-color: $second ; 
+        border-radius: 2px;
+        color: $main !important ; 
+        font-weight: 500;
+        text-transform: uppercase ;
+        padding: 10px 25px ;
+
+        &:hover {
+            background-color: $buttonhover ;
+        }
+
+    }
+}
+
+.addRemoveContainer {
+    @include center ; 
+    justify-content: space-between;
+    height: 41px;
+    border: 1px solid $border ; 
+    border-radius: 2px;
+
+    @include breakpoint-down("small"){
+        margin-top: 16px;
+        margin-bottom: 16px;
+        // width: 100%;
+
+    }
+
+    >div{
+        min-width: 130px ; 
+        height: 100% ; 
+        @include center ; 
+        justify-content: space-between;
+        padding: 0 10px;
+
+
+        >p{
+            @include text; 
+            color: $text;
+            font-size: 15px ; 
+
+            // &:first-child{
+            //     margin-right: 30px;
+            // }
+
+            &:last-child {
+                color: $infotext;
+                font-weight: 500;
+
+            }
+        }
+    }
+
+    >button {
+        @include button; 
+        @include center;
+        height: 100%;
+        width: 41px;
+        background-color: $gray;
+        &:hover {
+            background-color: $darkgray ;
+            color: $main !important;
+            >svg {
+                fill: $main !important;
+            }
+        }
+
+        >svg {
+            fill: $black;
+            width: 16px;
+            height: 16px;
+        }
+         
+        &:first-child{
+            border-top-left-radius:2px;
+            border-bottom-left-radius:2px;
+            border-right: 1px solid $border ; 
+
+        }
+        &:last-child {
+            border-top-right-radius:2px;
+            border-bottom-right-radius:2px;
+            border-left: 1px solid $border ; 
+        }
+    }
+}
+
+.infoContainer {
+    @include center ; 
+    justify-content: flex-start;
+    padding: 24px 0;
+    
+    >svg{
+        fill: $darkgray ;
+    }
+
+    >p {
+        @include text;
+        color: $darkgray;
+        margin-left: 10px;
+    }
+}

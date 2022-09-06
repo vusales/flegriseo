@@ -32,7 +32,7 @@ const Card = ({data , xs , md }) => {
                     </a>
                 </Link>
                 
-                <Link  href="/" >
+                <Link  href="/productDetails" >
                     <a className={styles.title}>
                         {data?.title}
                     </a>
@@ -43,7 +43,7 @@ const Card = ({data , xs , md }) => {
                     </p>
                 </div>
                 <p className={styles.description}>{data?.description}</p>
-                <Link href="/">
+                <Link href="/productDetails">
                     <a className={styles.button}>
                         Design
                     </a>
