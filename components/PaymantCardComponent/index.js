@@ -26,18 +26,16 @@ const PaymantCardComponent = ({data}) => {
                 className={styles.radio}
                 sx={{
                     color: "#8f95a0",
-                    '& .MuiSvgIcon-root': { fontSize: 20 } , 
+                    '& .MuiSvgIcon-root': { fontSize: 15 } , 
                     '&.Mui-checked': {
                       color: "#ff7100",
                     },
                 }}
                 />
-
                 <p className={styles.cardName}>{cardName}</p>
             </div>
             <div>
-                { image ?? <Image src="cardImg.png" width={50} height={50} alt="paymant card" /> }
-                <Image src="/cardImg.png" width={30} height={30} alt="paymant card" />
+                { image ? <Image src="/cardImg.png" width={40} height={40} alt="paymant card" /> :null }
             </div>
         </div>
     )

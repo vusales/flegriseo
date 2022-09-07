@@ -11,8 +11,36 @@ import PaymantCardComponent from "../PaymantCardComponent";
 
 const cardDescription = [
     {
-        image: "" , 
-        cardName: "All cards (rubbles)" , 
+        image: "/cardImg.png" , 
+        cardName: "All cards (manats)" , 
+    }, 
+    {
+        image: "/cardImg.png" , 
+        cardName: "Cards (dollars)" , 
+    }, 
+    {
+        image: "/cardImg.png" , 
+        cardName: "All cards (manats)" , 
+    }, 
+    {
+        image: "/cardImg.png" , 
+        cardName: "Cards (dollars)" , 
+    }, 
+    {
+        image: "/cardImg.png" , 
+        cardName: "All cards (manats)" , 
+    }, 
+    {
+        image: "/cardImg.png" , 
+        cardName: "Cards (dollars)" , 
+    }, 
+    {
+        image: "/cardImg.png" , 
+        cardName: "All cards (manats)" , 
+    }, 
+    {
+        image: "/cardImg.png" , 
+        cardName: "Cards (dollars)" , 
     }, 
 
 ];
@@ -39,10 +67,11 @@ const SelectPaymantMethod = () => {
                 </AccordionSummary>
                 <AccordionDetails
                 sx={{
-                    paddingLeft:0
+                    paddingLeft:0 , 
+                    paddingRight:0,
                 }}
                 >
-                    <div>
+                    <div className={styles.paymantCardsContainer}>
                         {
                             cardDescription.map((item, index)=> <PaymantCardComponent key={`${index}-singleCard`} data={item} /> )
                         }

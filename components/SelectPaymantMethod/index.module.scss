@@ -17,3 +17,12 @@
     font-weight: 600;
     font-size: 15px;
 }
+
+.paymantCardsContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin:auto;
+    padding-right: 5px;
+}
