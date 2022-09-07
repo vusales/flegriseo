@@ -1,12 +1,37 @@
-import React from "react"
+import React , {useState} from "react"
 import styles from "./index.module.scss";
 import { Grid , Checkbox } from "@mui/material";
 import SingleSubscription from "../SingleSubscription";
 
 const label = { inputProps: { 'aria-label': 'Agreement' } }
 
+const demosubscription =[
+    {
+        id:"1a" , 
+        title: "Single subscription" , 
+        bonus: "" , 
+    }, 
+    {
+        id:"1b" , 
+        title: "Every 7 days" , 
+        bonus: "Renderin with 10% bonus" , 
+    }, 
+    {
+        id:"2b" , 
+        title: "Every 7 days" , 
+        bonus: "Renderin with 10% bonus"  , 
+    }, 
+    {
+        id:"3b" , 
+        title: "Every 7 days" , 
+        bonus: "Renderin with 10% bonus"  , 
+    }, 
+];
+
 
 const OrderSubscriptions  = () => {
+
+    const [chooseSubscriptionMethod ,  setChooseSubscriptionMethod ] = useState(""); 
 
     return (
         <Grid item xs={12}> 
@@ -14,9 +39,17 @@ const OrderSubscriptions  = () => {
                 <Grid item xs={12} p={2} mb={2} className={styles.border}>
                     <p>SUBSCRIPTION</p>
                 </Grid>
-                <Grid item xs={3}>
-                    <SingleSubscription />
-                </Grid>
+                {
+                    demosubscription.map((item, index)=> (
+                    <Grid key={`${index}-ordsub`} item xs={6} md={3} justifyContent="center" alignItems="center" >
+                        <SingleSubscription 
+                        data={item} 
+                        choosen={chooseSubscriptionMethod}
+                        setChoosen={(value)=>setChooseSubscriptionMethod(value)}
+                        />
+                    </Grid>
+                ))}
+               
                 <Grid item xs={12} pb={2} pt={2}>
                     <div className={styles.agreementCon}> 
                         <Checkbox 

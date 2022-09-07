@@ -5,8 +5,9 @@ import { Grid , Radio , Checkbox  } from "@mui/material";
 
 
 
-const SingleSubscription = () =>{
+const SingleSubscription = ({data ,  choosen , setChoosen }) =>{
 
+    const {id , title , bonus} = data ; 
 
     const controlProps = (item) => ({
         // checked: selectedValue === item,
@@ -18,10 +19,14 @@ const SingleSubscription = () =>{
     
     return (
         <>
-            <div className={styles.singleSubscriptionContainer}>
+            <div 
+            className={styles.singleSubscriptionContainer}
+            onClick={()=>setChoosen(id)}
+            >
                 <div>
                     <Radio
                     {...controlProps()}
+                    checked={choosen == id ? true :false }
                     size="small"
                     className={styles.radio}
                     sx={{
@@ -34,8 +39,8 @@ const SingleSubscription = () =>{
                     />
                 </div>
                 <div>
-                    <p className={styles.title}>Single order</p>
-                    <p>Re rendering with 10%</p>
+                    <p className={styles.title}>{title}</p>
+                    <p>{bonus}</p>
                 </div>
             </div>
         
