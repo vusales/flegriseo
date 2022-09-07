@@ -1,0 +1,19 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.papper {
+    @include papper ;
+}
+
+.accordExpandIcon {
+    width: 20px;
+    height: 20px;
+    fill: $text ;
+}
+
+.accordTitle {
+    @include text ;
+    color:$text; 
+    font-weight: 600;
+    font-size: 15px;
+}

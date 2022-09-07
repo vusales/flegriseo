@@ -1,0 +1,33 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.cardContainer{
+    width: 24%;
+    height: 100px;
+    border: 1px solid $gray ; 
+
+
+    &:hover {
+        border: 1px solid $border ; 
+    }
+
+
+    >div {
+        width: 100% ; 
+        @include center ;
+
+        &:first-child {
+            justify-content: space-between;
+            background-color: red;
+            >p {
+                margin-left: auto;
+            }
+        }
+
+        &:last-child {
+            justify-content: flex-end;
+            // padding: 16px;
+        }
+    }
+}
+
