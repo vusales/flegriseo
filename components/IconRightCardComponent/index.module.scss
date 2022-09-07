@@ -1,0 +1,51 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.container {
+    width: 100%;
+    border:1px solid $border; 
+    border-radius: 2px;
+    padding:24px;
+    @include center; 
+    justify-content: space-between;
+
+
+    >div {
+        height: 100%;
+        &:first-child {
+            width: 20%;
+            text-align: center;
+
+            >svg {
+                fill: $second;
+            }
+        }
+
+        &:last-child {
+            width: 80%;
+
+
+            >p {
+                @include text; 
+                font-size: 15px;
+
+                &:first-child{
+                    font-weight: 600;
+                    margin-bottom: 16px;
+                    color:$text;
+                }
+                &:first-child{
+                    color: $infotext;
+                    
+                }
+
+
+            }
+        }
+    }
+}
+
+
+
+
+

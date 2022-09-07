@@ -29,7 +29,6 @@
     align-items: center;
     
     &:hover{
-        // border-bottom: 1px solid #ff9800;
         >a {
             color: $second;
         }
@@ -49,7 +48,7 @@
     border-radius: 2px;
     padding: 10px;
     background-color: rgba(255,152,0,0.03);
-    color:$second;
+    color:$second !important;
     border: 1px solid $second;
 
     // fonts 
@@ -59,6 +58,6 @@
 
     &:hover{
         background-color: $second;
-        color:$main;
+        color:$main !important;
     }
 }

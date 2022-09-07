@@ -1,4 +1,4 @@
-import react from "react"
+import React from "react" ;
 import styles from "./index.module.scss";
 import CommonLayout from "../../layout/commonLayout";
 import Container from '@mui/material/Container';
