@@ -6,6 +6,7 @@ import OrderListComponent from "../../components/OrderListComponent";
 import OrderCheckoutComponent from "../../components/OrderCheckoutComponent";
 import OrderSubscriptions from "../../components/OrderSubscriptions";
 import SelectPaymantMethod from "../../components/SelectPaymantMethod";
+import OrderCheckout from "../../components/OrderCheckout";
 
 const Order = () => {
     return (
@@ -26,7 +27,10 @@ const Order = () => {
                         <SelectPaymantMethod/>
                     </Grid>
                     {/* checkput */}
-                    <Grid item xs={5}></Grid>
+                    <Grid item xs={5}>
+                        <OrderCheckout
+                        />
+                    </Grid>
                 </Grid>
             </Container>
         </CommonLayout>

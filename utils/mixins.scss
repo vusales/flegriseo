@@ -135,6 +135,8 @@ $breakpoints-down: (
   outline: none;
   border: none;
   text-decoration: none;
+  box-shadow: none;
+  background-color: transparent;
 }
 
 @mixin papper {

@@ -1,3 +1,176 @@
 @import "../../utils/colors.scss";
 @import "../../utils/mixins.scss";
 
+.papper {
+    @include papper ;
+    padding: 0;
+}
+
+.titleContainer {
+    @include center ; 
+    background-color: $gray;
+    justify-content: space-between;
+    padding: 16px;
+
+    >p {
+        @include text; 
+        color: $text ; 
+        font-size: 15px; 
+        font-weight: 600;
+    }
+
+    >div {
+        @include center ; 
+        align-items: flex-start;
+        >svg {
+            fill: $green ; 
+            width: 20px;
+            height: 20px;
+        }
+        >p {
+            @include text ; 
+            color: $green ; 
+            margin-left: 5px;
+            font-weight: 600;
+
+        }
+    }
+}
+
+.checkoutBaseContainer {
+    padding: 16px  24px ;
+    padding-bottom: 0 ; 
+    @include center ;
+    flex-direction: column;
+
+    >div {
+        &:nth-child(4){
+            border-bottom: none !important;
+
+        }
+    }
+
+}
+
+.subTitlesCon {
+    width: 100%;
+    padding: 16px 10px;
+    border-bottom: 1px solid $border;
+    @include center ;
+}
+
+.subTitle {
+    @include text ; 
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.bonusContainer {
+    width: 100%;
+    height: 40px; 
+    @include center ; 
+    justify-content: flex-start;
+    border-radius:3px;
+    border:1px solid $gray; 
+
+
+    >p {
+        width: 20% ; 
+        height: 100%;
+        @include text ; 
+        @include center ;
+        border-right: 1px solid $gray;
+        color: $infotext;
+        padding:10px;
+        // background-color: $secondGray ; 
+        border-top-left-radius: 3px ; 
+        border-bottom-left-radius: 3px ; 
+        
+    }
+
+    >button {
+        @include button ;
+        @include text; 
+        color: $infotext; 
+        width: 20% ; 
+        height: 100%;
+        // background-color: $secondGray ; 
+        border-top-right-radius: 3px ; 
+        border-bottom-right-radius: 3px ; 
+        border-left:1px solid $gray ;
+
+
+    }
+    > input {
+        @include button;
+        width: 60%;
+        height: 100%;
+        padding-left: 10px;
+    }
+
+}
+
+.textCon {
+    width: 100%;
+    @include center ; 
+    justify-content: space-between;
+
+    >p {
+        &:last-child{
+            @include text; 
+            color:$text;
+        }
+        
+    }
+}
+
+.warningCon {
+    width: 100%;
+    border:1px solid $green ; 
+    background-color: $transparentgreen;
+    padding: 16px;
+    color:  $green ;
+    border-radius: 3px;
+
+    >p {
+        @include text ; 
+        color:$green; 
+        font-size: 15px;
+        font-weight: 500;
+    }
+}
+
+.totalPrice {
+    width: 100%;
+    padding: 24px 0;
+    @include center;
+    justify-content: space-between;
+
+    >p {
+        @include text ; 
+        color: $text;
+        font-size: 16px;
+        font-weight: 500;
+
+
+
+        &:first-child {
+            font-weight: 600;
+        }
+    }
+}
+
+.checkoutApply {
+    width: 100%;
+    @include button ; 
+    @include text;
+    @include center ;
+    text-transform: uppercase;
+    color:$main !important;
+    background-color: $second;
+    padding: 16px;
+    font-weight: 500;
+
+
+}
+

@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState } from "react";
 import styles from "./index.module.scss";
 import Paper from '@mui/material/Paper';
 import Accordion from '@mui/material/Accordion';
@@ -46,10 +46,13 @@ const cardDescription = [
 ];
 
 const SelectPaymantMethod = () => {
+   const [collapsed , setCollapsed ] = useState(true); 
 
     return(
         <Paper elevation={2} className={styles.papper}>
             <Accordion
+            expanded={collapsed}
+            onChange={()=>setCollapsed(!collapsed)}
             sx={{
                 border:"none" , 
                 boxShadow:"none",
