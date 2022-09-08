@@ -1,0 +1,97 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.itemContainer{
+    border-bottom: 1px solid $border;
+    @include breakpoint-down("small"){
+        width: 100%;
+        border:1px solid $border;
+        @include center;
+        padding:0 !important;
+        margin: 0 !important;
+        margin-bottom: 16px !important;
+    }
+
+}
+
+.item{
+    @include breakpoint-down("small"){
+        border-bottom: 1px solid $border ;
+        padding-left: 0 !important;
+        padding-top: 0 !important;
+
+        &:last-child{
+            border-bottom: none;
+        }
+
+    }
+}
+
+.serviceContainer {
+    width: 100%;
+    height: 100%;
+    @include center ; 
+    justify-content: flex-start;
+    @include breakpoint-down("small"){
+        justify-content: space-between;
+        padding: 16px 10px;
+    }
+}
+
+.linkTitle {
+    margin-left: 10px;
+    @include button ; 
+    @include text ; 
+    color:$text; 
+    font-weight: 600;
+
+    &:hover {
+        color:$second !important ;
+    }
+}
+
+.priceContainer , .container {
+    width: 100%;
+    height: 100%;
+
+    @include breakpoint-down("small"){
+        min-height: 50px;
+        @include center ;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 10px;
+    }
+
+
+    >p{
+        @include text ; 
+        color:$darkgray;
+        font-size: 16px;
+    }
+}
+
+
+.container {
+    @include center;
+    @include breakpoint-down("small"){
+        align-items: flex-start;
+    }
+}
+
+
+.linkbutton {
+    @include button ;
+    @include text;  
+    padding: 8px 15px;
+    color: $main !important ; 
+    background-color: $second;
+    border-radius: 2px;
+}
+
+.titles {
+    @include text;
+    color:$text !important; 
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    margin-bottom: 10px;
+}
