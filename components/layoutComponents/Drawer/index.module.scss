@@ -1,4 +1,5 @@
 @import "../../../utils/mixins.scss"; 
+@import "../../../utils/colors.scss";
 
 .menuDrawerButton{
     @include button ;
@@ -24,5 +25,75 @@
     width: 100%;
     text-align: center;
     padding: 24px 10px;
+}
+
+.linksContainer {
+    width: 100%;
+    text-align: left;
+    @include center; 
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid $gray;
+    padding-bottom: 16px;
+}
+
+.catalogLinks {
+    @include button ; 
+    @include text;
+    color: $text;
+    cursor: pointer;
+    padding: 16px 0;
+
+    &:hover {
+        color: $second !important ;
+    }
+}
+
+.subHeaderButton {
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    background-color: rgba(255,152,0,0.03);
+    color:$second !important;
+    border: 1px solid $second;
+    width: 100%;
+
+    // fonts 
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+
+    &:hover{
+        background-color: $second;
+        color:$main !important;
+    }
+}
+
+.categoryLinksContainer {
+    @include text; 
+    @include center ;
+    justify-content: flex-start;
+
+    >svg{
+        width: 20px;
+        height: 20px;
+    }
+
+    >.catalogLinks{
+        margin-left: 6px;
+
+    }
+}
+.categoryTitle{
+    width: 100%;
+    @include text; 
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    color:$text;
+    padding: 16px 10px;
+    background-color: $secondGray;
+    margin-top: 16px;
 
 }

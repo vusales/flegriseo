@@ -26,6 +26,7 @@
     }
 
     >.descriptionContainer {
+        width: 100%;
 
         >p{
             @include text;
@@ -33,21 +34,25 @@
             font-size: 16px;
 
         }
-
-        >.title {
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-
         >.description {
             text-align: justify;
             color: $darkgray;
             font-size: 14px;
         }
-
-
     }
+}
 
+.title {
+    @include text;
+    color: $text;
+    font-size: 16px;
+    font-weight: 600;
+}
 
+.ratingTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
 
 }

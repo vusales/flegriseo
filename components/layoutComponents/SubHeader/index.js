@@ -32,7 +32,6 @@ const Subheader =  () => {
                     </Link>
                 </li>
             </ul>
-
             <Link href="/likeForSubscriptions">
                 <a className={styles.subHeaderButton} >Like subscription</a>
             </Link>

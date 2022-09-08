@@ -34,6 +34,7 @@ const PriceList = () => {
                         </DesktopTablet>
                         
                         <PriceListItem />
+                        <PriceListItem />
                        
                     </Grid>
                 </Paper>  

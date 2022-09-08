@@ -24,7 +24,7 @@ const Header = () => {
         <DesktopTablet>
             <Navbar/>
         </DesktopTablet>
-        <Container minWidth="sm" >
+        <Container >
             <header>
                 <div className={styles.baseContainer}>
                     <div className={styles.headerContainer}>

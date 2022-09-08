@@ -4,7 +4,6 @@ import HouseboatIcon from '@mui/icons-material/Houseboat';
 
 
 const CatalogButton =({data})=>{
-    console.log("title" ,  data.title);
     return(
         <div className={styles.catalogButton}>
             <HouseboatIcon/>
@@ -13,7 +12,6 @@ const CatalogButton =({data})=>{
             <div className={styles.catalogHoveredElement}>
                 {
                     data?.subServicess?.map((item ,  index )=>{
-                        console.log("subItem" , item );
                         return (
                             <a href="#">
                                 <div 

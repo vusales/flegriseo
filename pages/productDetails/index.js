@@ -60,8 +60,9 @@ const ProductDetails = () => {
         <CommonLayout>
             <Container>
                 <Grid container spacing={2} >
-                    <Grid item xs={12} md={3}></Grid>
-                    <Grid item xs={12} md={9} >
+                    {/* <Grid item xs={12} md={3}></Grid> */}
+                    {/* <Grid item xs={12} md={9} > */}
+                    <Grid item xs={12} >
                         <Paper elevation={2} className={styles.papper}>
                             <ProductDetailsComponent />
                             <Grid container spacing={2} p={3}>
@@ -89,13 +90,9 @@ const ProductDetails = () => {
 
                                 Лайки СМО Сервис повышают охват и вовлеченность, положительно влияют на статистику коммерческих бизнес аккаунтов. Наши лайки для Инстаграм абсолютно безопасны для ваших личных и бизнес профилей, фото и видео публикаций. Качественные лайки от реальных живых и активных пользователей социальной сети, которые помогут попасть вашим постам (видео и фото) в рекомендации Инстаграм.</p>
                             </div>
-
-
                             <CommentsComponent 
                             data={demoComments}
                             />
-
-
                         </Paper>
                     </Grid>
                 </Grid>
