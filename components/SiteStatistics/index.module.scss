@@ -47,5 +47,9 @@
         font-size: 17px;
         margin-top: 24px;
         color:$text;
+        @include breakpoint-down("small"){
+            font-size: 15px;
+            text-align: center;
+        }
     }
 }

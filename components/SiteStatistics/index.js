@@ -54,7 +54,7 @@ const SiteStatistics = () => {
                                     <div className={styles.iconCon}>
                                         {item.icon}
                                     </div>
-                                    <p>{item.count} +</p>
+                                    <p>{item.count}+</p>
                                     <p>{item.title}</p>
                                 </div>
                             </Grid>
