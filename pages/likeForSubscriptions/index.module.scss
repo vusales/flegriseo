@@ -42,6 +42,12 @@
 
 .buttonContainer {
     @include center ; 
+
+    
+    @include breakpoint-down("small"){
+        width: 100%;
+        flex-direction: column;
+    }
 }
 .button {
     @include text; 
@@ -54,6 +60,12 @@
     margin-right: 24px;
     font-weight: 500;
 
+    @include breakpoint-down("small"){
+        width: 100%;
+        margin-bottom: 16px;
+        margin-right: 0;
+    }
+
     &:hover {
         background-color: $buttonhover;
     }
@@ -61,14 +73,10 @@
     &:last-child {
         background-color:  $text ;
         margin-right: 0px;
-
-
         &:hover {
             background-color: $black;
         }
-
     }
-
 }
 
 .papper {
@@ -90,6 +98,9 @@
     }
 
     >h2{
+        @include breakpoint-down("small"){
+            text-align: center;
+        }
 
     }
 
@@ -133,11 +144,25 @@
             font-size: 16px;
         }
     }
+}
 
-    >.button {
-        &:hover {
-            background-color: $buttonhover;
-        }
+.subscribe {
+    @include text; 
+    @include button ; 
+    color: $main !important ; 
+    text-transform: uppercase;
+    background-color:  $second ;
+    padding: 16px ;
+    border-radius: 2px;
+    font-weight: 500;
+
+    &:hover {
+        background-color: $buttonhover;
     }
+
+    @include breakpoint-down("small"){
+        width: 100%;
+    }
+
 }
 

@@ -24,22 +24,16 @@
         &:last-child {
             width: 80%;
 
-
             >p {
                 @include text; 
                 font-size: 15px;
+                color:$infotext;
 
                 &:first-child{
                     font-weight: 600;
                     margin-bottom: 16px;
                     color:$text;
                 }
-                &:first-child{
-                    color: $infotext;
-                    
-                }
-
-
             }
         }
     }

@@ -20,6 +20,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
+import { DesktopTablet , Desktop } from "../../ui/Breakpoints";
 
 
 
@@ -105,7 +106,6 @@ const LikeForSubscriptions = () => {
         <CommonLayout>
             <Container >
                 <Grid container>
-
                     <Grid item  xs={12}>
                         <div className={styles.banner}>
                             <p>Increasing activity and statistics</p>
@@ -145,7 +145,7 @@ const LikeForSubscriptions = () => {
                                     </div>
                                 </Grid>
 
-                                <Grid item xs={4}>
+                                <Grid item xs={12} md={12} lg={4}>
                                     <Grid container flexDirection="column" spacing={2}> 
                                         {
                                             demoData.map((item , index)=>
@@ -155,15 +155,15 @@ const LikeForSubscriptions = () => {
                                         }
                                     </Grid>
                                 </Grid>
-
-                                <Grid item xs={4} >
-                                    <Grid container flexDirection="column" spacing={2} justifyContent="center" alignItems="center" >
-                                        <Image src="/subscription.png"  height={500} width={310} alt="subscription image"/>
-
+                                <Desktop>
+                                    <Grid item xs={12} md={12} lg={4} >
+                                        <Grid container flexDirection="column" spacing={2} justifyContent="center" alignItems="center" >
+                                            <Image src="/subscription.png"  height={500} width={310} alt="subscription image"/>
+                                        </Grid>
                                     </Grid>
-                                </Grid>
+                                </Desktop>
 
-                                <Grid item xs={4}>
+                                <Grid item xs={12} md={12} lg={4}>
                                     <Grid container flexDirection="column" spacing={2}> 
                                         {
                                             demoData.map((item , index)=>
@@ -200,26 +200,28 @@ const LikeForSubscriptions = () => {
                                                     <TableCell align="center" className={styles.tableTitle}>Regular promotion</TableCell>
                                                 </TableRow>
                                             </TableHead>
-                                            {
-                                                rows.map(
-                                                    (item)=>(
-                                                        <TableRow
-                                                        key={item.num}
-                                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                                        >
-                                                            <TableCell align="left" className={styles.tableTitle} >{item.num}</TableCell>
-                                                            <TableCell align="left">{item.advantages}</TableCell>
-                                                            <TableCell align="center" >{item.subscriptions}</TableCell>
-                                                            <TableCell align="center">{item.promotion}</TableCell>
-                                                        </TableRow>
+                                            <TableBody>
+                                                {
+                                                    rows.map(
+                                                        (item)=>(
+                                                            <TableRow
+                                                            key={item.num}
+                                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                                            >
+                                                                <TableCell align="left" className={styles.tableTitle} >{item.num}</TableCell>
+                                                                <TableCell align="left">{item.advantages}</TableCell>
+                                                                <TableCell align="center" >{item.subscriptions}</TableCell>
+                                                                <TableCell align="center">{item.promotion}</TableCell>
+                                                            </TableRow>
+                                                        )
                                                     )
-                                                )
-                                            }
+                                                }
+                                            </TableBody>
                                         </Table>
                                     </TableContainer>
                                     <div style={{width:"100%" , padding:24 , textAlign:"center"}}>
                                         <Link href="/">
-                                            <a className={styles.button} style={{backgroundColor:"#ff9800"}}>Subscribe</a>
+                                            <a className={styles.subscribe}>Subscribe</a>
                                         </Link>
                                     </div>
                                 </Grid>
@@ -239,13 +241,13 @@ const LikeForSubscriptions = () => {
                                 </Grid>
                                 <Grid item xs={12} mb={2}>
                                     <div className={styles.titleCon} >
-                                        <p className={styles.infoText}>Take advantage of the special offer from SMOService!</p>
+                                        <p className={styles.infoText}>Take advantage of the special offer from FLESMO Service!</p>
                                     </div>
                                 </Grid>
 
                                 {
                                         againDemo.map((item , index)=>(
-                                        <Grid item xs={4}  key={index}>
+                                        <Grid item xs={12} md={4} key={index}>
                                             <div 
                                             className={styles.exclusiveItem}
                                             >
@@ -253,7 +255,7 @@ const LikeForSubscriptions = () => {
                                                 <p>{item.description}</p>
                                                 <div style={{width:"100%" , padding:"24px 0",}}>
                                                     <Link href={item.link}>
-                                                        <a className={styles.button} style={{backgroundColor:"#ff9800"}}>Subscribe</a>
+                                                        <a className={styles.subscribe}>Subscribe</a>
                                                     </Link>
                                                 </div>
                                             </div>
