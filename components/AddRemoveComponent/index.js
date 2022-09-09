@@ -7,10 +7,10 @@ import { Select , MenuItem } from "@mui/material";
 
 const AddRemoveComponent = ({componentStyle , select , price }) => {
     const [quantity , setQuantity] =useState(0); 
-    const [price, setPrice] = useState('');
+    const [quality, setQuality] = useState('');
 
     const handleChange = (event) => {
-        setPrice(event.target.value);
+        setQuality(event.target.value);
     };
 
     return(
@@ -28,7 +28,7 @@ const AddRemoveComponent = ({componentStyle , select , price }) => {
                 select ?
                 <div className={styles.selectContainer} >
                     <Select
-                    value={price}
+                    value={quality}
                     onChange={handleChange}
                     displayEmpty
                     inputProps={{ 'aria-label': 'Without label' }}

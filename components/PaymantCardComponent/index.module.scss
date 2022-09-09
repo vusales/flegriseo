@@ -3,12 +3,16 @@
 
 .cardContainer{
     width: 24%;
-    height: 100px;
+    min-height: 100%;
     border: 1px solid $gray ; 
     padding: 3px;
     margin-right: 6px;
     margin-bottom: 16px;
     border-radius: 3px;
+
+    @include breakpoint-down("small"){
+        width: 47%;
+    }
 
     &:last-child{
         margin-right: 0px;
@@ -40,6 +44,15 @@
         }
 
         &:last-child {
+            flex-direction: column;
+            margin-bottom: 10px;
+
+            >p {
+                @include text; 
+                font-weight: 600;
+                margin: 10px 0;
+            }
+
         }
     }
 }

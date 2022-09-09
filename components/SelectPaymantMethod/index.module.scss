@@ -20,9 +20,12 @@
 
 .paymantCardsContainer {
     width: 100%;
-    display: flex;
+    // display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    // align-items: center;
     margin:auto;
     padding-right: 5px;
+
+
+    @include center; 
 }

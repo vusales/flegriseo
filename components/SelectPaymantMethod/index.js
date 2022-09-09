@@ -45,11 +45,11 @@ const cardDescription = [
 
 ];
 
-const SelectPaymantMethod = () => {
+const SelectPaymantMethod = ({disableShadow , componentStyle , accordionDetailMarginTop , paddingLeft , title }) => {
    const [collapsed , setCollapsed ] = useState(true); 
 
     return(
-        <Paper elevation={2} className={styles.papper}>
+        <Paper elevation={disableShadow ? 0 :2} className={styles.papper} style={{...componentStyle}||{}}>
             <Accordion
             expanded={collapsed}
             onChange={()=>setCollapsed(!collapsed)}
@@ -60,7 +60,8 @@ const SelectPaymantMethod = () => {
             >
                 <AccordionSummary
                 sx={{
-                    borderBottom: "1px solid #DADADA"
+                    borderBottom: "1px solid #DADADA" , 
+                    paddingLeft: paddingLeft || 2, 
                 }}
                 expandIcon={<ExpandMoreIcon className={styles.accordExpandIcon} />}
                 >
@@ -70,13 +71,14 @@ const SelectPaymantMethod = () => {
                 </AccordionSummary>
                 <AccordionDetails
                 sx={{
-                    paddingLeft:0 , 
+                    paddingLeft: paddingLeft || 2,
                     paddingRight:0,
+                    marginTop: accordionDetailMarginTop || 0 ,
                 }}
                 >
                     <div className={styles.paymantCardsContainer}>
                         {
-                            cardDescription.map((item, index)=> <PaymantCardComponent key={`${index}-singleCard`} data={item} /> )
+                            cardDescription.map((item, index)=> <PaymantCardComponent key={`${index}-singleCard`} data={item}  title={title}/> )
                         }
                     </div>
                 </AccordionDetails>

@@ -14,7 +14,7 @@ const controlProps = (item) => ({
 
 
 
-const PaymantCardComponent = ({data}) => {
+const PaymantCardComponent = ({data , title }) => {
     const { image , cardName } = data ;
     return(
         <div className={styles.cardContainer}>
@@ -32,10 +32,17 @@ const PaymantCardComponent = ({data}) => {
                     },
                 }}
                 />
-                <p className={styles.cardName}>{cardName}</p>
+                {
+                title ?
+                null 
+                : <p className={styles.cardName}>{cardName}</p>
+                }
             </div>
             <div>
                 { image ? <Image src="/cardImg.png" width={40} height={40} alt="paymant card" /> :null }
+                {title ? 
+                <p className={styles.title}>someCard</p>
+                :null}
             </div>
         </div>
     )
