@@ -1,0 +1,116 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.papper {
+    @include papper ; 
+}
+
+.addLinkContainer {
+    width: 100%;
+    @include center ; 
+    justify-content: flex-start;
+    padding: 10px;
+
+
+    >div {
+        margin-left: 10px;
+
+        >h1 {
+            @include text; 
+            font-size:20px; 
+            line-height: 24px;
+            font-weight: 500;
+            color:$text ; 
+            margin-bottom: 16px;
+
+            &::placeholder {
+                color:$gray ; 
+                @include text; 
+            }
+        }
+    }
+}
+
+.addlinkInputContainer {
+    display: flex;
+    border:1px solid $border ;
+    border-radius: 2px;
+
+
+    >div{
+        @include center ;
+        padding: 10px;
+        border-right: 1px solid $border;
+
+        >svg {
+            fill: $border;
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+    >input {
+        @include button ; 
+        padding-left:14px;
+        
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+
+}
+
+.subTitlesContainer {
+    width: 100%;
+    padding: 15px 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid $border;
+
+    >h2 {
+        @include text ; 
+        font-size: 15px;
+        font-weight: 600;
+        color:$text;
+
+    }
+}
+
+.promoContainer {
+    display: flex;
+
+    >div {
+        height: 100%;
+
+
+        &:first-child {
+            width: 5%;
+            text-align: center;
+
+            >svg {
+                fill: $second;
+            }
+        }
+
+        &:last-child {
+            width: 95%;
+
+
+            >p {
+                @include text; 
+                color: $darkgray ; 
+                line-height: 24px;
+            }
+
+
+        }
+       
+    }
+}
+
+.settingContainer {
+    width: 100%;
+    display: flex;
+}
+

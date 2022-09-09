@@ -1,0 +1,77 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.addRemoveContainer {
+    padding: 16px;
+    width: 100% ; 
+    height: 100%;
+    border: 1px solid $border;
+    border-radius: 3px;
+}
+
+.titleContainer {
+    @include center ; 
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    >p{
+        @include text ;
+        color: $text ;
+        
+        &:first-child{
+            font-weight: 600;
+
+        }
+
+        &:nth-child(2) {
+            color:$second;
+
+
+            >span {
+                color:$infotext ; 
+            }
+        }
+
+
+    }
+}
+
+.addRemoveButtonsContainer {
+    @include center ;
+    width: 100%;
+    height: 40px;
+    border: 1px solid $border;
+    border-radius: 3px;
+
+    >button {
+        @include button ; 
+        @include center;
+        width: 13%;
+        height: 100%;
+        background-color: $gray;
+
+        >svg {
+            fill:$text ; 
+            width: 16px;
+            height: 16px;
+        }
+
+
+    }
+    >div {
+        width:74%;
+        height: 100%;
+        @include center ;
+    }
+
+
+}
+
+.selectContainer {
+    @include center ;
+    width: 100%;
+    height: 40px;
+    // border: 1px solid $border;
+    border-radius: 2px;
+}
+

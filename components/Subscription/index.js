@@ -33,7 +33,7 @@ const SubScription = () => {
                             <div  className={styles.socialCon}>
                                 <InstagramIcon/>
                                 <p>Instagram subscription</p>
-                                <Link href="/">
+                                <Link href="/subscriptionDetails">
                                     <a>
                                         design 
                                     </a>
@@ -42,7 +42,7 @@ const SubScription = () => {
                             <div  className={styles.socialCon}>
                                 <ArticleIcon/>
                                 <p>Vk subscription</p>
-                                <Link href="/">
+                                <Link href="/subscriptionDetails">
                                     <a>
                                         design 
                                     </a>
@@ -51,7 +51,7 @@ const SubScription = () => {
                             <div  className={styles.socialCon}>
                                 <YouTubeIcon/>
                                 <p>Youtube subscription</p>
-                                <Link href="/">
+                                <Link href="/subscriptionDetails">
                                     <a>
                                         design 
                                     </a>
