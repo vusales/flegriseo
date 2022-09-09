@@ -65,8 +65,8 @@ const SelectPaymantMethod = ({disableShadow , componentStyle , accordionDetailMa
                 }}
                 expandIcon={<ExpandMoreIcon className={styles.accordExpandIcon} />}
                 >
-                    <Typography>
-                        <p className={styles.accordTitle}>SELECT A PAYMENT METHOD</p>
+                    <Typography className={styles.accordTitle} >
+                        SELECT A PAYMENT METHOD
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails

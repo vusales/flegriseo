@@ -23,11 +23,11 @@ const Order = () => {
             <Container>
                 <Grid container spacing={2}>
                     {/* paymant card selection */}
-                    <Grid item xs={7}>
+                    <Grid item xs={12} sm={12} md={7}>
                         <SelectPaymantMethod/>
                     </Grid>
                     {/* checkput */}
-                    <Grid item xs={5}>
+                    <Grid item xs={12} sm={12} md={5}>
                         <OrderCheckout
                         />
                     </Grid>

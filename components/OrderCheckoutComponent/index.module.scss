@@ -29,6 +29,9 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    @include breakpoint-down("small"){
+      flex-direction: column;
+    }
 }
 
 .inputContainer {
@@ -37,6 +40,9 @@
     border-radius: 4px;
     margin-bottom: 16px;
     width: 49%;
+    @include breakpoint-down("small"){
+        width: 100%;
+    }
 
     >.iconContainer {
         @include center;

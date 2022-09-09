@@ -3,6 +3,8 @@
 
 .border {
     border-bottom: 1px solid $gray;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
 .agreementCon {
@@ -15,6 +17,13 @@
         color: $infotext;
 
     }
+}
+
+.titles {
+    @include text;
+    color:$text !important; 
+    font-weight: 600 !important;
+    font-size: 15px !important;
 }
 
 

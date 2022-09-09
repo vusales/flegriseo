@@ -36,12 +36,12 @@ const OrderSubscriptions  = () => {
     return (
         <Grid item xs={12}> 
             <Grid container >
-                <Grid item xs={12} p={2} mb={2} className={styles.border}>
-                    <p>SUBSCRIPTION</p>
+                <Grid item xs={12} mb={2} className={styles.border}>
+                    <p className={styles.titles}>SUBSCRIPTION</p>
                 </Grid>
                 {
                     demosubscription.map((item, index)=> (
-                    <Grid key={`${index}-ordsub`} item xs={6} md={3} justifyContent="center" alignItems="center" >
+                    <Grid key={`${index}-ordsub`} item xs={12} sm={6} md={3} justifyContent="center" alignItems="center" >
                         <SingleSubscription 
                         data={item} 
                         choosen={chooseSubscriptionMethod}

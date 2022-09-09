@@ -17,6 +17,10 @@
     >p{
         @include text ;
         color: $text ;
+
+        @include breakpoint-down("small"){
+            font-size: 12px;
+        }
         
         &:first-child{
             font-weight: 600;

@@ -17,47 +17,47 @@ const OrderCheckoutComponent = () => {
                         <p className={styles.title}>Checkout</p>
                     </div>
                 </Grid>
-                <Grid item  xs={12}>
-                <div className={styles.cover}>
-                    <form>
-                        <div className={styles.inputContainer}>
-                            <div className={styles.iconContainer}>
-                                <AddLinkIcon />
-                            </div>
-
-                            <input  
-                            type="url"
-                            placeholder="Insert link"
-                            />
-
-                        </div>
-
-                        <div className={styles.dividerCon}>
+                <Grid item  xs={12} sx={{paddingLeft:"0px !important"}}>
+                    <div className={styles.cover}>
+                        <form>
                             <div className={styles.inputContainer}>
                                 <div className={styles.iconContainer}>
-                                    <AlternateEmailIcon />
+                                    <AddLinkIcon />
                                 </div>
 
                                 <input  
-                                type="email"
-                                placeholder="Your email"
+                                type="url"
+                                placeholder="Insert link"
                                 />
 
                             </div>
-                            <div className={styles.inputContainer}>
-                                <div className={styles.iconContainer}>
-                                    <PhoneIphoneIcon />
+
+                            <div className={styles.dividerCon}>
+                                <div className={styles.inputContainer}>
+                                    <div className={styles.iconContainer}>
+                                        <AlternateEmailIcon />
+                                    </div>
+
+                                    <input  
+                                    type="email"
+                                    placeholder="Your email"
+                                    />
+
                                 </div>
+                                <div className={styles.inputContainer}>
+                                    <div className={styles.iconContainer}>
+                                        <PhoneIphoneIcon />
+                                    </div>
 
-                                <input  
-                                type="tel"
-                                placeholder="Your phone number"
-                                />
+                                    <input  
+                                    type="tel"
+                                    placeholder="Your phone number"
+                                    />
 
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
                 </Grid>
             </Grid>
         </Grid>
