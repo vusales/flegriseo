@@ -75,13 +75,13 @@ const Header = () => {
                             <div
                             className={styles.smallModal}
                             >
-                                <Link href="#">
+                                <Link href="/login">
                                     <a className={styles.loginsignupLinks}>
                                         <AccountBoxIcon/>
                                         Log in
                                     </a>
                                 </Link>
-                                <Link href="#">
+                                <Link href="/signUp">
                                     <a className={styles.loginsignupLinks}>
                                         <AppRegistrationIcon/>
                                         Sign up

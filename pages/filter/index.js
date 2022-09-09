@@ -145,7 +145,8 @@ const Filter = () => {
                                         key={`filter=${index}`}
                                         data={item}
                                         md={4}
-                                        xs={6}
+                                        sm={6}
+                                        xs={12}
                                         />
                                     )
                                 })
