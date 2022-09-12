@@ -6,7 +6,6 @@ import Image from "next/image";
 import LinkIcon from '@mui/icons-material/Link';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import AddRemoveComponent from "../../components/AddRemoveComponent";
-import SelectComponent from "../../components/SelectComponent";
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import SelectPaymantMethod from "../../components/SelectPaymantMethod"; 
 import Link from "next/link";

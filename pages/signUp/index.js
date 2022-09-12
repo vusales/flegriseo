@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useReducer} from "react";
 import styles from "./index.module.scss";
 import { Grid , Container , Paper } from "@mui/material";
 import CommonLayout from "../../layout/commonLayout";
@@ -8,9 +8,44 @@ import PersonIcon from '@mui/icons-material/Person';
 import InputMask from 'react-input-mask';
 import Link from "next/link";
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import RegistrationValidation from "../../validation/registrationValidator";
+
+const initialState ={ 
+    name: "",
+    surname:"", 
+    email: "", 
+    phone:"", 
+    password: "" , 
+    repeatPassword:"",
+}
+
+
+function reducer (state , action ){
+    return { ...state , ...action};
+}
+
 
 
 const SignUp = () => {
+    const [state  , dispatch ] = useReducer( reducer  , initialState ) ;  
+
+    console.log("state" , state ); 
+
+    const signUp = async () => {
+        try{
+            const isValid =  await RegistrationValidation.validate(state) ; 
+
+            if(isValid){
+                console.log("OK");
+
+            }
+        }
+        catch(error) {
+            console.log("error" , error ); 
+        }
+    }
+
+
     return(
         <CommonLayout>
             <Container>
@@ -34,6 +69,8 @@ const SignUp = () => {
                                         <input  
                                         type="text"
                                         placeholder="name"
+                                        value={state.name}
+                                        onChange={(e)=>dispatch({name:e.target.value})}
                                         />
                                     </div>
                                     <div className={styles.inputContainer}>
@@ -44,6 +81,8 @@ const SignUp = () => {
                                         <input  
                                         type="text"
                                         placeholder="surname"
+                                        value={state.surname}
+                                        onChange={(e)=>dispatch({surname:e.target.value})}
                                         />
                                     </div>
                                     <div className={styles.inputContainer}>
@@ -54,6 +93,8 @@ const SignUp = () => {
                                         <input  
                                         type="email"
                                         placeholder="email"
+                                        value={state.email}
+                                        onChange={(e)=>dispatch({email:e.target.value})}
                                         />
                                     </div>
 
@@ -62,13 +103,16 @@ const SignUp = () => {
                                             <StayCurrentPortraitIcon />
                                         </div>
 
-                                        <InputMask mask="(99)-999-99-99" 
-                                        onChange={(e)=>{}}
+                                        <InputMask 
+                                        mask="(99)-999-99-99" 
+                                        value={state.phone}
+                                        onChange={(e)=>dispatch({phone:e.target.value})}
                                         >
                                             {() => (
                                             <input
                                                 placeholder="phone"
                                                 id="number"
+                                                
                                             />
                                             )}
                                         </InputMask>
@@ -82,6 +126,8 @@ const SignUp = () => {
                                         <input  
                                         type="text"
                                         placeholder="password"
+                                        value={state.password}
+                                        onChange={(e)=>dispatch({password:e.target.value})}
                                         />
                                     </div>
 
@@ -94,6 +140,8 @@ const SignUp = () => {
                                         <input  
                                         type="text"
                                         placeholder="password again"
+                                        value={state.repeatPassword}
+                                        onChange={(e)=>dispatch({repeatPassword:e.target.value})}
                                         />
                                     </div>
                             </div>
@@ -111,7 +159,9 @@ const SignUp = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <div className={styles.buttons}>
-                                <button>Sign up</button>
+                                <button
+                                onClick={()=>signUp()}
+                                >Sign up</button>
                             </div>
                         </Grid>
                     </Grid>

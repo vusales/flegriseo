@@ -19,7 +19,8 @@
     "react-input-mask": "^2.0.4",
     "react-slick": "^0.29.0",
     "sass": "^1.54.6",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "eslint": "8.23.0",

@@ -1,0 +1,25 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.snackBarSuccess {
+    padding: 24px 75px;
+    color: $main;
+    padding: 20px 70px;
+    text-align: center;
+    border-radius: 8px;
+    position: fixed;
+    z-index: 99999;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    >span {
+        margin-left: 13px;
+    }
+    @include breakpoint-down("small-medium") {
+        font-size: 14px;
+        padding: 10px;
+        top: 10%;
+    }
+  }
+  
