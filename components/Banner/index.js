@@ -54,63 +54,52 @@ var settings = {
     prevArrow: <SamplePrevArrow />
 };
 
-const demoData = [
-    {
-        id:1,
-        imagesrc : "/banner1.png",
-    }, 
-    {
-        id:2,
-        imagesrc : "/banner2.jpg",
-    }, 
-    {
-        id:3,
-        imagesrc : "/banner3.png",
-    }, 
-]; 
 
+const Banner = ({data}) => {
 
-const Banner = () => {
+    console.log("props Banner",  data);
 
 
     return(
         <div className={styles.bannerContainer}>
             <Slider {...settings} >
                 {
-                    demoData.map((item , index)=>{
+                    data?.map((item , index)=>{
                         return(
-                            <div key={`slickBanner${index}`} className={styles.subContainer}>
+                            <div key={`slickBanner${item.id}`} className={styles.subContainer}>
                                 <div className={styles.textContainer}>
                                     <div>
-                                        <p className={styles.subTitle}>Дисконтная система</p>
-                                        <p className={styles.title}>Постоянные скидки</p>
-                                        <p className={styles.subTitleSecond}>Бонусы и кешбэк система!</p>
+                                        <p className={styles.subTitle}>{item.intro}</p>
+                                        <p className={styles.title}>{item.title}</p>
+                                        <p className={styles.subTitleSecond}>{item.subTitle}</p>
                                     </div>
                                     
-                                    <p className={styles.description}>Накопительная система скидок и бонусы за пополнение баланса. Заказывай больше и плати меньше. Возможность максимальной экономии для оптовых клиентов и крупных разовых заказов. Мы до мелочей продумали систему взаимодействия с нашей аудиторией заказчиков. Она получила такой формат, при котором вы гарантированно а останетесь с нами. Получение бонуса за разовое пополнения баланса от 45 тысяч рублей и больше.</p>
-                                    
-                                    <div className={styles.buttonsContainer}>
-                                        <Link href="/">
-                                            <a  className={styles.bannerButton}>Раскрутка Ютуб</a>
-                                        </Link>
-                                        <Link href="/">
-                                            <a 
-                                            className={styles.bannerButton}
-                                            style={{backgroundColor: "#000"}}
-                                            >Система подписок</a>
-                                        </Link>
-                                    </div>
+                                    <p className={styles.description}>{item.description}</p>
+
+                                    {
+                                        item.buttons && item.buttons.length ? 
+                                        <div className={styles.buttonsContainer}>
+                                            <Link href={item.buttons[0].link}>
+                                                <a  className={styles.bannerButton}>{item.buttons[0].title}</a>
+                                            </Link>
+                                            <Link href={item.buttons[0].link}>
+                                                <a 
+                                                className={styles.bannerButton}
+                                                style={{backgroundColor: "#000"}}
+                                                >{item.buttons[1].title}</a>
+                                            </Link>
+                                        </div>
+                                        :null
+                                    }
                                 </div>
                                 <div className={styles.imageContainer}>
-                                    <Image src={item.imagesrc} width={300} height={300} alt="banner" /> 
+                                    <Image src={item.image} width={300} height={300} alt="banner" /> 
                                 </div>
                          </div>
                         )
                     })
                 }
             </Slider>
-
-           
         </div>
     )
 } 
