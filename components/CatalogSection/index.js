@@ -433,7 +433,7 @@ const CatalogSection = () => {
                                                 {
                                                     item.subServicess.map((subItems ,  index)=> {
                                                         return (
-                                                            <Link href="/">
+                                                            <Link href="/" key={`link-catsection-${index}`}>
                                                                 <a>
                                                                     <div className={styles.detailsContainer}>
                                                                         <div>
