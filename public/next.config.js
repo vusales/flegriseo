@@ -1,6 +1,6 @@
 
 module.exports = {
     images: {
-        domains: ['assets.example.com'],
+        domains: ['localhost:3002/uploads'],
     },
 }

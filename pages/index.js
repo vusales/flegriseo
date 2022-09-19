@@ -9,17 +9,18 @@ import CatalogSection from "../components/CatalogSection";
 import SubScription from "../components/Subscription";
 import WhyUs from "../components/WhyUs";
 import SiteStatistics from "../components/SiteStatistics";
-import { getBannerData } from "../api/banner";
+import { getBannerData , getHomePageData } from "../api/homecontent";
 
-export default function Home({banner}) {
+export default function Home({banners , infoCards }) {
 
-  console.log("banner" , banner); 
+  console.log("infoCards" , infoCards); 
+  // console.log("banners" , banners); 
 
   return (
       <CommonLayout>
         <Container>
-          <Banner data={banner} />
-          <Anouncment /> 
+          <Banner data={banners} />
+          <Anouncment data={infoCards} /> 
           <CatalogSection />
           <SubScription/>
           <WhyUs/>
@@ -31,14 +32,15 @@ export default function Home({banner}) {
 
 export const getStaticProps = async (context) => {
 
-  const {data} = await getBannerData(); 
+  const {data} = await getHomePageData(); 
+  const {banners , infoCards } =  data ; 
 
   return {
     props : {
-      banner : data , 
+      banners,
+      infoCards ,
     } 
   }
-
 }
 
 
