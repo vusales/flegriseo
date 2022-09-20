@@ -56,10 +56,6 @@ var settings = {
 
 
 const Banner = ({data}) => {
-
-    console.log("props Banner",  data);
-
-
     return(
         <div className={styles.bannerContainer}>
             <Slider {...settings} >

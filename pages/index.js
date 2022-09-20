@@ -11,34 +11,42 @@ import WhyUs from "../components/WhyUs";
 import SiteStatistics from "../components/SiteStatistics";
 import { getBannerData , getHomePageData } from "../api/homecontent";
 
-export default function Home({banners , infoCards }) {
-
-  console.log("infoCards" , infoCards); 
-  // console.log("banners" , banners); 
-
+export default function Home({banners , infoCards , subscriptions , whyChooseUs , statistics }) {
   return (
       <CommonLayout>
         <Container>
           <Banner data={banners} />
           <Anouncment data={infoCards} /> 
           <CatalogSection />
-          <SubScription/>
-          <WhyUs/>
-          <SiteStatistics />
+          <SubScription data={subscriptions} />
+          {
+            whyChooseUs?.length ? 
+            <WhyUs data={whyChooseUs}/>
+            :null
+          }
+          {
+            statistics?.length ? 
+            <SiteStatistics data={statistics} />
+            :null
+          }
         </Container>
       </CommonLayout>
   )
 }
 
 export const getStaticProps = async (context) => {
+  console.log("context" , context ); 
 
   const {data} = await getHomePageData(); 
-  const {banners , infoCards } =  data ; 
-
+  const {banners , infoCards , subscriptions , whyChooseUs , statistics } =  data ; 
+ 
   return {
     props : {
       banners,
-      infoCards ,
+      infoCards,
+      subscriptions : subscriptions[0] ,
+      whyChooseUs , 
+      statistics ,
     } 
   }
 }

@@ -8,7 +8,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import ArticleIcon from '@mui/icons-material/Article';
 
 
-const SubScription = () => {
+const SubScription = ({data}) => {
     return(
         <Paper elevation={2} className={styles.paper}>
             <div className={styles.subscriptionContainer}>
@@ -16,47 +16,37 @@ const SubScription = () => {
                     <Grid item xs={12} md={6}>
                         <div className={styles.textContainer}>
                             <div>
-                                <p className={styles.price }>From 1000 ₼ / month</p>
-                                <h2 className={styles.title}>Service Subscription</h2>
-                                <p >Pay less, get more!</p>
+                                <p className={styles.price }>From {data.price} ₼ / month</p>
+                                <h2 className={styles.title}>{data.title}</h2>
+                                <p >{data.subTitle}</p>
                             </div>
 
-                            <p className={styles.description}> Subscriptions are the best way to promote and promote your social media accounts. Promotion in social networks by subscription is an opportunity to show your activities and quickly attract a target audience that is ready to take real actions. We guarantee the fulfillment of even the largest order. 
-                            <br />
-                            <br/>
-                            Bonuses are offered for new customers who place large orders. When you contact us on an ongoing basis, you are guaranteed to receive discounts. We provide promotion services based on the use of white methods. You do not risk by contacting us. </p>
+                            <p className={styles.description}>{data.description}</p>
                         </div>
 
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <div className={styles.linksContainer}>
-                            <div  className={styles.socialCon}>
-                                <InstagramIcon/>
-                                <p>Instagram subscription</p>
-                                <Link href="/subscriptionDetails">
-                                    <a>
-                                        design 
-                                    </a>
-                                </Link>
-                            </div>
-                            <div  className={styles.socialCon}>
-                                <ArticleIcon/>
-                                <p>Vk subscription</p>
-                                <Link href="/subscriptionDetails">
-                                    <a>
-                                        design 
-                                    </a>
-                                </Link>
-                            </div>
-                            <div  className={styles.socialCon}>
-                                <YouTubeIcon/>
-                                <p>Youtube subscription</p>
-                                <Link href="/subscriptionDetails">
-                                    <a>
-                                        design 
-                                    </a>
-                                </Link>
-                            </div>
+                            {
+                                data&&data?.subscriptions?.length&&data?.subscriptions.map((item , index)=>{
+                                    return (
+                                        <div  className={styles.socialCon}>
+                                            <InstagramIcon/>
+                                            <p>{item.title} subscriptions</p>
+                                            <Link 
+                                            href={{
+                                                pathname: "/subscriptionDetails" ,
+                                                query: { id: item._id },
+                                            }}
+                                            >
+                                                <a>
+                                                    design 
+                                                </a>
+                                            </Link>
+                                        </div>
+                                    )
+                                })
+                            } 
                         </div>
                     </Grid>
                 </Grid>

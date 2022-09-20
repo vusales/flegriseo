@@ -1,4 +1,4 @@
-import React from "react" ;
+import React ,  {useEffect , useState  } from "react" ;
 import styles from "./index.module.scss";
 import CommonLayout from "../../layout/commonLayout";
 import { Container , Grid, Paper } from "@mui/material";
@@ -9,10 +9,21 @@ import AddRemoveComponent from "../../components/AddRemoveComponent";
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import SelectPaymantMethod from "../../components/SelectPaymantMethod"; 
 import Link from "next/link";
-import { Desktop , DesktopTablet } from "../../ui/Breakpoints";
+import { DesktopTablet } from "../../ui/Breakpoints";
+import { useRouter } from 'next/router'; 
 
 
-const SubscriptionDetails = () => {
+const SubscriptionDetails = ({id,  }) => {
+    // const router =  useRouter(); 
+    // const {id} =  router.query ; 
+    // console.log("id from query" ,  id ) ; 
+
+    const [productId ,  setProductId ] = useState("") ; 
+
+    useEffect(()=> {
+        setProductId(id); 
+    }, []); 
+
     return(
         <CommonLayout>
             <Container>
@@ -197,6 +208,25 @@ const SubscriptionDetails = () => {
         </CommonLayout>
     )
 }
+
+
+SubscriptionDetails.getInitialProps = async (ctx) => {
+    console.log("context" , ctx);
+
+    const id =  ctx.query.id ; 
+
+    console.log("id"  , id ); 
+
+    return {
+        props: {
+            id ,  
+        }
+    };
+    
+}
+
+
+
 
 
 export default SubscriptionDetails ; 
