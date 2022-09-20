@@ -5,7 +5,7 @@ import Header from "../../components/layoutComponents/Header";
 import Footer from "../../components/layoutComponents/Footer";
 
 
-const  CommonLayout = ({children , metaTitle , }) => {
+const  CommonLayout = ({children , metaTitle , catalog }) => {
     return (
         <div>
             <Head>
@@ -14,7 +14,7 @@ const  CommonLayout = ({children , metaTitle , }) => {
                 {/* <link rel="icon" href="/favicon.ico" /> */}
             </Head>
             <div style={{backgroundColor:"#fff"}}>
-                <Header/>
+                <Header catalog={catalog}/>
             </div>
 
             <main className={styles.main} >

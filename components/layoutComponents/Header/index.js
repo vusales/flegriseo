@@ -16,7 +16,7 @@ import {Desktop , TabletMobile , Mobile ,  DesktopTablet} from "../../../ui/Brea
 import DrawerComponent from "../Drawer";
 
 
-const Header = () => {
+const Header = ({catalog}) => {
     const [openLogin , setOpenLogin] = useState(false); 
 
     return (
@@ -51,7 +51,7 @@ const Header = () => {
                                 <WindowIcon/>
                                 Catalog
                                 <div className={styles.showCatalog}>
-                                    <Catalog />
+                                    <Catalog catalog={catalog} />
                                 </div>
                             </button>
                         </Desktop>
@@ -105,10 +105,6 @@ const Header = () => {
         
     )
 }
-
-
-Header.getInitialProps = async (ctx) => {
-};
 
 export default Header; 
 

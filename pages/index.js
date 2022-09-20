@@ -9,11 +9,14 @@ import CatalogSection from "../components/CatalogSection";
 import SubScription from "../components/Subscription";
 import WhyUs from "../components/WhyUs";
 import SiteStatistics from "../components/SiteStatistics";
+// api
 import { getBannerData , getHomePageData } from "../api/homecontent";
+import {getCatalogData} from "../api/catalogContent";
+// *** 
 
-export default function Home({banners , infoCards , subscriptions , whyChooseUs , statistics }) {
+export default function Home({banners , infoCards , subscriptions , whyChooseUs , statistics  , catalog }) {
   return (
-      <CommonLayout>
+      <CommonLayout catalog={catalog} >
         <Container>
           <Banner data={banners} />
           <Anouncment data={infoCards} /> 
@@ -38,6 +41,11 @@ export const getStaticProps = async (context) => {
   console.log("context" , context ); 
 
   const {data} = await getHomePageData(); 
+  // this request have to be each page 
+  const catalogData =  await getCatalogData() ; 
+  const catalog =  catalogData.data ;
+  // *********************** 
+
   const {banners , infoCards , subscriptions , whyChooseUs , statistics } =  data ; 
  
   return {
@@ -47,6 +55,7 @@ export const getStaticProps = async (context) => {
       subscriptions : subscriptions[0] ,
       whyChooseUs , 
       statistics ,
+      catalog , 
     } 
   }
 }

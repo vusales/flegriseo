@@ -7,18 +7,18 @@ const CatalogButton =({data})=>{
     return(
         <div className={styles.catalogButton}>
             <HouseboatIcon/>
-            <p>{data.title}</p>
+            <p>{data.catalogName}</p>
 
             <div className={styles.catalogHoveredElement}>
                 {
-                    data?.subServicess?.map((item ,  index )=>{
+                    data?.subCatalogs?.map((item ,  index )=>{
                         return (
                             <a href="#" key={`catBut---${index}`}>
                                 <div 
                                 key={`catBut${index}`}
                                 >
                                     <HouseboatIcon/>
-                                    <p>{item.title}</p>
+                                    <p>{item.catalogName}</p>
                                 </div>
                             </a>
                         )
