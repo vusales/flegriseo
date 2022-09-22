@@ -56,7 +56,6 @@ const demoComments = [
     title: "Дарья Шапошник" , 
     comment: "Очень оперативно работают. Спасибо." , 
     },
-
 ]
 
 
@@ -92,8 +91,16 @@ const ProductDetails = ({catalog , selectedProduct }) => {
                             </Grid>
 
                             <div className={styles.productDescriptionContainer}>
-                                <p>- Качественные лайки с охватом и показами. Повышают вовлеченность и взаимодействие.</p>
-                                <p>{selectedProduct.options.productDescription}</p>
+                                {
+                                    selectedProduct.options.introDescription? 
+                                    <p>- {selectedProduct.options.introDescription}</p>
+                                    :null
+                                }
+                                {
+                                    selectedProduct.options.productDescription? 
+                                    <p>{selectedProduct.options.productDescription}</p>
+                                    :null
+                                }
                             </div>
                             <CommentsComponent 
                             data={demoComments}

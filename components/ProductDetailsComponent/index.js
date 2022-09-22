@@ -48,7 +48,7 @@ const ProductDetailsComponent = ({data}) => {
                 <div className={styles.imageContainer}>
                     { 
                     data?.promotions?.length ? 
-                    data?.promotions.map((item ,  index)=>Promotion(item?.promotion , item?.color))
+                    data?.promotions.map((item , index)=>Promotion(item?.promotion , item?.color))
                     : null 
                     }
                     <Image src="/cardImg.png" width={150} height={150} />
@@ -58,8 +58,12 @@ const ProductDetailsComponent = ({data}) => {
                 <div className={styles.descriptionCon}>
                     <h1>{data?.title}</h1>
                     <div className={styles.middleSection}>
-                        <p className={styles.price}>{data?.price} ₼</p>
-
+                        {
+                            data?.discountPrice? 
+                            <p className={styles.price}>{data?.discountPrice}₼ <span>{data?.price}₼</span></p>
+                            :
+                            <p className={styles.price}>{data?.price}₼</p>
+                        }
                         <div className={styles.addRemoveContainer}>
                             <button onClick={()=>  decreaseServiceAmount()  }> <RemoveIcon/> </button>
                             <div>
@@ -74,15 +78,18 @@ const ProductDetailsComponent = ({data}) => {
                             <a className={styles.button}>Order</a>
                         </Link>
                     </div>
-                    <div className={styles.infoContainer}>
-                        <ErrorOutlineIcon />
-                        <p >Цена за одно действие 0.29 руб 0.58 руб (250 шт. = 72.5 руб.)</p>
-                    </div>
+                    {
+                        data.options.anouncementText ? 
+                        <div className={styles.infoContainer}>
+                            <ErrorOutlineIcon />
+                            <p>{data?.options?.anouncementText}</p>
+                        </div>
+                        :null
+                    }
                 </div>
             </Grid>
         </Grid>
     )
-
 }
 
 export default ProductDetailsComponent ; 

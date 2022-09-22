@@ -166,3 +166,13 @@
         margin-left: 10px;
     }
 }
+
+.price {
+
+
+    >span {
+        @include text; 
+        color: $error;
+        text-decoration: line-through; 
+    }
+}
