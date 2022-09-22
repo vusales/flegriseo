@@ -8,6 +8,9 @@ import Image from "next/image";
 
 const Card = ({data , xs , md }) => {
 
+    console.log("card data" , data);
+
+
     const Promotion = (decription , color) => {
         if(decription){
             return (
@@ -25,14 +28,29 @@ const Card = ({data , xs , md }) => {
     return (
         <Grid item xs={xs ? xs : 12} md={md ? md : 3} >
             <div className={styles.container}>
-                { Promotion(data?.promotion , data?.color)}
-                <Link href="/">
+                { 
+                data?.promotions?.length ? 
+                data?.promotions.map((item ,  index)=>Promotion(item?.promotion , item?.color))
+                : null 
+                }
+                <Link 
+                href={{
+                    pathname: '/productDetails',
+                    query: { id: data.options._id  },
+                }}
+                >
                     <a>
-                        <Image src={data?.imgSrc} width={120} height={120} />
+                        {/* <Image src={data?.image} width={120} height={120} /> */}
+                        <Image src="/cardImg.png" width={120} height={120} />
                     </a>
                 </Link>
                 
-                <Link  href="/productDetails" >
+                <Link  
+                href={{
+                    pathname: '/productDetails',
+                    query: { id: data.options._id  },
+                }} 
+                >
                     <a className={styles.title}>
                         {data?.title}
                     </a>
@@ -43,7 +61,12 @@ const Card = ({data , xs , md }) => {
                     </p>
                 </div>
                 <p className={styles.description}>{data?.description}</p>
-                <Link href="/productDetails">
+                <Link 
+                href={{
+                    pathname: '/productDetails',
+                    query: { id: data.options._id },
+                }}
+                >
                     <a className={styles.button}>
                         Design
                     </a>

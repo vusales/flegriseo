@@ -6,6 +6,11 @@ import FilterCatalog from "../../components/FilterCatalog";
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import Card from "../../components/Card";
 import FilterButtons from "../../components/FilterButtons";
+// api
+import { getProducts } from "../../api/productContent";
+import {getCatalogData} from "../../api/catalogContent"; 
+
+// ***
 
 const catalogData = [
     {
@@ -121,9 +126,11 @@ const cardDemo  = [
 ]; 
 
 
-const Filter = () => {
+const Filter = ({products , catalog }) => {
+
+
     return (
-        <CommonLayout>
+        <CommonLayout catalog={catalog}>
             <Container>
                 <Grid container spacing={2} > 
                     <Grid item  xs={12} md={3}>
@@ -139,7 +146,7 @@ const Filter = () => {
                                 /> 
                             </Grid>
                             {
-                                cardDemo.map((item, index)=>{
+                                products?.map((item, index)=>{
                                     return (
                                         <Card
                                         key={`filter=${index}`}
@@ -157,6 +164,24 @@ const Filter = () => {
             </Container>
         </CommonLayout>  
     )
+}
+
+Filter.getInitialProps = async (context) => {
+    const [ result ]= await Promise.all([
+        getProducts() , 
+    ]); 
+    const { products } = result ; 
+
+    // this request have to be each page 
+    const catalogData =  await getCatalogData() ; 
+    const catalog =  catalogData.data ;
+    // *********************** 
+    
+    return {
+      products, 
+      catalog ,
+        
+    }
 }
 
 export default Filter ;
