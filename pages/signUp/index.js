@@ -29,7 +29,6 @@ function reducer (state , action ){
 const SignUp = () => {
     const [state  , dispatch ] = useReducer( reducer  , initialState ) ;  
 
-    console.log("state" , state ); 
 
     const signUp = async () => {
         try{

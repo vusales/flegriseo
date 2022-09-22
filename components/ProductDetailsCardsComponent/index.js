@@ -12,7 +12,7 @@ const ProductDetailsCardsComponent = ({data}) => {
             <div className={styles.cardContainer}>
                 {data.icon}
                 <p className={styles.title}>{data.title}</p>
-                <p>{data.detail}</p>
+                <p>{data.description}</p>
             </div>
         </Grid>
     )

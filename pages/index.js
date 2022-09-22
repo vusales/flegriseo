@@ -38,7 +38,6 @@ export default function Home({banners , infoCards , subscriptions , whyChooseUs 
 }
 
 export const getStaticProps = async (context) => {
-  console.log("context" , context ); 
 
   const {data} = await getHomePageData(); 
   // this request have to be each page 

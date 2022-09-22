@@ -8,9 +8,6 @@ import Image from "next/image";
 
 const Card = ({data , xs , md }) => {
 
-    console.log("card data" , data);
-
-
     const Promotion = (decription , color) => {
         if(decription){
             return (
@@ -18,7 +15,6 @@ const Card = ({data , xs , md }) => {
                     {decription}
                 </div>
             )
-
         }else {
             return null;
         }
@@ -36,7 +32,7 @@ const Card = ({data , xs , md }) => {
                 <Link 
                 href={{
                     pathname: '/productDetails',
-                    query: { id: data.options._id  },
+                    query: { id: data._id  },
                 }}
                 >
                     <a>
@@ -48,7 +44,7 @@ const Card = ({data , xs , md }) => {
                 <Link  
                 href={{
                     pathname: '/productDetails',
-                    query: { id: data.options._id  },
+                    query: { id: data._id  },
                 }} 
                 >
                     <a className={styles.title}>
@@ -64,7 +60,7 @@ const Card = ({data , xs , md }) => {
                 <Link 
                 href={{
                     pathname: '/productDetails',
-                    query: { id: data.options._id },
+                    query: { id: data._id },
                 }}
                 >
                     <a className={styles.button}>

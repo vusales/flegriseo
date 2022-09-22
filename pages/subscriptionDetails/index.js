@@ -211,12 +211,7 @@ const SubscriptionDetails = ({id,  }) => {
 
 
 SubscriptionDetails.getInitialProps = async (ctx) => {
-    console.log("context" , ctx);
-
     const id =  ctx.query.id ; 
-
-    console.log("id"  , id ); 
-
     return {
         props: {
             id ,  

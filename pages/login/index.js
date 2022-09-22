@@ -27,11 +27,7 @@ const Login = () => {
     const phoneRef =  useRef() ; 
 
     
-
-    console.log("state" , state ) ; 
-
     const signIn = async () => {
-        console.log("Sign in");
 
         try{
             let isValid = await loginValidation.validate(state);
