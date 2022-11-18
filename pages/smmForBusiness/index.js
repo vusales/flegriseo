@@ -7,6 +7,7 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import StaticBanner from "../../components/StaticBanner";
 import { Grid } from "@mui/material";
 import Card from "../../components/Card";
+import { getCatalogData } from "../../api/catalogContent";
 
 
 const demoforStaticBanner = {
@@ -24,25 +25,21 @@ const specialAnounc = [
         icon: <ShoppingBasketIcon /> , 
         description: "Affordable SMM promotion", 
     }, 
-
     {
         id:1 , 
         icon: <ShoppingBasketIcon /> , 
         description: "Affordable SMM promotion", 
     }, 
-
     {
         id:1 , 
         icon: <ShoppingBasketIcon /> , 
         description: "Affordable SMM promotion", 
     }, 
-
     {
         id:1 , 
         icon: <ShoppingBasketIcon /> , 
         description: "Affordable SMM promotion", 
     }, 
-
 ]; 
 
 const cardDemo  = [
@@ -63,7 +60,6 @@ const cardDemo  = [
         description: "Likes on photos from active users. Likes come from mobile applications.", 
         promotion: "Sale %" , 
         color: "green" , 
-
     },
     {
         id: 3  , 
@@ -87,9 +83,9 @@ const cardDemo  = [
 
 
 
-const SmmForBusiness = () => {
+const SmmForBusiness = ({catalog}) => {
     return (
-        <CommonLayout>
+        <CommonLayout catalog={catalog}>
             <Container>
                 <StaticBanner 
                 title={demoforStaticBanner.title}
@@ -125,6 +121,23 @@ const SmmForBusiness = () => {
             </Container>
         </CommonLayout>
     )
+}
+
+export const getStaticProps = async (context) => {
+
+    // this request have to be each page 
+    const catalogData =  await getCatalogData() ; 
+    const catalog =  catalogData.data ;
+    console.log("catalog" , catalog );
+    // *********************** 
+  
+    
+   
+    return {
+      props : {
+        catalog , 
+      } 
+    }
 }
 
 export default SmmForBusiness ; 

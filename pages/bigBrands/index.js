@@ -7,6 +7,8 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import StaticBanner from "../../components/StaticBanner";
 import { Grid } from "@mui/material";
 import Card from "../../components/Card";
+import { getCatalogData } from "../../api/catalogContent";
+
 
 
 const demoforStaticBanner = {
@@ -86,10 +88,10 @@ const cardDemo  = [
 ]; 
 
 
-const BigBrands =(props)=> {
+const BigBrands =({catalog})=> {
 
     return (
-        <CommonLayout>
+        <CommonLayout catalog={catalog}>
             <Container>
                 <StaticBanner 
                 title={demoforStaticBanner.title}
@@ -129,5 +131,24 @@ const BigBrands =(props)=> {
         </CommonLayout>
     )
 }
+
+export const getStaticProps = async (context) => {
+
+    // this request have to be each page 
+    const catalogData =  await getCatalogData() ; 
+    const catalog =  catalogData.data ;
+    console.log("catalog" , catalog );
+    // *********************** 
+  
+    
+   
+    return {
+      props : {
+        catalog , 
+      } 
+    }
+}
+
+
 
 export default BigBrands ; 

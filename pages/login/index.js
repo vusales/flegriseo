@@ -8,6 +8,8 @@ import InputMask from 'react-input-mask';
 import Link from "next/link";
 import loginValidation from "../../validation/loginValidation";
 import Alert from "../../ui/Alert";
+import { getCatalogData } from "../../api/catalogContent";
+
 
 const initialState ={ 
     phone: "",
@@ -22,7 +24,7 @@ function reducer (state , action ){
 
 
 
-const Login = () => {
+const Login = ({catalog}) => {
     const [state  , dispatch ] = useReducer( reducer  , initialState ) ; 
     const phoneRef =  useRef() ; 
 
@@ -48,7 +50,7 @@ const Login = () => {
 
 
     return(
-        <CommonLayout>
+        <CommonLayout catalog={catalog}>
             {/* <Alert
             message="Hello i am alert"
             callback={()=>{}}
@@ -134,6 +136,23 @@ const Login = () => {
             </Container>
         </CommonLayout>
     )
+}
+
+export const getStaticProps = async (context) => {
+
+    // this request have to be each page 
+    const catalogData =  await getCatalogData() ; 
+    const catalog =  catalogData.data ;
+    console.log("catalog" , catalog );
+    // *********************** 
+  
+    
+   
+    return {
+      props : {
+        catalog , 
+      } 
+    }
 }
 
 

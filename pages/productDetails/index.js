@@ -89,7 +89,6 @@ const ProductDetails = ({catalog , selectedProduct }) => {
                                     })
                                 }
                             </Grid>
-
                             <div className={styles.productDescriptionContainer}>
                                 {
                                     selectedProduct.options.introDescription? 

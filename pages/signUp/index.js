@@ -9,6 +9,8 @@ import InputMask from 'react-input-mask';
 import Link from "next/link";
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import RegistrationValidation from "../../validation/registrationValidator";
+import { getCatalogData } from "../../api/catalogContent";
+
 
 const initialState ={ 
     name: "",
@@ -26,7 +28,7 @@ function reducer (state , action ){
 
 
 
-const SignUp = () => {
+const SignUp = ({catalog}) => {
     const [state  , dispatch ] = useReducer( reducer  , initialState ) ;  
 
 
@@ -46,7 +48,7 @@ const SignUp = () => {
 
 
     return(
-        <CommonLayout>
+        <CommonLayout catalog={catalog}>
             <Container>
                <Paper elevation={2} className={styles.papper}>
                <form className={styles.inputBaseContainer}>
@@ -169,6 +171,23 @@ const SignUp = () => {
             </Container>
         </CommonLayout>
     )
+}
+
+export const getStaticProps = async (context) => {
+
+    // this request have to be each page 
+    const catalogData =  await getCatalogData() ; 
+    const catalog =  catalogData.data ;
+    console.log("catalog" , catalog );
+    // *********************** 
+  
+    
+   
+    return {
+      props : {
+        catalog , 
+      } 
+    }
 }
 
 

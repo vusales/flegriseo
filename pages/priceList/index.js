@@ -7,11 +7,13 @@ import {Paper} from "@mui/material";
 import Image from "next/image";
 import { DesktopTablet , Desktop } from "../../ui/Breakpoints";
 import PriceListItem from "../../components/PriceListItem";
+import { getCatalogData } from "../../api/catalogContent";
 
 
-const PriceList = () => {
+
+const PriceList = ({catalog}) => {
     return(
-        <CommonLayout>
+        <CommonLayout catalog={catalog}>
             <Container>
                 <Paper elevation={2} className={styles.papper}>
                     <Grid container justifyContent="center" alignItems="center" >
@@ -41,6 +43,23 @@ const PriceList = () => {
             </Container>
         </CommonLayout>
     )
+}
+
+export const getStaticProps = async (context) => {
+
+    // this request have to be each page 
+    const catalogData =  await getCatalogData() ; 
+    const catalog =  catalogData.data ;
+    console.log("catalog" , catalog );
+    // *********************** 
+  
+    
+   
+    return {
+      props : {
+        catalog , 
+      } 
+    }
 }
 
 

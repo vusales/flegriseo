@@ -20,7 +20,7 @@ export default function Home({banners , infoCards , subscriptions , whyChooseUs 
         <Container>
           <Banner data={banners} />
           <Anouncment data={infoCards} /> 
-          <CatalogSection />
+          {/* <CatalogSection /> */}
           <SubScription data={subscriptions} />
           {
             whyChooseUs?.length ? 
@@ -43,6 +43,7 @@ export const getStaticProps = async (context) => {
   // this request have to be each page 
   const catalogData =  await getCatalogData() ; 
   const catalog =  catalogData.data ;
+  console.log("catalog" , catalog );
   // *********************** 
 
   const {banners , infoCards , subscriptions , whyChooseUs , statistics } =  data ; 

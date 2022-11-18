@@ -11,9 +11,11 @@ import SelectPaymantMethod from "../../components/SelectPaymantMethod";
 import Link from "next/link";
 import { DesktopTablet } from "../../ui/Breakpoints";
 import { useRouter } from 'next/router'; 
+import { getCatalogData } from "../../api/catalogContent";
 
 
-const SubscriptionDetails = ({id,  }) => {
+
+const SubscriptionDetails = ({id, catalog }) => {
     // const router =  useRouter(); 
     // const {id} =  router.query ; 
     // console.log("id from query" ,  id ) ; 
@@ -25,7 +27,7 @@ const SubscriptionDetails = ({id,  }) => {
     }, []); 
 
     return(
-        <CommonLayout>
+        <CommonLayout  catalog={catalog}>
             <Container>
                 <Paper elevation={2} className={styles.papper}>
                     <Grid container spacing={2} pl={2} pr={2} pb={1} pt={1}>
@@ -212,16 +214,19 @@ const SubscriptionDetails = ({id,  }) => {
 
 SubscriptionDetails.getInitialProps = async (ctx) => {
     const id =  ctx.query.id ; 
+    // this request have to be each page 
+    const catalogData =  await getCatalogData() ; 
+    const catalog =  catalogData.data ;
+    console.log("catalog" , catalog );
+    // *********************** 
+
     return {
         props: {
             id ,  
+            catalog , 
         }
     };
-    
 }
-
-
-
 
 
 export default SubscriptionDetails ; 

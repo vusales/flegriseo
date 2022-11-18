@@ -12,6 +12,11 @@
     @include center ; 
     flex-direction: column;
     position: relative;
+    transition:  ease-in .3s;
+
+    &:hover {
+        box-shadow: none;
+    }
 
     >.priceCon{
         width: 100%;

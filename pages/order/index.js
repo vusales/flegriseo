@@ -7,10 +7,12 @@ import OrderCheckoutComponent from "../../components/OrderCheckoutComponent";
 import OrderSubscriptions from "../../components/OrderSubscriptions";
 import SelectPaymantMethod from "../../components/SelectPaymantMethod";
 import OrderCheckout from "../../components/OrderCheckout";
+import { getCatalogData } from "../../api/catalogContent";
 
-const Order = () => {
+
+const Order = ({catalog}) => {
     return (
-        <CommonLayout>
+        <CommonLayout catalog={catalog}>
             <Container>
                 <Paper elevation={2} className={styles.paper }>
                     <Grid container spacing={2} >
@@ -35,6 +37,23 @@ const Order = () => {
             </Container>
         </CommonLayout>
     )
+}
+
+export const getStaticProps = async (context) => {
+
+    // this request have to be each page 
+    const catalogData =  await getCatalogData() ; 
+    const catalog =  catalogData.data ;
+    console.log("catalog" , catalog );
+    // *********************** 
+  
+    
+   
+    return {
+      props : {
+        catalog , 
+      } 
+    }
 }
 
 export default Order ;

@@ -21,6 +21,8 @@ import TableRow from '@mui/material/TableRow';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import { DesktopTablet , Desktop } from "../../ui/Breakpoints";
+import { getCatalogData } from "../../api/catalogContent";
+
 
 
 
@@ -101,9 +103,9 @@ function createData( num , advantages, subscriptions , promotion ) {
   ];
 
 
-const LikeForSubscriptions = () => {
+const LikeForSubscriptions = ({catalog}) => {
     return(
-        <CommonLayout>
+        <CommonLayout catalog={catalog}>
             <Container >
                 <Grid container>
                     <Grid item  xs={12}>
@@ -274,6 +276,23 @@ const LikeForSubscriptions = () => {
 
         </CommonLayout>
     )
+}
+
+export const getStaticProps = async (context) => {
+
+    // this request have to be each page 
+    const catalogData =  await getCatalogData() ; 
+    const catalog =  catalogData.data ;
+    console.log("catalog" , catalog );
+    // *********************** 
+  
+    
+   
+    return {
+      props : {
+        catalog , 
+      } 
+    }
 }
 
 export default LikeForSubscriptions ; 

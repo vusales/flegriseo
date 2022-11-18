@@ -3,6 +3,8 @@ import styles from "./index.module.scss";
 import CommonLayout from "../../layout/commonLayout";
 import { Grid , Container , Paper , Pagination } from "@mui/material";
 import SingleCommentComponent from "../../components/SingleCommentComponent";
+import { getCatalogData } from "../../api/catalogContent";
+
 
 
 const demoComments = [
@@ -20,7 +22,7 @@ const demoComments = [
 ]
 
 
-const AllComments = () => {
+const AllComments = ({catalog}) => {
     const [page , setPage] = useState(1); 
 
 
@@ -29,7 +31,7 @@ const AllComments = () => {
     }
 
     return(
-       <CommonLayout>
+       <CommonLayout catalog={catalog}>
         <Container>
             <Paper elevation={2} className={styles.papper}>
                 <Grid container>
@@ -67,6 +69,24 @@ const AllComments = () => {
         </Container>
        </CommonLayout>
     )
+}
+
+
+export const getStaticProps = async (context) => {
+
+    // this request have to be each page 
+    const catalogData =  await getCatalogData() ; 
+    const catalog =  catalogData.data ;
+    console.log("catalog" , catalog );
+    // *********************** 
+  
+    
+   
+    return {
+      props : {
+        catalog , 
+      } 
+    }
 }
 
 
