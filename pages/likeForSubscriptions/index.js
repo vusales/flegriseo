@@ -248,20 +248,20 @@ const LikeForSubscriptions = ({catalog}) => {
                                 </Grid>
 
                                 {
-                                        againDemo.map((item , index)=>(
-                                        <Grid item xs={12} md={4} key={index}>
-                                            <div 
-                                            className={styles.exclusiveItem}
-                                            >
-                                                <p>{item.title}</p>
-                                                <p>{item.description}</p>
-                                                <div style={{width:"100%" , padding:"24px 0",}}>
-                                                    <Link href={item.link}>
-                                                        <a className={styles.subscribe}>Subscribe</a>
-                                                    </Link>
-                                                </div>
+                                    againDemo.map((item , index)=>(
+                                    <Grid item xs={12} md={4} key={index}>
+                                        <div 
+                                        className={styles.exclusiveItem}
+                                        >
+                                            <p>{item.title}</p>
+                                            <p>{item.description}</p>
+                                            <div style={{width:"100%" , padding:"24px 0",}}>
+                                                <Link href={item.link}>
+                                                    <a className={styles.subscribe}>Subscribe</a>
+                                                </Link>
                                             </div>
-                                        </Grid>
+                                        </div>
+                                    </Grid>
                                     ))
                                 }
                             </Grid>
