@@ -16,24 +16,24 @@ import {getCatalogData} from "../api/catalogContent";
 
 export default function Home({banners , infoCards , subscriptions , whyChooseUs , statistics  , catalog }) {
   return (
-      <CommonLayout catalog={catalog} >
-        <Container>
-          <Banner data={banners} />
-          <Anouncment data={infoCards} /> 
-          {/* <CatalogSection /> */}
-          <SubScription data={subscriptions} />
-          {
-            whyChooseUs?.length ? 
-            <WhyUs data={whyChooseUs}/>
-            :null
-          }
-          {
-            statistics?.length ? 
-            <SiteStatistics data={statistics} />
-            :null
-          }
-        </Container>
-      </CommonLayout>
+    <CommonLayout catalog={catalog} >
+      <Container>
+        <Banner data={banners} />
+        <Anouncment data={infoCards} /> 
+        {/* <CatalogSection /> */}
+        <SubScription data={subscriptions} />
+        {
+          whyChooseUs?.length ? 
+          <WhyUs data={whyChooseUs}/>
+          :null
+        }
+        {
+          statistics?.length ? 
+          <SiteStatistics data={statistics} />
+          :null
+        }
+      </Container>
+    </CommonLayout>
   )
 }
 

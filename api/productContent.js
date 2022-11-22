@@ -12,8 +12,12 @@ export const getProductById = async  (id) => {
 }
 
 export const filter = async (parametr) => {
-    console.log("parametr" ,  parametr ) ; 
     const result = await postRequest(`/products/filter?subCategoryId=${parametr.subCategoryId || "" }&category=${parametr.category || ""}`); 
-    console.log(" filter result" ,  result ) ;
     return result;
+}
+
+export const getSpecialProducts =  async ( pagination ) => {
+    const result =  await postRequest("/products/specialProducts") ; 
+    console.log("resuLt in specialProducts" ,  result ); 
+    return result?.specaialProducts ; 
 }
