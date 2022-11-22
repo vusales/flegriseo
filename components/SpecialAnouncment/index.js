@@ -10,8 +10,8 @@ const SpecialAnouncment = ({data}) => {
                     return(
                         <SpecialAnouncementCard
                         key={`specialAnounc${index}`}
-                        icon={item.icon}
-                        description={item.description}
+                        icon={item?.icon}
+                        description={item?.title}
                         />
                     )
                 })

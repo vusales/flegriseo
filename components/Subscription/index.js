@@ -28,9 +28,13 @@ const SubScription = ({data}) => {
                     <Grid item xs={12} md={6}>
                         <div className={styles.linksContainer}>
                             {
-                                data&&data?.subscriptions?.length&&data?.subscriptions.map((item , index)=>{
+                                data?.subscriptions?.length&&data?.subscriptions.map((item , index)=>{
+
                                     return (
-                                        <div  className={styles.socialCon}>
+                                        <div  
+                                        className={styles.socialCon}
+                                        key={`subscriptions${index}`}
+                                        >
                                             <InstagramIcon/>
                                             <p>{item.title} subscriptions</p>
                                             <Link 

@@ -6,5 +6,12 @@ export const getHomePageData = async () => {
     return result;  
 }
 
+export const getPagesBanner = async () => {
+    const result = await getRequest("/home/pages"); 
+    return result?.data ;  
+}
+
+
+
 
 
