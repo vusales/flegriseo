@@ -75,9 +75,9 @@ const DrawerItem = () => {
             <div>
                 <div className={styles.categoryTitle}>Service categories</div>
                 {
-                    catalogData.map((catalog)=>
+                    catalogData.map((catalog ,  index)=>
                     (
-                        <div className={styles.categoryLinksContainer} >
+                        <div key={index} className={styles.categoryLinksContainer} >
                             {catalog.icon}
                             <Link href="/productDetails">
                                 <a className={styles.catalogLinks} >{catalog.title}</a>

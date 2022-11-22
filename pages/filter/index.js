@@ -1,4 +1,7 @@
-import React from "react";
+import React , {
+    useEffect , 
+    useState , 
+} from "react";
 import styles from "./index.module.scss";
 import { Grid , Container} from "@mui/material";
 import CommonLayout from "../../layout/commonLayout";
@@ -7,127 +10,45 @@ import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import Card from "../../components/Card";
 import FilterButtons from "../../components/FilterButtons";
 // api
-import { getProducts } from "../../api/productContent";
+import { getProducts , filter  } from "../../api/productContent";
 import {getCatalogData} from "../../api/catalogContent"; 
 
 // ***
 
-const catalogData = [
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "Instagram ", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "Smth", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "Smth 2 ", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "Smth 3", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "smth 4", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "smth4 ", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "Smth 3", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "smth 4", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "smth4 ", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "smth 4", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "smth4 ", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "Smth 3", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "smth 4", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "smth4 ", 
-    }, 
-]; 
-
-const cardDemo  = [
-    {
-        id: 1 , 
-        imgSrc: "/cardImg.png", 
-        title: "LIKES ON PHOTO, VIDEO, ALBUm (STANDARD)", 
-        price: "0.29 RUB for 1 like", 
-        description: "Likes on photos from active users. Likes come from mobile applications.", 
-        promotion: "" , 
-        color: "green" , 
-    }, 
-    {
-        id: 2 , 
-        imgSrc: "/cardImg.png", 
-        title: "LIKES ON PHOTO, VIDEO, ALBUm (STANDARD)", 
-        price: "0.29 RUB for 1 like", 
-        description: "Likes on photos from active users. Likes come from mobile applications.", 
-        promotion: "Sale %" , 
-        color: "green" , 
-
-    },
-    {
-        id: 3  , 
-        imgSrc: "/cardImg.png", 
-        title: "LIKES ON PHOTO, VIDEO, ALBUm (STANDARD)", 
-        price: "0.29 RUB for 1 like", 
-        description: "Likes on photos from active users. Likes come from mobile applications.", 
-        promotion: "Sale %" , 
-        color: "orange" , 
-    }, 
-    {
-        id: 4 , 
-        imgSrc: "/cardImg.png", 
-        title: "LIKES ON PHOTO, VIDEO, ALBUm (STANDARD)", 
-        price: "0.29 RUB for 1 like", 
-        description: "Likes on photos from active users. Likes come from mobile applications.", 
-        promotion: "" , 
-        color: "green" , 
-    }, 
-]; 
 
 
-const Filter = ({products , catalog }) => {
 
+const Filter = ({products , catalog , query }) => {
+    const [ dynamicProducts , setDynamicProducts ] = useState([]); 
+    const [ subCategories , setSubCategories ] = useState([]); 
+
+    useEffect(()=>{setDynamicProducts(products)},[]);
+
+    useEffect(()=> {
+        getFilteredData(); 
+        getSuitableSubCategories(); 
+    } , [query.category , query.subCategoryId ]) ; 
+
+    const getFilteredData = async () => {
+        try {
+            if(query.category || query.subCategoryId ){
+                const filteredProducts =  await filter(query); 
+                setDynamicProducts(filteredProducts.products); 
+            }
+        }catch(err) {
+            console.log("error" , err) ; 
+        }
+    }
+
+
+    const getSuitableSubCategories = () => {
+        if(query.category) {
+            let filteredData =  catalog.filter((item) => item.categoryName === query.category ); 
+            setSubCategories(filteredData); 
+        }else {
+            return ; 
+        }
+    }
 
     return (
         <CommonLayout catalog={catalog}>
@@ -135,18 +56,23 @@ const Filter = ({products , catalog }) => {
                 <Grid container spacing={2} > 
                     <Grid item  xs={12} md={3}>
                         <FilterCatalog
-                        data={catalogData}
+                        data={catalog}
                         /> 
                     </Grid>
                     <Grid item  xs={12} md={9}>
                         <Grid container spacing={2} sx={{padding:0}}>
-                            <Grid item xs={12}>
-                                <FilterButtons 
-                                data={catalogData}
-                                /> 
-                            </Grid>
                             {
-                                products?.map((item, index)=>{
+                                subCategories.length ? 
+                                <Grid item xs={12}>
+                                    <FilterButtons 
+                                    data={subCategories}
+                                    />
+                                </Grid>
+                                :null
+                            }
+                            
+                            {
+                                dynamicProducts?.map((item, index)=>{
                                     return (
                                         <Card
                                         key={`filter=${index}`}
@@ -175,11 +101,11 @@ Filter.getInitialProps = async (context) => {
     // this request have to be each page 
     const catalogData =  await getCatalogData() ; 
     const catalog =  catalogData.data ;
-    // *********************** 
-    
+    // ***********************
     return {
       products, 
       catalog ,
+      query :  context.query  , 
         
     }
 }

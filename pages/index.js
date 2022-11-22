@@ -41,11 +41,9 @@ export const getStaticProps = async (context) => {
 
   const {data} = await getHomePageData(); 
   // this request have to be each page 
-  const catalogData =  await getCatalogData() ; 
-  console.log("catalogData----" , catalogData );
+  const catalogData =  await getCatalogData(); 
 
   const catalog =  catalogData.data ;
-  console.log("catalog---" , catalog );
   // *********************** 
 
   const {banners , infoCards , subscriptions , whyChooseUs , statistics } =  data ; 

@@ -8,12 +8,14 @@ const FilterButtons = ({data}) => {
         <div className={styles.filterButtonContainer}>
             {
                 data.map((item, index)=>{
-                    return(
-                        <SingleFilterButton
-                        key={`singleFilterButt${index}`}
-                        data={item}
-                        />
-                    )
+                    return item.subCategories.map((item, index)=>{
+                        return(
+                            <SingleFilterButton
+                            key={`singleFilterButt${index}`}
+                            data={item}
+                            />
+                        )
+                    })
                 })
             }
         </div>

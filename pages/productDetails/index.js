@@ -114,7 +114,6 @@ const ProductDetails = ({catalog , selectedProduct }) => {
 
 
 ProductDetails.getInitialProps = async (context) => {
-    // console.log("context" , context); 
     // this request have to be each page 
     const catalogData =  await getCatalogData() ; 
     const catalog =  catalogData.data ;

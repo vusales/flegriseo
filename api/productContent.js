@@ -8,6 +8,12 @@ export const getProducts = async () => {
 
 export const getProductById = async  (id) => {
     const result = await postRequest("/products/productById" , {"id" : id}); 
-    console.log("result" ,  result ) ;
+    return result;
+}
+
+export const filter = async (parametr) => {
+    console.log("parametr" ,  parametr ) ; 
+    const result = await postRequest(`/products/filter?subCategoryId=${parametr.subCategoryId || "" }&category=${parametr.category || ""}`); 
+    console.log(" filter result" ,  result ) ;
     return result;
 }

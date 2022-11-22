@@ -3,7 +3,8 @@ import styles from "./index.module.scss";
 import ListIcon from '@mui/icons-material/List';
 import Link from "next/link";
 import { DesktopTablet , Desktop} from "../../ui/Breakpoints";
-  
+import Image from 'next/image'; 
+
 
 const FilterCatalog = ({data}) => {
     return(
@@ -21,11 +22,20 @@ const FilterCatalog = ({data}) => {
                     return(
                         <Link 
                         key={`filtrCat${index}`}
-                        href="/"
+                        href={{
+                            pathname: '/filter',
+                            query: { category: item.categoryName },
+                        }}
                         >
                             <a className={styles.catalogItem}>
-                                {item?.icon}
-                                <p>{item.title}</p>
+                                <Image
+                                src="/cardImg.png"
+                                alt="category logo image"
+                                width={20}
+                                height={20}
+                                />
+                                {/* {item?.icon} */}
+                                <p>{item.categoryName}</p>
                             </a>
                         </Link> 
 

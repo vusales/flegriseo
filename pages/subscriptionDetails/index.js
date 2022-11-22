@@ -217,7 +217,6 @@ SubscriptionDetails.getInitialProps = async (ctx) => {
     // this request have to be each page 
     const catalogData =  await getCatalogData() ; 
     const catalog =  catalogData.data ;
-    console.log("catalog" , catalog );
     // *********************** 
 
     return {

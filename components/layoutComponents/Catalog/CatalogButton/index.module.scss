@@ -11,23 +11,43 @@
     padding:10px 0;
     padding-left: 10px;
     border-radius: 2px;
+    transition: ease-in-out .3;
+
+    >a {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        color: $black ;
+    }
 
 
     &:hover{
         color: $second ;
         background-color: $gray;
+        >a {
+            >svg {
+                fill: $second ;
+            }
+            >p {
+                color: $second ;
+            }
+        }
+        
         >.catalogHoveredElement {
             display: block;
         }
     }
 
-    >p {
-        @include text;
-        color:$text;
-        font-size: 16px;
-        line-height: 18px;
-        margin-left: 5px;
+    >a {
+        >p {
+            @include text;
+            color:$text;
+            font-size: 16px;
+            line-height: 18px;
+            margin-left: 5px;
+        }
     }
+    
 }
 
 .catalogHoveredElement {
@@ -42,7 +62,8 @@
     -moz-box-shadow: 6px 2px 22px 0px rgba(240,225,225,0.75);
     background-color: $main;
     border-radius: 2px;
-    
+    transition: ease-in-out .3;
+
     >a {
 
         &:hover{
