@@ -10,7 +10,7 @@ const Catalog = ({catalog}) => {
                 catalog?.length&&catalog.map((item , index)=>{
                     return(
                         <CatalogButton 
-                        key={`catalog-Button${item.id}`}
+                        key={`catalog-Button${index}`}
                         data={item} 
                         />
                     )
