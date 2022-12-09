@@ -1,4 +1,7 @@
-import React from "react"; 
+import React , {
+    useState ,  
+    useEffect ,
+} from "react"; 
 import styles from "./index.module.scss";
 import Container from '@mui/material/Container';
 import StaticBanner from "../../components/StaticBanner";
@@ -8,6 +11,8 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import Card from "../../components/Card";
 import { Grid } from "@mui/material";
 import { getCatalogData } from "../../api/catalogContent";
+import {getSpecialProducts} from "../../api/productContent"; 
+import { getPagesBanner } from "../../api/homecontent"; 
 
 
 
@@ -91,23 +96,35 @@ const cardDemo  = [
 
 
 
-const CheapServices = ({catalog}) => {
+const CheapServices = ({catalog , cheapServicess , banners  }) => {
+
+    const [banner , setBanner ] = useState(null); 
+
+    useEffect(()=> {
+        getSuitableBanner("Cheap Services") ; 
+    }, []); 
+
+    const getSuitableBanner = (currentBanner) => {
+        let banner =  banners.filter((item)=> item.pageName === currentBanner)[0].pageContent ; 
+        setBanner(banner) ; 
+    }
     return (
         <CommonLayout catalog={catalog}>
             <Container>
                 <StaticBanner 
-                title={demoforStaticBanner.title}
-                subTitle={demoforStaticBanner.subTitle}
-                description={demoforStaticBanner.description}
-                buttonText={demoforStaticBanner.buttonText}
-                imageSrc={demoforStaticBanner.imgSrc}
+                title={banner?.title}
+                subTitle={banner?.intro}
+                description={banner?.bannerDescription}
+                buttonText={"VIEW CHEAP SERVICES"}
+                imageSrc={banner?.image}
                 /> 
-
-                <SpecialAnouncment
-                data={specialAnounc}
-                />
-
-
+                {
+                    banner?.characteristicCards.length ? 
+                    <SpecialAnouncment
+                    data={ banner?.characteristicCards}
+                    />
+                    :null
+                }
                 <Grid container spacing={2} sx={{marginTop:2,  marginBottom:2}}>
                     <Grid item xs={12} >
                         <div className={styles.title}>
@@ -117,7 +134,7 @@ const CheapServices = ({catalog}) => {
                     </Grid>
 
                     {
-                        cardDemo.map((item, index)=> {
+                        cheapServicess?.products?.map((item, index)=> {
                             return (
                                 <Card
                                 key={`cardCheap=${index}`}
@@ -126,7 +143,6 @@ const CheapServices = ({catalog}) => {
                             )
                         })
                     }
-
                 </Grid>
             </Container>
         </CommonLayout>  
@@ -140,12 +156,15 @@ export const getStaticProps = async (context) => {
     const catalogData =  await getCatalogData() ; 
     const catalog =  catalogData.data ;
     // *********************** 
+    const { cheapServicess } =  await getSpecialProducts(); 
+    const {banners} =  await getPagesBanner(); 
   
-    
-   
+
     return {
       props : {
         catalog , 
+        cheapServicess , 
+        banners , 
       } 
     }
 }

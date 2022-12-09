@@ -90,7 +90,7 @@ const Banner = ({data}) => {
                                     }
                                 </div>
                                 <div className={styles.imageContainer}>
-                                    {/* <Image src={item.image} width={300} height={300} alt="banner" />  */}
+                                    <Image src={item.image} width={300} height={300} alt="banner" /> 
                                 </div>
                          </div>
                         )
