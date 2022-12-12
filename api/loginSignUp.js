@@ -46,5 +46,24 @@ export const signOut = async (body) => {
 }
 
 
+export const checkEmail =  async (body) => {
+    try{
+
+        let request =  {
+            token: JSON.parse(localStorage.getItem("WWW_FLESMO_AUTH")) , 
+            ...body , 
+        }
+
+        const result =  await postRequest("/auth/checkEmail" , request ); 
+
+        console.log("result" , result );
+
+
+    }catch(err) {
+        console.log("err" , err);
+    }
+}
+
+
 
 

@@ -178,7 +178,7 @@ const Login = ({catalog}) => {
 
                             <Grid item xs={12}>
                                 <div className={styles.links}>
-                                    <Link href="/">
+                                    <Link href="/checkEmail">
                                         <a  className={styles.bannerButton}>Forgot Password?</a>
                                     </Link>
                                     <Link href="/signUp">
