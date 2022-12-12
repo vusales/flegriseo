@@ -49,7 +49,7 @@ const SignUp = ({catalog}) => {
 
     return(
         <CommonLayout catalog={catalog}>
-            <Container>
+            <Container  maxWidth="md">
                <Paper elevation={2} className={styles.papper}>
                <form className={styles.inputBaseContainer}>
                     <Grid container spacing={2} p={3}>

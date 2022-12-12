@@ -139,8 +139,6 @@ export const getStaticProps = async (context) => {
     const catalog =  catalogData.data ;
     // *********************** 
   
-    
-   
     return {
       props : {
         catalog , 
