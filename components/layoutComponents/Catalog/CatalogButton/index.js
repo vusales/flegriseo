@@ -35,31 +35,31 @@ const CatalogButton =({data})=>{
                 {
                     data?.subCategories?.map((item ,  index )=>{
                         return (
-                           
-                                <a
-                                onClick={(e)=>{
-                                    e.preventDefault();
-                                    Router.push(
-                                        {
-                                            pathname: '/filter',
-                                            query: { subCategoryId : item._id },
-                                        }
-                                    )
-                                }}
+                            <a
+                            key={`subCategories${index}`}
+                            onClick={(e)=>{
+                                e.preventDefault();
+                                Router.push(
+                                    {
+                                        pathname: '/filter',
+                                        query: { subCategoryId : item._id },
+                                    }
+                                )
+                            }}
+                            >
+                                <div 
+                                key={`catBut${index}`}
                                 >
-                                    <div 
-                                    key={`catBut${index}`}
-                                    >
-                                        {/* <HouseboatIcon/> */}
-                                        <Image
-                                        src="/cardImg.png"
-                                        alt="category logo image"
-                                        width={20}
-                                        height={20}
-                                        />
-                                        <p>{item.categoryName}</p>
-                                    </div>
-                                </a>
+                                    {/* <HouseboatIcon/> */}
+                                    <Image
+                                    src="/cardImg.png"
+                                    alt="category logo image"
+                                    width={20}
+                                    height={20}
+                                    />
+                                    <p>{item.categoryName}</p>
+                                </div>
+                            </a>
                         )
                     })
                 }

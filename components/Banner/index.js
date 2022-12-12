@@ -56,13 +56,14 @@ var settings = {
 
 
 const Banner = ({data}) => {
+    console.log("data" , data);
     return(
         <div className={styles.bannerContainer}>
             <Slider {...settings} >
                 {
                     data?.map((item , index)=>{
                         return(
-                            <div key={`slickBanner${item.id}`} className={styles.subContainer}>
+                            <div key={`slickBanner${item._id}`} className={styles.subContainer}>
                                 <div className={styles.textContainer}>
                                     <div>
                                         <p className={styles.subTitle}>{item.intro}</p>

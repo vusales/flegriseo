@@ -1,7 +1,7 @@
 import React , {useEffect} from 'react';
 import styles from "./index.module.scss";
 
-const Alert = ({ message , type ,  callback }) => {
+const Alert = ({ message , type ,  callback , show }) => {
 
   let typeStyle; 
   let backgroundColor ; 
@@ -27,9 +27,15 @@ const Alert = ({ message , type ,  callback }) => {
   }
 
   return (
+  <div>
+    { show ? 
       <div className={styles.snackBarSuccess} style={{backgroundColor: backgroundColor }}>
         <span>{message}</span>
       </div>
+      :null
+    }
+  </div>
+      
   );
 };
 

@@ -22,15 +22,12 @@ const UserChoice = ({ catalog, cheapServicess , banners  }) => {
 
     useEffect(()=> {
         getSuitableBanner("Cheap Services") ; 
-         
     }, []); 
 
     const getSuitableBanner = (currentBanner) => {
         let banner =  banners.filter((item)=> item.pageName === currentBanner)[0].pageContent ; 
         setBanner(banner) ; 
     }
-
-
 
     return (
         <CommonLayout catalog={catalog}>
@@ -73,7 +70,6 @@ const UserChoice = ({ catalog, cheapServicess , banners  }) => {
 }
 
 export const getStaticProps = async (context) => {
-
     // this request have to be each page 
     const catalogData =  await getCatalogData() ; 
     const catalog =  catalogData.data ;
