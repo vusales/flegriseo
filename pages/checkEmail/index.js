@@ -30,12 +30,18 @@ const checkEmail = ({
     const checkEmail =  async () => {
         try {
 
+
+            if(!email) return  setAlert({
+                showAlert: true , 
+                alertDescription: "Email daxil edilməyib!" , 
+                type: "error" , 
+            }); 
+            
             let body  = {
                 "email" : email 
             }
 
             await checkEmailApi(body); 
-
 
         }
         catch(err) {
@@ -48,8 +54,6 @@ const checkEmail = ({
     }
 
 
-    
-    
 return (
     <CommonLayout catalog={catalog}>
         <Alert

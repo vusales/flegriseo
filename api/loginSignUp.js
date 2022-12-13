@@ -46,7 +46,7 @@ export const signOut = async (body) => {
 }
 
 
-export const checkEmail =  async (body) => {
+export const checkEmailApi =  async (body) => {
     try{
 
         let request =  {
