@@ -1,5 +1,6 @@
 import React , {useEffect} from 'react';
 import styles from "./index.module.scss";
+import CloseIcon from '@mui/icons-material/Close';
 
 const Alert = ({ message , type ,  callback , show }) => {
 
@@ -8,7 +9,7 @@ const Alert = ({ message , type ,  callback , show }) => {
 
 
   useEffect(()=>{
-      setTimeout(()=>callback(false) , 3000);
+      setTimeout(()=>callback(false) , 2000);
   }, []);
 
 
@@ -31,6 +32,9 @@ const Alert = ({ message , type ,  callback , show }) => {
     { show ? 
       <div className={styles.snackBarSuccess} style={{backgroundColor: backgroundColor }}>
         <span>{message}</span>
+        <div onClick={()=>callback(false)}>
+          <CloseIcon />
+        </div>
       </div>
       :null
     }
