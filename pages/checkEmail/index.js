@@ -15,6 +15,7 @@ import loginValidation from "../../validation/loginValidation";
 import Alert from "../../ui/Alert";
 import { getCatalogData } from "../../api/catalogContent";
 import {login , getAuthToken , signOut , checkEmailApi } from "../../api/loginSignUp"; 
+import { useRouter } from 'next/router';
 
 const checkEmail = ({
     catalog,
@@ -26,11 +27,10 @@ const checkEmail = ({
         type: "" , 
     }); 
     const [email , setEmail ] = useState(""); 
+    const router = useRouter(); 
 
     const checkEmail =  async () => {
         try {
-
-
             if(!email) return  setAlert({
                 showAlert: true , 
                 alertDescription: "Email daxil edilməyib!" , 
@@ -41,13 +41,27 @@ const checkEmail = ({
                 "email" : email 
             }
 
-            await checkEmailApi(body); 
+            await checkEmailApi(body).then((result) => {
+                if(result){
+                    router.push(
+                        {
+                            pathname: "/verifyCode",
+                            query: { email: email },
+                        }); 
+                }else {
+                    setAlert({
+                        showAlert: true , 
+                        alertDescription: "Xəta baş verdi!" , 
+                        type: "error" , 
+                    }); 
+                }
+            }); 
 
         }
         catch(err) {
             setAlert({
                 showAlert: true , 
-                alertDescription: error , 
+                alertDescription: err , 
                 type: "error" , 
             });  
         }

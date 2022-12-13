@@ -14,11 +14,94 @@ import Link from "next/link";
 import loginValidation from "../../validation/loginValidation";
 import Alert from "../../ui/Alert";
 import { getCatalogData } from "../../api/catalogContent";
-import {login , getAuthToken , signOut  } from "../../api/loginSignUp"; 
+import {login , getAuthToken , signOut , verifyCodeApi ,   } from "../../api/loginSignUp"; 
+import { useRouter } from 'next/router';
+
+
+// code inputs 
+const initialCodes={
+    first:"",
+    second:"",
+    third:"",
+    forth:"",
+}
+  
+const codeReducer = (state , action) => {
+    return {...state , ...action}
+}
 
 const checkEmail = ({
-    params,
+    catalog,
 }) => {
+    const router = useRouter();
+    const [codeState, codeDispatch] = useReducer(codeReducer, initialCodes);
+    const [alert , setAlert ] = useState({
+        showAlert: false , 
+        alertDescription: "" , 
+        type: "" , 
+    }); 
+
+    const [ email , setEmail ] = useState("");
+
+    useEffect(()=>{
+        setEmail(router?.query?.email); 
+        if(router?.query?.email){
+            setAlert({
+                showAlert: true , 
+                alertDescription: "Emailinizə göndərilən 4 rəqəmli kodu daxil edin!" , 
+                type: "warning" , 
+            }); 
+        }
+
+    } , []) ; 
+
+
+    const verfyNumber = async () => {
+        try{
+            const body  = {
+                email: email , 
+                code: `${codeState.first}${codeState.second}${codeState.third}${codeState.forth}` , 
+            }
+            await verifyCodeApi(body).then((result)=>{
+                console.log("result" , result) ;
+                if(result) {
+                    router.push({
+                        pathname: "/changePassword",
+                        query: { email: email },
+                    }); 
+                }else {
+                    setAlert({
+                        showAlert: true , 
+                        alertDescription: "Xəta baş verdi!" , 
+                        type: "error" , 
+                    }); 
+                }
+            }); 
+        }
+        catch(error){
+            console.log("error" , {error});
+        }
+    }
+
+    // for to focus code inputs
+    const handleChange = e => {
+        const { maxLength, value, name } = e.target;
+        const [fieldName, fieldIndex] = name.split("-");
+        // Check if they hit the max character length
+        if (value.length >= maxLength) {
+        // Check if it's not the last input field
+        if (parseInt(fieldIndex, 10) < 4) {
+            // Get the next input field
+            const nextSibling = document.querySelector(
+            `input[name=ssn-${parseInt(fieldIndex, 10) + 1}]`
+            );
+            // If found, focus the next field
+            if (nextSibling !== null) {
+            nextSibling.focus();
+            }
+        }
+        }
+    }
     
     
 return (
@@ -34,69 +117,38 @@ return (
             <Grid container spacing={2} p={3}>
                 <Grid item xs={12}>
                     <div className={styles.titleCon} >
-                        <h1>Login</h1>
+                        <h1>Təsdiqləmə kodunu daxil edin</h1>
                         <div className={styles.line}></div>
                     </div>
                 </Grid>
                 <Grid item xs={12}>
                     <div className={styles.loginContainer}>
-                        <div className={styles.inputContainer}>
-                            <div className={styles.iconContainer}>
-                                <StayCurrentPortraitIcon />
-                            </div>
-                            <InputMask 
-                            mask="99-999-99-99" 
-                            value={state.phone}
-                            onChange={(event)=>{
-                                let value = event.target.value.trim().split("-");
-                                let filteredString = value.filter((item)=> /\S/.test(item));
-                                let result = filteredString.join('');
-                                dispatch({phone: result }) ;
-                            }}
-                            >
-                                {(inputProps) => (
-                                <input
-                                    {...inputProps}
-                                    type="tel" 
-                                    name="tel" 
-                                    id="tel" 
-                                    placeholder="+994 |" 
-                                    required
-                                />
-                                )}
-                            </InputMask>
-                        </div>
-
-                        <div className={styles.inputContainer}>
-                            <div className={styles.iconContainer}>
-                                <LockOpenIcon />
-                            </div>
-
-                            <input  
-                            type="text"
-                            placeholder="Password"
-                            value={state.password}
-                            onChange={(e)=>{dispatch({password: e.target.value }) }}
-                            />
+                        <div className={styles.passwordCodePageInputContainer}>
+                            <input maxLength={1} type="text" name="ssn-1" onChange={(e)=>{
+                            codeDispatch({first: e.target.value});
+                            handleChange(e);
+                            }}/>
+                            <input maxLength={1} type="text" name="ssn-2" onChange={(e)=>{
+                            codeDispatch({second: e.target.value});
+                            handleChange(e);
+                            }}/>
+                            <input maxLength={1} type="text" name="ssn-3" onChange={(e)=>{
+                            codeDispatch({third: e.target.value});
+                            handleChange(e);
+                            }}/>
+                            <input maxLength={1} type="text" name="ssn-4" onChange={(e)=>{
+                            codeDispatch({forth: e.target.value});
+                            handleChange(e);
+                            }}/>
                         </div>
                     </div>
                 </Grid>  
 
                 <Grid item xs={12}>
-                    <div className={styles.links}>
-                        <Link href="/">
-                            <a  className={styles.bannerButton}>Forgot Password?</a>
-                        </Link>
-                        <Link href="/signUp">
-                            <a  className={styles.bannerButton}>Registration</a>
-                        </Link>
-                    </div>
-                </Grid>
-                <Grid item xs={12}>
                     <div className={styles.buttons}>
                         <button 
-                        onClick={()=>signIn()}
-                        >Sign in</button>
+                        onClick={()=>verfyNumber()}
+                        >Təsdiqləmə kodunu göndər</button>
                     </div>
                 </Grid>
             </Grid>
@@ -104,5 +156,20 @@ return (
         </Container>
     </CommonLayout>
 )};
+
+
+export const getStaticProps = async (context) => {
+
+    // this request have to be each page 
+    const catalogData =  await getCatalogData() ; 
+    const catalog =  catalogData.data ;
+    // *********************** 
+  
+    return {
+      props : {
+        catalog , 
+      } 
+    }
+}
 
 export default checkEmail;

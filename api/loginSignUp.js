@@ -48,20 +48,36 @@ export const signOut = async (body) => {
 
 export const checkEmailApi =  async (body) => {
     try{
-
         let request =  {
-            token: JSON.parse(localStorage.getItem("WWW_FLESMO_AUTH")) , 
             ...body , 
         }
-
+        console.log("request checkEmailApi" , request );
         const result =  await postRequest("/auth/checkEmail" , request ); 
-
-        console.log("result" , result );
-
-
+        return result.result ; 
     }catch(err) {
         console.log("err" , err);
     }
+}
+
+export const verifyCodeApi = async (body) => {
+    try {
+        const result =  await postRequest("/auth/codeVerify" , body ); 
+        return result.result ; 
+    }catch(err) {
+        console.log("error" ,  err );
+    }
+
+}
+
+
+export const changePasswordApi = async (body) => {
+    try {
+        const result =  await postRequest("/auth/newPassword" , body ); 
+        return result.result ; 
+    }catch(err) {
+        console.log("error" ,  err );
+    }
+
 }
 
 
