@@ -46,7 +46,6 @@ const ChangePassword = ({
             let valid =  await PasswordValidation.validate(state); 
 
             if(valid){
-
                 if(state.password === state.newpassword) {
                     let body = {
                         email: router.query.email , 
@@ -70,11 +69,8 @@ const ChangePassword = ({
                             }); 
                         }
                     }); 
-
                 }
             }
-
-
         }catch(err) {
             console.log("err" , err);
         }

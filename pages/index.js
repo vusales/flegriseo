@@ -15,6 +15,7 @@ import {getCatalogData} from "../api/catalogContent";
 // *** 
 
 export default function Home({banners , infoCards , subscriptions , whyChooseUs , statistics  , catalog }) {
+
   return (
     <CommonLayout catalog={catalog} >
       <Container>
@@ -43,7 +44,7 @@ export const getStaticProps = async (context) => {
   // this request have to be each page 
   const catalogData =  await getCatalogData(); 
 
-  const catalog =  catalogData.data ;
+  const catalog = catalogData.data ;
   // *********************** 
 
   const {banners , infoCards , subscriptions , whyChooseUs , statistics } =  data ; 

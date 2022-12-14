@@ -1,29 +1,93 @@
-import React , {useState} from "react";
+import React , {useEffect, useState} from "react";
 import styles from "./index.module.scss";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Select , MenuItem } from "@mui/material";
+import { cloneDeep } from "lodash"; 
 
 
-const AddRemoveComponent = ({componentStyle , select , price }) => {
+const AddRemoveComponent = ({id , componentStyle , select , price , data , allChoosens , setAllChoosens  }) => {
+    // quantity is for bring userChoice and send 
     const [quantity , setQuantity] =useState(0); 
-    const [quality, setQuality] = useState('');
+    const [quantityIndex , setQuantityIndex] =useState(0); 
+    const [incrementValues ,  setIncrementValues] =  useState([]); 
+    // for select component value
+    const [quality, setQuality] = useState("");
 
+    useEffect(()=> {
+        setDefaults();
+    } , []) ; 
+
+    useEffect(()=> {
+        setChoosenQuantity();
+        setBaseArray();
+    } , [quantityIndex , quantity ]) ; 
+ 
+    // get defaults 
+    const setDefaults = () => {
+        // get array of values and sort 
+        let incValues =  data?.incrementValues.sort(); 
+        setQuantity(incValues[0]); 
+        setIncrementValues(incValues); 
+        // default quantity 
+    }
+
+    // select change
     const handleChange = (event) => {
         setQuality(event.target.value);
     };
 
+    // set choosen value 
+    const setChoosenQuantity = () => {
+        setQuantity(incrementValues[quantityIndex]); 
+    }
+
+    // depends on quantityIndex in UseEffect
+    const addValue = () => {
+        if(quantityIndex >= incrementValues.length-1) return; 
+        let result =  quantityIndex + 1 ; 
+        setQuantityIndex(result); 
+    }
+
+    // depends on quantityIndex in UseEffect
+    const removeValue = () => {
+        if(quantityIndex <= 0) return; 
+        let result =  quantityIndex - 1 ; 
+        setQuantityIndex(result) ;  
+    }
+
+    const setBaseArray  = () => {
+        // check main array 
+        const baseArray =  cloneDeep(allChoosens); 
+        let chosenBefore =  baseArray.find((item)=> item.id === id); 
+        if(chosenBefore) {
+            baseArray.map((item)=>{
+                if(item.id === id) {
+                    item.value =  quantity ; 
+                }
+            })
+        } else {
+            let result = {
+                id: id , 
+                value: quantity , 
+                price: data?.itemPrice , 
+                currency: data?.currency ,
+            }
+            baseArray.push(result) ; 
+        }
+        setAllChoosens(baseArray) ; 
+    }
+
     return(
         <div className={styles.addRemoveContainer} style={componentStyle ?? {}}>
             <div className={styles.titleContainer}>
-                <p>Posts per period:</p>
+                <p>{data?.title}:</p>
                 {
                     price ?
-                    <p>0.09 RUB <span>per piece</span></p>
+                    <p>{data?.itemPrice} {data?.currency} <span>per piece</span></p>
                     :null
                 }
             </div>
-
             {
                 select ?
                 <div className={styles.selectContainer} >
@@ -33,19 +97,33 @@ const AddRemoveComponent = ({componentStyle , select , price }) => {
                     displayEmpty
                     inputProps={{ 'aria-label': 'Without label' }}
                     sx={{width:"100%" ,  height: "100%" , outline: "none"}}
+                    // label="Seçin"
                     >
-                        <MenuItem value="">Choose</MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
+                        {
+                            incrementValues?.length? 
+                            incrementValues?.map((item, index) => {
+                                return (
+                                    <MenuItem 
+                                    key={index} 
+                                    value={item}>{item}</MenuItem>
+                                )
+                            })
+                            :null
+                        }
                     </Select>
                 </div>
                 :
                 <div className={styles.addRemoveButtonsContainer} >
-                    <button>
-                        <AddIcon/>
-                    </button>
-                    <div>{quantity}</div>
-                    <button>
+                    <button
+                    onClick={()=>removeValue()}
+                    >
                         <RemoveIcon/>
+                    </button>
+                    <div>{incrementValues?.[quantityIndex]}</div>
+                    <button
+                    onClick={()=>addValue()}
+                    >
+                        <AddIcon/>
                     </button>
                 </div>
             }

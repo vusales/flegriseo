@@ -12,19 +12,33 @@ import Link from "next/link";
 import { DesktopTablet } from "../../ui/Breakpoints";
 import { useRouter } from 'next/router'; 
 import { getCatalogData } from "../../api/catalogContent";
+import {getSubscriptionsByIdApi}  from "../../api/homecontent";
 
 
 
-const SubscriptionDetails = ({id, catalog }) => {
-    // const router =  useRouter(); 
-    // const {id} =  router.query ; 
-    // console.log("id from query" ,  id ) ; 
+const SubscriptionDetails = ({id, catalog , data  }) => {
+    const router =  useRouter(); 
+    const [subscriptions , setSubscriptions] =  useState({}); 
+    const [allChoosenServicess , setAllChoosenServicess] =  useState([]); 
+    // const [payableAmount  , setPayableAmount ] =  useState(0); 
 
-    const [productId ,  setProductId ] = useState("") ; 
 
-    useEffect(()=> {
-        setProductId(id); 
-    }, []); 
+    useEffect(()=>{
+        setSubscriptions(data);
+    } , []) ; 
+
+    // useEffect(()=>{
+    //     totalAmount();
+    // } , [allChoosenServicess]) ; 
+
+    const totalAmount = () => {
+        let amount=0 ; 
+        allChoosenServicess.forEach((item) => {
+            amount += item.price*item.value; 
+        }); 
+        // setPayableAmount(amount); 
+        return amount ; 
+    }
 
     return(
         <CommonLayout  catalog={catalog}>
@@ -37,8 +51,7 @@ const SubscriptionDetails = ({id, catalog }) => {
                                     <Image src="/cardImg.png" width={70} height={70} alt="subscription product image"/>
                                 </DesktopTablet>
                                 <div>
-                                    <h1>Инстаграм: укажите ссылку на страницу</h1>
-
+                                    <h1>{data.title}: укажите ссылку на страницу</h1>
                                     <div className={styles.addlinkInputContainer}>
                                         <div className={styles.iconCon} >
                                             <LinkIcon/>
@@ -52,109 +65,87 @@ const SubscriptionDetails = ({id, catalog }) => {
 
                             </div>
                         </Grid>
-                        <Grid item xs={12} mb={3}>
-                            <div className={styles.container}>
-                                <div className={styles.subTitlesContainer}>
-                                    <h2>PROMOTION METHOD</h2>
-                                </div>
-                                <div  className={styles.promoContainer}>
-                                    <div>
-                                        <VerifiedIcon />
+                        {
+                            subscriptions?.promotionMethod?
+                            <Grid item xs={12} mb={3}>
+                                <div className={styles.container}>
+                                    <div className={styles.subTitlesContainer}>
+                                        <h2>PROMOTION METHOD</h2>
                                     </div>
-                                    <div>
-                                        <p  className={styles.description}> As soon as you add a new post to your Instagram account, our online subscription system will automatically launch an advertising campaign for promotion, taking into account the settings below. Subscribing will increase your reach and help you get recommended! After the publication of a new post, the addition of views, likes, saves and writing thematic comments from users with an avatar from Russia and Russian-speaking CIS countries will automatically begin.</p>
+                                    <div  className={styles.promoContainer}>
+                                        <div>
+                                            <VerifiedIcon />
+                                        </div>
+                                        <div>
+                                            <p  className={styles.description}>{subscriptions?.promotionMethod}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} mb={3}>
-                            <div className={styles.container}>
-                                <div className={styles.subTitlesContainer}>
-                                    <h2>SUBSCRIPTION SETTINGS</h2>
-                                </div>
-                                <div className={styles.settingContainer}>
-                                    <Grid container spacing={2}>
-                                        <Grid item  xs={12} sm={12} md={4}  mt={1} >
-                                            <AddRemoveComponent
-                                            // componentStyle={{width:"90%"}}
-                                            />
-                                        </Grid>
-                                        <Grid item xs={12} sm={12} md={4}  mt={1} >
-                                            <AddRemoveComponent
-                                            // componentStyle={{width:"90%"}}
-                                            select={true}
-                                            />
-                                        </Grid>
-                                    </Grid>
-                                </div>
-                            </div>
-                        </Grid>
+                            </Grid>
+                            :
+                            null
+                        }
 
-                        <Grid item xs={12} mb={3}>
-                            <div className={styles.container}>
-                                <div className={styles.subTitlesContainer}>
-                                    <h2>FOR EACH NEW POST:</h2>
-                                </div>
-                                <div className={styles.settingContainer}>
-                                    <Grid container spacing={2}>
-                                        <Grid item  xs={12} sm={12} md={4} mt={1} mb={1}>
-                                            <AddRemoveComponent
-                                            // componentStyle={{width:"90%"}}
-                                            price={true}
-                                            />
-                                        </Grid>
-                                        <Grid item  xs={12} sm={12} md={4}  mt={1}  mb={1}>
-                                            <AddRemoveComponent
-                                            // componentStyle={{width:"90%"}}
-                                            price={true}
-                                            />
-                                        </Grid>
-                                        <Grid item  xs={12} sm={12} md={4}  mt={1}  mb={1}>
-                                            <AddRemoveComponent
-                                            // componentStyle={{width:"90%"}}
-                                            price={true}
-                                            />
-                                        </Grid>
-                                        <Grid item  xs={12} sm={12} md={4}  mt={1}  mb={1}>
-                                            <AddRemoveComponent
-                                            // componentStyle={{width:"90%"}}
-                                            price={true}
-                                            />
-                                        </Grid>
-                                        <Grid item  xs={12} sm={12} md={4}  mt={1}  mb={1} >
-                                            <AddRemoveComponent
-                                            // componentStyle={{width:"90%"}}
-                                            price={true}
-                                            />
-                                        </Grid>
-                                        <Grid item  xs={12} sm={12} md={4}  mt={1}  mb={1}>
-                                            <AddRemoveComponent
-                                            // componentStyle={{width:"90%"}}
-                                            price={true}
-                                            />
-                                        </Grid>
-                                    </Grid>
-                                </div>
-                            </div>
-                        </Grid>
+                                                
+                         {/* <Grid item xs={12} mb={3}>
+                             <div className={styles.container}>
+                                 <div className={styles.subTitlesContainer}>
+                                     <h2>SUBSCRIPTION SETTINGS</h2>
+                                 </div>
+                                 <div className={styles.settingContainer}>
+                                     <Grid container spacing={2}>
+                                         <Grid item  xs={12} sm={12} md={4}  mt={1} >
+                                             <AddRemoveComponent
+                                            //   componentStyle={{width:"90%"}}
+                                             />
+                                         </Grid>
+                                         <Grid item xs={12} sm={12} md={4}  mt={1} >
+                                             <AddRemoveComponent
+                                            //   componentStyle={{width:"90%"}}
+                                             select={true}
+                                             />
+                                         </Grid>
+                                     </Grid>
+                                 </div>
+                             </div>
+                         </Grid> */}
 
-                        <Grid item xs={12} mb={3}>
-                            <div className={styles.container}>
-                                <div className={styles.subTitlesContainer}>
-                                    <h2>PER PERIOD PER PAGE:</h2>
-                                </div>
-                                <div className={styles.settingContainer}>
-                                    <Grid container spacing={2}>
-                                        <Grid item  xs={12} sm={12} md={4}  mt={1} >
-                                            <AddRemoveComponent
-                                            // componentStyle={{width:"90%"}}
-                                            price={true}
-                                            />
-                                        </Grid>
-                                    </Grid>
-                                </div>
-                            </div>
-                        </Grid>
+                        {
+                            subscriptions?.servicess?.length ? 
+                            subscriptions?.servicess?.map(
+                                (item , index) =>{
+                                return( 
+                                <Grid key={index} item xs={12} mb={3}>
+                                    <div className={styles.container}>
+                                        <div className={styles.subTitlesContainer}>
+                                            <h2>{item?.service_title}:</h2>
+                                        </div>
+                                        <div className={styles.settingContainer}>
+                                            <Grid container spacing={2}>
+                                                {
+                                                    item?.service_values.length? 
+                                                    item?.service_values.map((item, index) => {
+                                                        return (
+                                                            <Grid key={index} item  xs={12} sm={12} md={4} mt={1} mb={1}>
+                                                                <AddRemoveComponent
+                                                                id={id}
+                                                                data={item}
+                                                                price={true}
+                                                                allChoosens={allChoosenServicess}
+                                                                setAllChoosens={(value) => setAllChoosenServicess(value)}
+                                                                />
+                                                            </Grid>
+                                                        )
+                                                    })
+                                                    :null
+                                                }
+                                            </Grid>
+                                        </div>
+                                    </div>
+                                </Grid>
+                            )})  
+                        :null
+                        }
 
                         <Grid item xs={12}>
                             <div  className={styles.promoContainer}>
@@ -195,7 +186,7 @@ const SubscriptionDetails = ({id, catalog }) => {
 
                         <Grid item xs={12} >
                             <div className={styles.buttonContainer}>
-                                <p>Amount payable <span>100 ₼</span></p>
+                                <p>Amount payable:  <span>{totalAmount()} ₼</span></p>
                                 <Link href="/" >
                                     <a className={styles.subscribe}>
                                         Subscribe
@@ -219,11 +210,18 @@ SubscriptionDetails.getInitialProps = async (ctx) => {
     const catalog =  catalogData.data ;
     // *********************** 
 
+    const subscriptionsBody =  {
+        id, 
+    }
+    let subscriptionsById =  await getSubscriptionsByIdApi(subscriptionsBody); 
+
+  
     return {
-        props: {
+        // props: {
             id ,  
             catalog , 
-        }
+            data: subscriptionsById , 
+        // }
     };
 }
 
