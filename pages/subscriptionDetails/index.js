@@ -20,23 +20,22 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
     const router =  useRouter(); 
     const [subscriptions , setSubscriptions] =  useState({}); 
     const [allChoosenServicess , setAllChoosenServicess] =  useState([]); 
-    // const [payableAmount  , setPayableAmount ] =  useState(0); 
+    const [url , setUrl] =  useState(""); 
+    const [email , setEmail ] =  useState(""); 
+
 
 
     useEffect(()=>{
         setSubscriptions(data);
     } , []) ; 
 
-    // useEffect(()=>{
-    //     totalAmount();
-    // } , [allChoosenServicess]) ; 
+   
 
     const totalAmount = () => {
         let amount=0 ; 
         allChoosenServicess.forEach((item) => {
             amount += item.price*item.value; 
         }); 
-        // setPayableAmount(amount); 
         return amount ; 
     }
 
@@ -59,6 +58,10 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                                         <input
                                         tyope="url"
                                         placeholder="https://"
+                                        value={url} 
+                                        onChange={(e) => {
+                                            setUrl(e.target.value) ; 
+                                        }}
                                         />
                                     </div>
                                 </div>
@@ -180,6 +183,8 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                                 <input
                                 tyope="email"
                                 placeholder="Your email"
+                                value={email}
+                                onChange={(e)=>setEmail(e.target.value)}
                                 />
                             </div>
                         </Grid>
