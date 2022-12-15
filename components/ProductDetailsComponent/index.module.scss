@@ -32,6 +32,7 @@
         font-size: 15px;
         color:$text;
         padding-bottom: 16px;
+        text-transform: capitalize;
 
         @include breakpoint-down("small"){
             margin-top: 16px;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./index.module.scss";
 import { Grid , Container , Paper } from "@mui/material";
 import CommonLayout from "../../layout/commonLayout";
@@ -8,15 +8,32 @@ import OrderSubscriptions from "../../components/OrderSubscriptions";
 import SelectPaymantMethod from "../../components/SelectPaymantMethod";
 import OrderCheckout from "../../components/OrderCheckout";
 import { getCatalogData } from "../../api/catalogContent";
+import { useRouter } from "next/router";
 
 
 const Order = ({catalog}) => {
+    const router =  useRouter (); 
+
+    const {price , serviceAmount , serviceName , title } = router.query ; 
+
+
+    useEffect(()=>{
+        console.log("query in Order" ,  router.query );
+    } , []); 
+
     return (
         <CommonLayout catalog={catalog}>
             <Container>
                 <Paper elevation={2} className={styles.paper }>
                     <Grid container spacing={2} >
-                        <OrderListComponent />
+                        <OrderListComponent 
+                        name={title}
+                        qty = {{
+                            serviceName , 
+                            serviceAmount , 
+                        }}
+                        price={price}
+                        />
                         <OrderCheckoutComponent />
                         <OrderSubscriptions />                     
                     </Grid>
@@ -40,14 +57,13 @@ const Order = ({catalog}) => {
 }
 
 export const getStaticProps = async (context) => {
+    console.log( "context" , context );
 
     // this request have to be each page 
     const catalogData =  await getCatalogData() ; 
     const catalog =  catalogData.data ;
     // *********************** 
   
-    
-   
     return {
       props : {
         catalog , 
