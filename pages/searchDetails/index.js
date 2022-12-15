@@ -10,6 +10,7 @@ import { Grid ,  Paper } from "@mui/material";
 import styles from "./index.module.scss";
 import Card from "../../components/Card";
 import  {searchApi} from "../../api/productContent"; 
+import Blanks from '../../components/Blanks';
 
 
 const SearchDetails = ({
@@ -31,12 +32,10 @@ const SearchDetails = ({
         setIsRefreshing(false);
     }, [searchResults]);
 
-
     const refreshData = () => {
         router.replace(router.asPath);
         setIsRefreshing(true);
     }
-
 
     return (
     <CommonLayout
@@ -54,7 +53,6 @@ const SearchDetails = ({
                                     <div className={styles.line}></div>
                                 </div>
                             </Grid>
-
                             {/* search results */}
                             {
                                 searchedResults?.length ? 
@@ -70,7 +68,11 @@ const SearchDetails = ({
                                     )
                                 })
                                 :
-                                <p>Heç bir məhsul tapılmadı</p>
+                                <Grid item xs={12}>
+                                    <Blanks
+                                    title={"Məlumat tapılmadı!"}
+                                    />
+                                </Grid>
                             }
                         </Grid>
                     </Paper>
@@ -101,25 +103,5 @@ export async function getServerSideProps (context) {
         }
     }
 }
-
-// SearchDetails.getInitialProps = async (context) => {
-//     const {searchText} = context.query ; 
-//     // this request have to be each page 
-//     const catalogData =  await getCatalogData() ; 
-//     const catalog =  catalogData.data ;
-//     // *********************** 
-
-//     const body =  {
-//         "title" : searchText , 
-//     }
-
-//     const results = await searchApi(body);
-
-//     return {
-//         catalog , 
-//         searchResults: results || [] , 
-//     }
-// }
-
 
 export default SearchDetails;
