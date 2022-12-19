@@ -58,8 +58,6 @@ const demoComments = [
 
 const ProductDetails = ({ catalog , selectedProduct }) => {
 
-    console.log( "selectedProduct" , selectedProduct );
-
     return (
         <CommonLayout catalog={catalog}>
             <Container>
@@ -97,9 +95,9 @@ const ProductDetails = ({ catalog , selectedProduct }) => {
                                     :null
                                 }
                             </div>
-                            <CommentsComponent 
+                            {/* <CommentsComponent 
                             data={demoComments}
-                            />
+                            /> */}
                         </Paper>
                     </Grid>
                 </Grid>

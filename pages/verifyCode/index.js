@@ -63,7 +63,6 @@ const checkEmail = ({
                 code: `${codeState.first}${codeState.second}${codeState.third}${codeState.forth}` , 
             }
             await verifyCodeApi(body).then((result)=>{
-                console.log("result" , result) ;
                 if(result) {
                     router.push({
                         pathname: "/changePassword",

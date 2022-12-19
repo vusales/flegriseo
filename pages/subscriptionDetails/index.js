@@ -27,6 +27,8 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
 
     useEffect(()=>{
         setSubscriptions(data);
+        console.log("allChoosenServicess" ,    allChoosenServicess );
+        console.log("subscriptions" ,    subscriptions );
     } , []) ; 
 
    
@@ -131,7 +133,7 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                                                         return (
                                                             <Grid key={index} item  xs={12} sm={12} md={4} mt={1} mb={1}>
                                                                 <AddRemoveComponent
-                                                                id={id}
+                                                                id={item._id}
                                                                 data={item}
                                                                 price={true}
                                                                 allChoosens={allChoosenServicess}

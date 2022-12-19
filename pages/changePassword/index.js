@@ -53,7 +53,6 @@ const ChangePassword = ({
                     }
 
                     await changePasswordApi(body).then((result) => {
-                        console.log("result" ,  result );
                         if(result) {
                             setAlert({
                                 showAlert: true , 

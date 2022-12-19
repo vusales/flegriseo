@@ -53,15 +53,12 @@ const Login = ({catalog}) => {
 
     const signIn = async () => {
         try{
-            console.log("SIGNIN");
             let isValid = await loginValidation.validate(state);
             if (isValid) {
                 // login 
                 const result =  await login(state); 
-                console.log("result" ,  result ) ; 
                 setAuthToken(result.auth_token); 
             }else {
-                console.log("Error");
                 setAlert({
                     showAlert: true , 
                     alertDescription: "error" , 
@@ -69,7 +66,6 @@ const Login = ({catalog}) => {
                 }); 
             }
         }catch (error){
-            console.log("VALIDATION ERR" ,  {error});
             setAlert({
                 showAlert: true , 
                 alertDescription: error , 
@@ -85,7 +81,6 @@ const Login = ({catalog}) => {
             }
             signOut(body).then((result) => {
                 if(result) {
-                    console.log("SIGNOUT THEN");
                     setAuthToken(""); 
                 }
             }); 

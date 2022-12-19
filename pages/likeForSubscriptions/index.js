@@ -284,9 +284,7 @@ export const getStaticProps = async (context) => {
     const catalogData =  await getCatalogData() ; 
     const catalog =  catalogData.data ;
     // *********************** 
-  
-    
-   
+
     return {
       props : {
         catalog , 

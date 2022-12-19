@@ -59,6 +59,7 @@ const AddRemoveComponent = ({id , componentStyle , select , price , data , allCh
     const setBaseArray  = () => {
         // check main array 
         const baseArray =  cloneDeep(allChoosens); 
+        console.log("baseArray" , baseArray );
         let chosenBefore =  baseArray.find((item)=> item.id === id); 
         if(chosenBefore) {
             baseArray.map((item)=>{
