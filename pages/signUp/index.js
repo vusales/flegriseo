@@ -37,7 +37,6 @@ const SignUp = ({catalog}) => {
             const isValid =  await RegistrationValidation.validate(state) ; 
 
             if(isValid){
-                console.log("OK");
 
             }
         }

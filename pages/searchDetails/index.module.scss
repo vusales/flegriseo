@@ -1,0 +1,19 @@
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+
+.papper {
+    @include papper ;
+}
+
+
+.titleCon {
+    @include title;
+}
+
+.responsiveContainer {
+    width: 100%; 
+}
+
+.cardContainerCustomDesign {
+    background-color: #eee !important;
+}

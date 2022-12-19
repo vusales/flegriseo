@@ -8,7 +8,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { DesktopTablet ,  Mobile } from "../../ui/Breakpoints";
 
 
-const OrderListComponent = () => {
+const OrderListComponent = ({ name , qty , price }) => {
     return (
         <Grid item xs={12}>
             <DesktopTablet>
@@ -27,7 +27,7 @@ const OrderListComponent = () => {
                     <div className={styles.listItemContainer}>
                         <Image src="/cardImg.png" width={50} height={50} alt="product details"/>
                         <Link href="/productDetails">
-                            <a className={styles.productName}> Video Views (Standard Hold) </a>
+                            <a className={styles.productName}> {name} </a>
                         </Link>
                     </div>
                 </Grid>
@@ -39,12 +39,12 @@ const OrderListComponent = () => {
                 <Grid item xs={12} sm={12} md={4} >
                     <div className={styles.listItemContainer}>
                         <div className={styles.addRemoveContainer}>
-                            <button> <RemoveIcon/> </button>
+                            <button disabled={true}> <RemoveIcon/> </button>
                             <div>
-                                <p>3750</p>
-                                <p>like</p>
+                                <p>{qty?.serviceAmount}</p>
+                                <p>{qty?.serviceName}</p>
                             </div>
-                            <button> <AddIcon/> </button>
+                            <button disabled={true}> <AddIcon/> </button>
                         </div>
                     </div>
                 </Grid>
@@ -55,7 +55,7 @@ const OrderListComponent = () => {
                 </Mobile>
                 <Grid item  xs={12} sm={12} md={2} >
                     <div className={styles.listItemContainer}>
-                        <p className={styles.price}>14260 ₼</p>
+                        <p className={styles.price}>{price} ₼</p>
                     </div>
                 </Grid>
             </Grid>

@@ -16,8 +16,6 @@ import { getProductById } from "../../api/productContent";
 import {getCatalogData} from "../../api/catalogContent"; 
 // ***
 
-
-
 const detailsCardDemo = [
     {
         id:1 , 
@@ -58,16 +56,12 @@ const demoComments = [
     },
 ]
 
-
-
-const ProductDetails = ({catalog , selectedProduct }) => {
+const ProductDetails = ({ catalog , selectedProduct }) => {
 
     return (
         <CommonLayout catalog={catalog}>
             <Container>
                 <Grid container spacing={2} >
-                    {/* <Grid item xs={12} md={3}></Grid> */}
-                    {/* <Grid item xs={12} md={9} > */}
                     <Grid item xs={12} >
                         <Paper elevation={2} className={styles.papper}>
                             <ProductDetailsComponent 
@@ -79,10 +73,10 @@ const ProductDetails = ({catalog , selectedProduct }) => {
                                 p={3}
                             >
                                 {
-                                    selectedProduct?.options?.productFeatures?.length && selectedProduct?.options?.productFeatures?.map((item, index)=>{
+                                    selectedProduct?.options?.productFeatures?.map((item, index)=>{
                                         return(
                                             <ProductDetailsCardsComponent
-                                            key={`detailsCard${index}-${item.id+1}`}
+                                            key={`detailsCard${index}-${index+1}`}
                                             data={item}
                                             />
                                         )
@@ -101,9 +95,9 @@ const ProductDetails = ({catalog , selectedProduct }) => {
                                     :null
                                 }
                             </div>
-                            <CommentsComponent 
+                            {/* <CommentsComponent 
                             data={demoComments}
-                            />
+                            /> */}
                         </Paper>
                     </Grid>
                 </Grid>

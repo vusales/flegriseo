@@ -9,6 +9,7 @@ import ArticleIcon from '@mui/icons-material/Article';
 
 
 const SubScription = ({data}) => {
+    
     return(
         <Paper elevation={2} className={styles.paper}>
             <div className={styles.subscriptionContainer}>
@@ -20,16 +21,13 @@ const SubScription = ({data}) => {
                                 <h2 className={styles.title}>{data.title}</h2>
                                 <p >{data.subTitle}</p>
                             </div>
-
                             <p className={styles.description}>{data.description}</p>
                         </div>
-
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <div className={styles.linksContainer}>
                             {
                                 data?.subscriptions?.length&&data?.subscriptions.map((item , index)=>{
-
                                     return (
                                         <div  
                                         className={styles.socialCon}
@@ -44,7 +42,7 @@ const SubScription = ({data}) => {
                                             }}
                                             >
                                                 <a>
-                                                    design 
+                                                    Subscribe 
                                                 </a>
                                             </Link>
                                         </div>
@@ -58,5 +56,7 @@ const SubScription = ({data}) => {
         </Paper>   
     )
 }
+
+
 
 export default SubScription; 

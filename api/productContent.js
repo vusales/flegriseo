@@ -18,6 +18,17 @@ export const filter = async (parametr) => {
 
 export const getSpecialProducts =  async ( pagination ) => {
     const result =  await postRequest("/products/specialProducts") ; 
-    console.log("resuLt in specialProducts" ,  result ); 
     return result?.specaialProducts ; 
+}
+
+
+export const searchApi =  async ( body ) => {
+    try{
+        const result =  await postRequest("/products/search" , body ) ; 
+        return result.data; 
+
+    }catch(err){
+        console.log("err" ,  err );
+    }
+    
 }

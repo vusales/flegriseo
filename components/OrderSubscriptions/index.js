@@ -1,4 +1,7 @@
-import React , {useState} from "react"
+import React , {
+    useState, 
+    useEffect ,
+} from "react"
 import styles from "./index.module.scss";
 import { Grid , Checkbox } from "@mui/material";
 import SingleSubscription from "../SingleSubscription";
@@ -29,9 +32,17 @@ const demosubscription =[
 ];
 
 
-const OrderSubscriptions  = () => {
+const OrderSubscriptions  = ({callBackFunction}) => {
 
     const [chooseSubscriptionMethod ,  setChooseSubscriptionMethod ] = useState(""); 
+    const [agreement , setAgreement ] = useState(false) ; 
+
+    useEffect(()=> {
+        callBackFunction({
+            subscription_period:chooseSubscriptionMethod ,
+            agreement: agreement , 
+        }); 
+    }, [chooseSubscriptionMethod , agreement ]);
 
     return (
         <Grid item xs={12}> 
@@ -56,6 +67,8 @@ const OrderSubscriptions  = () => {
                         className={styles.checkbox}
                         {...label} 
                         sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }}
+                        checked={agreement}
+                        onChange={() => setAgreement(!agreement)}
                         />
                         <p>I agree to the Subscription Recurring Payment Rules and Automatic Charge Rules</p>
                     </div>

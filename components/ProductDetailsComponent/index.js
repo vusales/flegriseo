@@ -6,14 +6,18 @@ import Link from "next/link";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { useRouter } from "next/router";
+
 
 
 const ProductDetailsComponent = ({data}) => {
-
+    const router  = useRouter(); 
     const [serviceAmount , setServiceAmount] = useState(); 
     const [step , setStep ] = useState(); 
 
     useEffect(()=>{
+        console.log("serviceAmount" , serviceAmount );
+        console.log("step" , step );
         setServiceAmount(data?.options?.serviceAmount); 
         setStep(data?.options?.serviceAmount); 
     }, []); 
@@ -60,9 +64,9 @@ const ProductDetailsComponent = ({data}) => {
                     <div className={styles.middleSection}>
                         {
                             data?.discountPrice? 
-                            <p className={styles.price}>{data?.discountPrice}₼ <span>{data?.price}₼</span></p>
+                            <p className={styles.price}>{data?.discountPrice*serviceAmount }₼ <span>{data?.price* serviceAmount}₼</span></p>
                             :
-                            <p className={styles.price}>{data?.price}₼</p>
+                            <p className={styles.price}>{data?.price*serviceAmount}₼</p>
                         }
                         <div className={styles.addRemoveContainer}>
                             <button onClick={()=>  decreaseServiceAmount()  }> <RemoveIcon/> </button>
@@ -72,11 +76,36 @@ const ProductDetailsComponent = ({data}) => {
                             </div>
                             <button onClick={()=> increaseServiceAmount() }> <AddIcon/> </button>
                         </div>
-                        <Link 
-                        href="/order"
+                        {/* <Link 
+                        href={{
+                            pathname: "/order" ,
+                            query: { 
+                                choosenProduct : {
+                                    serviceAmount: serviceAmount , 
+                                    serviceName: data?.options?.serviceName, 
+                                    title: data?.title ,
+                                    price:  data?.discountPrice? data?.discountPrice*serviceAmount : data?.price*serviceAmount,
+                                },  
+                            },
+                          }}
                         >
                             <a className={styles.button}>Order</a>
-                        </Link>
+                        </Link> */}
+
+                        <button 
+                        className={styles.button}
+                        onClick={() => router.push({
+                            pathname: "/order" ,
+                            query: { 
+                                serviceAmount: serviceAmount , 
+                                serviceName: data?.options?.serviceName, 
+                                title: data?.title ,
+                                price:  data?.discountPrice? data?.discountPrice*serviceAmount : data?.price*serviceAmount,
+                            },
+                        })}
+                        >
+                            Order
+                        </button>
                     </div>
                     {
                         data.options.anouncementText ? 

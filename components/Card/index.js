@@ -6,7 +6,7 @@ import Image from "next/image";
 
 
 
-const Card = ({data , xs , md }) => {
+const Card = ({data , xs , md , containerStyle }) => {
 
     const Promotion = (decription , color) => {
         if(decription){
@@ -22,8 +22,8 @@ const Card = ({data , xs , md }) => {
 
 
     return (
-        <Grid item xs={xs ? xs : 12} md={md ? md : 3} >
-            <div className={styles.container}>
+        <Grid item xs={xs ? xs : 12} md={md ? md : 3}  >
+            <div className={ containerStyle ? `${styles.container} ${containerStyle}` :styles.container}>
                 { 
                 data?.promotions?.length ? 
                 data?.promotions.map((item ,  index)=>Promotion(item?.promotion , item?.color))

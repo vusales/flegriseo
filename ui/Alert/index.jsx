@@ -9,8 +9,8 @@ const Alert = ({ message , type ,  callback , show }) => {
 
 
   useEffect(()=>{
-      setTimeout(()=>callback(false) , 2000);
-  }, []);
+      setTimeout(()=>callback(false) , 3000);
+  }, [show]);
 
 
   switch (type) {

@@ -70,7 +70,6 @@ const Filter = ({products , catalog , query }) => {
                                 </Grid>
                                 :null
                             }
-                            
                             {
                                 dynamicProducts?.map((item, index)=>{
                                     return (
