@@ -8,8 +8,8 @@ const  OrderValidator = yup.object().shape({
     service_name: yup.string().required() , 
     subscription_period: yup.string().required(), 
     token: yup.string().required(),
-    phone: yup.string().matches( /^\d+$/ , "Yalnız rəqəm daxil edilməlidir!").required("Əlaqə nömrəsi düzgün daxil edilməyib!").length(9 , "Əlaqə nömrəsi düzgün daxil edilməyib!") ,
-}) ; 
+    phone: yup.string().matches( /^\d+$/ , "Yalnız rəqəm daxil edilməlidir!").length(9 , "Əlaqə nömrəsi düzgün daxil edilməyib!"),
+}); 
 
 export default OrderValidator; 
 

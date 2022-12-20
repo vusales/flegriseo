@@ -6,7 +6,15 @@ import { Select , MenuItem } from "@mui/material";
 import { cloneDeep } from "lodash"; 
 
 
-const AddRemoveComponent = ({id , componentStyle , select , price , data , allChoosens , setAllChoosens  }) => {
+const AddRemoveComponent = ({
+    id , 
+    componentStyle , 
+    select ,
+    price ,
+    data , 
+    allChoosens , 
+    setAllChoosens  
+}) => {
     // quantity is for bring userChoice and send 
     const [quantity , setQuantity] =useState(0); 
     const [quantityIndex , setQuantityIndex] =useState(0); 
@@ -16,12 +24,12 @@ const AddRemoveComponent = ({id , componentStyle , select , price , data , allCh
 
     useEffect(()=> {
         setDefaults();
-    } , []) ; 
+    }, []) ; 
 
     useEffect(()=> {
         setChoosenQuantity();
         setBaseArray();
-    } , [quantityIndex , quantity ]) ; 
+    } , [quantityIndex , quantity ]); 
  
     // get defaults 
     const setDefaults = () => {
@@ -60,17 +68,17 @@ const AddRemoveComponent = ({id , componentStyle , select , price , data , allCh
         // check main array 
         const baseArray =  cloneDeep(allChoosens); 
         console.log("baseArray" , baseArray );
-        let chosenBefore =  baseArray.find((item)=> item.id === id); 
+        let chosenBefore =  baseArray.find((item)=> item.service_id === id); 
         if(chosenBefore) {
             baseArray.map((item)=>{
-                if(item.id === id) {
-                    item.value =  quantity ; 
+                if(item.service_id === id) {
+                    item.quantity =  quantity ; 
                 }
             })
         } else {
             let result = {
-                id: id , 
-                value: quantity , 
+                service_id: id , 
+                quantity: quantity , 
                 price: data?.itemPrice , 
                 currency: data?.currency ,
             }

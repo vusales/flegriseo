@@ -13,6 +13,22 @@ export const login = async (body) => {
     }
 }
 
+export const signUpApi = async (body) => {
+    try {
+        const result =  await postRequest("/auth/register" , body ); 
+        console.log("result in register" , result );
+        if(result){
+            return result?.result ; 
+        }else {
+            return false ; 
+        }
+    }catch(err){
+        if(err) {
+            console.log("SignUp error" , err) ; 
+        }
+    }
+}
+
 export const getAuthToken = async () => {
     try {
         let token ; 
