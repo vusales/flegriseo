@@ -47,7 +47,7 @@ const OrderSubscriptions  = ({callBackFunction}) => {
     return (
         <Grid item xs={12}> 
             <Grid container >
-                <Grid item xs={12} mb={2} className={styles.border}>
+                {/* <Grid item xs={12} mb={2} className={styles.border}>
                     <p className={styles.titles}>SUBSCRIPTION</p>
                 </Grid>
                 {
@@ -59,7 +59,7 @@ const OrderSubscriptions  = ({callBackFunction}) => {
                         setChoosen={(value)=>setChooseSubscriptionMethod(value)}
                         />
                     </Grid>
-                ))}
+                ))} */}
                
                 <Grid item xs={12} pb={2} pt={2}>
                     <div className={styles.agreementCon}> 
