@@ -60,8 +60,8 @@ const Order = ({catalog}) => {
                 ...state , 
             }
             const isValid =  OrderValidator.validate(body); 
-            if(state.agreement) {
-                if(isValid) {
+            if(state.agreement){
+                if(isValid){
                     await orderApi(body).then((result)=>{
                         if(result){
                             setAlert({
@@ -78,12 +78,12 @@ const Order = ({catalog}) => {
                     }).catch((err)=>{
                         setAlert({
                             showAlert: true , 
-                            alertDescription: "error" , 
+                            alertDescription: err , 
                             type: "error" , 
                         });
                     }); 
                 }
-            }else{
+            }else {
                 setAlert({
                     showAlert: true , 
                     alertDescription: "Odəniş qaydaları ilə razılaşmadığınız üçün sifariş qəbul edilmir!" , 

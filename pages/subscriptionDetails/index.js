@@ -13,6 +13,11 @@ import { DesktopTablet } from "../../ui/Breakpoints";
 import { useRouter } from 'next/router'; 
 import { getCatalogData } from "../../api/catalogContent";
 import {getSubscriptionsByIdApi}  from "../../api/homecontent";
+import { orderApi } from "../../api/order";
+import { getAuthToken } from "../../api/loginSignUp";
+import OrderValidator from "../../validation/orderValidation";
+import SubscriptionValidator from "../../validation/SubscriptionValidation";
+import Alert from "../../ui/Alert";
 
 
 
@@ -21,9 +26,12 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
     const [subscriptions , setSubscriptions] =  useState({}); 
     const [allChoosenServicess , setAllChoosenServicess] =  useState([]); 
     const [url , setUrl] =  useState(""); 
-    const [email , setEmail ] =  useState(""); 
-
-
+    const [email , setEmail ] =  useState("");
+    const [alert , setAlert ] = useState({
+        showAlert: false , 
+        alertDescription: "" , 
+        type: "" , 
+    }); 
 
     useEffect(()=>{
         setSubscriptions(data);
@@ -31,18 +39,66 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
         console.log("subscriptions" ,    subscriptions );
     } , []) ; 
 
-   
-
     const totalAmount = () => {
         let amount=0 ; 
         allChoosenServicess.forEach((item) => {
-            amount += item.price*item.value; 
+            amount += item.price*item.quantity; 
         }); 
         return amount ; 
     }
 
+    const subscribe = async () => {
+        try {
+
+            let token = await getAuthToken(); 
+            console.log("token in u=s" , token  ); 
+
+            let body = {
+                "token": `${token}`,
+                "url_link": url ,
+                email:email , 
+                selected_services: allChoosenServicess , 
+            }
+
+            console.log("body" , body );
+
+            const isValid = SubscriptionValidator.validate(body); 
+            if(isValid) {
+                await orderApi(body).then((result)=>{
+                    if(result) {
+                        setAlert({
+                            showAlert: true , 
+                            alertDescription: "Sifarişiniz təsdiq edildi!" , 
+                            type: "success" , 
+                        });
+
+                        setTimeout(() => {
+                            router.push("/");
+                        }, 3000);
+                    }
+                }).catch((error)=>{
+                    if(error) {
+                        setAlert({
+                            showAlert: true , 
+                            alertDescription: error , 
+                            type: "error" , 
+                        });
+                    }
+                });
+            }            
+        }catch(error){
+            console.log("error" ,  error );
+        }
+    }
+
     return(
         <CommonLayout  catalog={catalog}>
+            <Alert
+                message={alert.alertDescription}
+                callback={(value)=>{setAlert({showAlert: value})}}
+                type={alert.type}
+                show={alert.showAlert}
+            />
             <Container>
                 <Paper elevation={2} className={styles.papper}>
                     <Grid container spacing={2} pl={2} pr={2} pb={1} pt={1}>
@@ -163,7 +219,7 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                             </div>
                         </Grid>
 
-                        <Grid item xs={12} >
+                        {/* <Grid item xs={12} >
                             <SelectPaymantMethod
                             disableShadow={true}
                             componentStyle={{
@@ -175,7 +231,7 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                             paddingLeft={"0px !important"}
                             title={true}
                             />
-                        </Grid>
+                        </Grid> */}
 
                         <Grid item xs={12} >
                             <div className={styles.addlinkInputContainer}>
@@ -194,11 +250,17 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                         <Grid item xs={12} >
                             <div className={styles.buttonContainer}>
                                 <p>Amount payable:  <span>{totalAmount()} ₼</span></p>
-                                <Link href="/" >
+                                {/* <Link href="/" >
                                     <a className={styles.subscribe}>
                                         Subscribe
                                     </a>
-                                </Link>
+                                </Link> */}
+                                <button
+                                onClick={()=>subscribe()}
+                                className={styles.subscribe}
+                                >
+                                    Subscribe
+                                </button>
                             </div>
                         </Grid>
 
