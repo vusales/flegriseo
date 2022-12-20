@@ -1,4 +1,7 @@
-import React , {useReducer} from "react";
+import React , {
+    useReducer, 
+    useState ,
+} from "react";
 import styles from "./index.module.scss";
 import { Grid , Container , Paper } from "@mui/material";
 import CommonLayout from "../../layout/commonLayout";
@@ -10,7 +13,10 @@ import Link from "next/link";
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import RegistrationValidation from "../../validation/registrationValidator";
 import { getCatalogData } from "../../api/catalogContent";
-
+import { signUpApi } from "../../api/loginSignUp";
+import { useRouter } from "next/router";
+import Alert from "../../ui/Alert";
+import {cloneDeep} from "lodash"; 
 
 const initialState ={ 
     name: "",
@@ -27,30 +33,88 @@ function reducer (state , action ){
 }
 
 
-
 const SignUp = ({catalog}) => {
     const [state  , dispatch ] = useReducer( reducer  , initialState ) ;  
-
+    const [alert , setAlert ] = useState({
+        showAlert: false , 
+        alertDescription: "" , 
+        type: "" , 
+    }); 
+    const router = useRouter(); 
 
     const signUp = async () => {
         try{
+            console.log("state" ,  state) ; 
             const isValid =  await RegistrationValidation.validate(state) ; 
-
             if(isValid){
+                if(state.password === state.repeatPassword){
+                    let body =  cloneDeep(state);
+                    delete body.repeatPassword ; 
+
+                    console.log("body" , body );
+
+                    await signUpApi(body).then((result)=>{
+                        if(result) {
+                            setAlert({
+                                showAlert: true , 
+                                alertDescription: "Uğurla qeydiyyatdan keçdiniz!" , 
+                                type: "success" , 
+                            }); 
+                            dispatch(initialState); 
+                            setTimeout(() => {
+                                router.push("/login"); 
+                            }, 3000);
+                        }else {
+                            setAlert({
+                                showAlert: true , 
+                                alertDescription: "Xəta baş verdi!" , 
+                                type: "error" , 
+                            });
+                        }
+
+                    }).catch((err)=>{
+                        if(err) {
+                            setAlert({
+                                showAlert: true , 
+                                alertDescription: "Xəta baş verdi!" , 
+                                type: "error" , 
+                            })
+                        }
+                    })
+
+                }else {
+                    setAlert({
+                        showAlert: true , 
+                        alertDescription: "Daxil edilən şifrələr eynilik təşkil etmir!" , 
+                        type: "error" , 
+                    })
+
+                }
 
             }
         }
         catch(error) {
             console.log("error" , error ); 
+            setAlert({
+                showAlert: true , 
+                alertDescription: "error" , 
+                type: "error" , 
+            })
         }
     }
 
 
     return(
         <CommonLayout catalog={catalog}>
+             <Alert
+            message={alert.alertDescription}
+            callback={(value)=>{setAlert({showAlert: value})}}
+            type={alert.type}
+            show={alert.showAlert}
+            />
             <Container  maxWidth="md">
                <Paper elevation={2} className={styles.papper}>
-               <form className={styles.inputBaseContainer}>
+               <div className={styles.inputBaseContainer}>
                     <Grid container spacing={2} p={3}>
                         <Grid item xs={12}>
                             <div className={styles.titleCon} >
@@ -104,15 +168,20 @@ const SignUp = ({catalog}) => {
                                         </div>
 
                                         <InputMask 
-                                        mask="(99)-999-99-99" 
+                                        mask="99-999-99-99" 
                                         value={state.phone}
-                                        onChange={(e)=>dispatch({phone:e.target.value})}
+                                        onChange={(e)=>{
+                                            let value = e.target.value.trim().split("-");
+                                            let filteredString = value.filter((item)=> /\S/.test(item));
+                                            let result = filteredString.join('');
+                                            console.log("result in Phone" ,  result ); 
+                                            dispatch({phone: result });
+                                        }}
                                         >
                                             {() => (
                                             <input
                                                 placeholder="phone"
-                                                id="number"
-                                                
+                                                id="number"  
                                             />
                                             )}
                                         </InputMask>
@@ -165,7 +234,7 @@ const SignUp = ({catalog}) => {
                             </div>
                         </Grid>
                     </Grid>
-                </form>
+                </div>
                </Paper>
             </Container>
         </CommonLayout>
