@@ -27,12 +27,14 @@ const Filter = ({products , catalog , query }) => {
     useEffect(()=> {
         getFilteredData(); 
         getSuitableSubCategories(); 
-    } , [query.category , query.subCategoryId ]) ; 
+    } , [query.categoryId , query.subCategoryId]); 
 
     const getFilteredData = async () => {
         try {
-            if(query.category || query.subCategoryId ){
+            if(query.categoryId || query.subCategoryId ){
+                console.log("Query in Filter" , query );
                 const filteredProducts =  await filter(query); 
+                console.log("filtered products" ,  filteredProducts  );
                 setDynamicProducts(filteredProducts.products); 
             }
         }catch(err) {
@@ -42,8 +44,8 @@ const Filter = ({products , catalog , query }) => {
 
 
     const getSuitableSubCategories = () => {
-        if(query.category) {
-            let filteredData =  catalog.filter((item) => item.categoryName === query.category ); 
+        if(query.categoryId) {
+            let filteredData =  catalog.filter((item) => item._id === query.categoryId ); 
             setSubCategories(filteredData); 
         }else {
             return ; 

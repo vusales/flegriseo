@@ -24,7 +24,7 @@ const FilterCatalog = ({data}) => {
                         key={`filtrCat${index}`}
                         href={{
                             pathname: '/filter',
-                            query: { category: item.categoryName },
+                            query: { categoryId: item._id },
                         }}
                         >
                             <a className={styles.catalogItem}>
@@ -38,7 +38,6 @@ const FilterCatalog = ({data}) => {
                                 <p>{item.categoryName}</p>
                             </a>
                         </Link> 
-
                     )
                     
                 })

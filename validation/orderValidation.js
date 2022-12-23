@@ -6,7 +6,7 @@ const  OrderValidator = yup.object().shape({
     price: yup.string().required() , 
     email: yup.string().email("Düzgün e-poçt daxil edin!").required("E-poçt daxil edin!") ,
     service_name: yup.string().required() , 
-    subscription_period: yup.string().required(), 
+    subscription_period: yup.string(), 
     token: yup.string().required(),
     phone: yup.string().matches( /^\d+$/ , "Yalnız rəqəm daxil edilməlidir!").length(9 , "Əlaqə nömrəsi düzgün daxil edilməyib!"),
 }); 

@@ -16,16 +16,16 @@ import { getPagesBanner } from "../../api/homecontent";
 
 
 
-const UserChoice = ({ catalog, cheapServicess , banners  }) => {
+const UserChoice = ({ catalog, userChoice , banners  }) => {
 
     const [banner , setBanner ] = useState(null); 
 
     useEffect(()=> {
-        getSuitableBanner("Cheap Services") ; 
+        getSuitableBanner("User Choice") ; 
     }, []); 
 
     const getSuitableBanner = (currentBanner) => {
-        let banner =  banners.filter((item)=> item.pageName === currentBanner)[0].pageContent ; 
+        let banner =  banners?.filter((item)=> item.pageName === currentBanner)[0].pageContent ; 
         setBanner(banner) ; 
     }
 
@@ -36,7 +36,7 @@ const UserChoice = ({ catalog, cheapServicess , banners  }) => {
                 title={banner?.title}
                 subTitle={banner?.intro}
                 description={banner?.bannerDescription}
-                buttonText={"VIEW CHEAP SERVICES"}
+                buttonText={"VIEW USER CHOICES"}
                 imageSrc={banner?.image}
                 /> 
                 {
@@ -54,7 +54,7 @@ const UserChoice = ({ catalog, cheapServicess , banners  }) => {
                         </div>
                     </Grid>
                     {
-                        cheapServicess?.products?.map((item, index)=> {
+                        userChoice?.products?.map((item, index)=> {
                             return (
                                 <Card
                                 key={`cardCheap=${index}`}
@@ -74,13 +74,13 @@ export const getStaticProps = async (context) => {
     const catalogData =  await getCatalogData() ; 
     const catalog =  catalogData.data ;
     // *********************** 
-    const { cheapServicess } =  await getSpecialProducts(); 
+    const { userChoice } =  await getSpecialProducts(); 
     const {banners} =  await getPagesBanner(); 
 
     return {
       props : {
         catalog , 
-        cheapServicess , 
+        userChoice , 
         banners , 
       } 
     }

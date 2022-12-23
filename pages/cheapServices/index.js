@@ -27,6 +27,8 @@ const CheapServices = ({catalog , cheapServicess , banners  }) => {
         let banner =  banners.filter((item)=> item.pageName === currentBanner)[0].pageContent ; 
         setBanner(banner) ; 
     }
+
+    
     return (
         <CommonLayout catalog={catalog}>
             <Container>
