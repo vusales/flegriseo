@@ -1,4 +1,7 @@
-import React from "react" ;
+import React, {
+    useState ,
+    useEffect , 
+} from "react" ;
 import styles from "./index.module.scss";
 import CommonLayout from "../../layout/commonLayout";
 import Container from '@mui/material/Container';
@@ -8,6 +11,8 @@ import StaticBanner from "../../components/StaticBanner";
 import { Grid } from "@mui/material";
 import Card from "../../components/Card";
 import { getCatalogData } from "../../api/catalogContent";
+import {getSpecialProducts} from "../../api/productContent"; 
+import { getPagesBanner } from "../../api/homecontent"; 
 
 
 const demoforStaticBanner = {
@@ -83,21 +88,37 @@ const cardDemo  = [
 
 
 
-const SmmForBusiness = ({catalog}) => {
+const SmmForBusiness = ({catalog , banners , smmForBusiness }) => {
+    const [banner , setBanner ] = useState(null); 
+
+    useEffect(()=> {
+        getSuitableBanner("SMM for business") ; 
+    }, []); 
+
+    const getSuitableBanner = (currentBanner) => {
+        let banner =  banners?.filter((item)=> item.pageName === currentBanner)[0].pageContent ; 
+        setBanner(banner) ; 
+    }
+
+
     return (
         <CommonLayout catalog={catalog}>
             <Container>
                 <StaticBanner 
-                title={demoforStaticBanner.title}
-                subTitle={demoforStaticBanner.subTitle}
-                description={demoforStaticBanner.description}
-                buttonText={demoforStaticBanner.buttonText}
-                imageSrc={demoforStaticBanner.imgSrc}
+                title={banner?.title}
+                subTitle={banner?.intro}
+                description={banner?.bannerDescription}
+                buttonText={"VIEW SMM FOR BUSINESS"}
+                imageSrc={banner?.image}
                 /> 
 
-                <SpecialAnouncment
-                data={specialAnounc}
-                />
+                {
+                    banner?.characteristicCards.length ? 
+                    <SpecialAnouncment
+                    data={ banner?.characteristicCards}
+                    />
+                    :null
+                }
 
                 <Grid container spacing={2} sx={{marginTop:2,  marginBottom:2}}>
                     <Grid item xs={12} >
@@ -107,7 +128,7 @@ const SmmForBusiness = ({catalog}) => {
                         </div>
                     </Grid>
                     {
-                        cardDemo.map((item, index)=> {
+                        smmForBusiness?.products?.map((item, index)=> {
                             return (
                                 <Card
                                 key={`cardCheap=${index}`}
@@ -129,10 +150,15 @@ export const getStaticProps = async (context) => {
     const catalogData =  await getCatalogData() ; 
     const catalog =  catalogData.data ;
     // *********************** 
+     // *********************** 
+     const { smmForBusiness } =  await getSpecialProducts(); 
+     const {banners} =  await getPagesBanner(); 
   
     return {
       props : {
         catalog , 
+        smmForBusiness , 
+        banners , 
       } 
     }
 }
