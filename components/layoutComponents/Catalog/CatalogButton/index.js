@@ -17,7 +17,7 @@ const CatalogButton =({data})=>{
                 Router.push(
                     {
                         pathname: '/filter',
-                        query: { category : data.categoryName },
+                        query: { categoryId : data._id },
                     }
                 )
             }}

@@ -12,7 +12,7 @@ export const getProductById = async  (id) => {
 }
 
 export const filter = async (parametr) => {
-    const result = await postRequest(`/products/filter?subCategoryId=${parametr.subCategoryId || "" }&category=${parametr.category || ""}`); 
+    const result = await postRequest(`/products/filter?subCategoryId=${parametr.subCategoryId || "" }&categoryId=${parametr.categoryId || ""}`); 
     return result;
 }
 

@@ -8,6 +8,7 @@ const Catalog = ({catalog}) => {
             <p>Service categories</p>
             {
                 catalog?.length&&catalog.map((item , index)=>{
+                    console.log("catalog item" ,  item ) ;
                     return(
                         <CatalogButton 
                         key={`catalog-Button${index}`}
