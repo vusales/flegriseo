@@ -57,17 +57,16 @@ var settings = {
 
 const Banner = ({data}) => {
 
-    const imageLoader = ({src , width , quality }) => {
-        return `http://localhost:3002${src}?w=${width}&q=${quality || 75}` ; 
-    }
+    // const imageLoader = ({src , width , quality }) => {
+    //     return `http://localhost:3002${src}?w=${width}&q=${quality || 75}` ; 
+    // }
 
     return(
         <div className={styles.bannerContainer}>
             <Slider {...settings} >
                 {
                     data?.map((item , index)=>{
-                        console.log("BANNER IMAGE " , item.image );
-
+                        console.log("BANNER IMAGE " , item );
                         return(
                             <div key={`slickBanner${item._id}`} className={styles.subContainer}>
                                 <div className={styles.textContainer}>
@@ -97,13 +96,14 @@ const Banner = ({data}) => {
                                 </div>
                                 <div className={styles.imageContainer}>
                                     <Image 
-                                    src={item.image} 
+                                    src={"http://localhost:3002/images" + item?.uploadedFile?.path } 
+                                    //src={"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"}
                                     width={300} 
                                     height={300} 
-                                    alt={item.image} 
-                                    loader={imageLoader}
+                                    alt={item?.uploadedFile?.path}  
+                                    // loader={imageLoader}
                                     /> 
-                                    
+                                    {/* <img  src={"http://localhost:3002/public/images" + item.image}  alt ="banner image" /> */}
                                 </div>
                          </div>
                         )
