@@ -15,8 +15,7 @@ const FilterCatalog = ({data}) => {
                     <p>Service categories</p>
                 </div>
             {/* </Desktop> */}
-            
-
+        
             {
                 data.map((item, index)=>{
                     return(
@@ -39,11 +38,8 @@ const FilterCatalog = ({data}) => {
                             </a>
                         </Link> 
                     )
-                    
                 })
-            }
-
-                      
+            }       
         </div>
     )
 

@@ -3,6 +3,7 @@ import styles from "./index.module.scss";
 import Slider from "react-slick";
 import Image from "next/image"; 
 import Link from "next/link";
+import {makeImageUrl} from "../../utils/helper"; 
 
 
 const SampleNextArrow = (props) => {
@@ -57,17 +58,12 @@ var settings = {
 
 const Banner = ({data}) => {
 
-    const imageLoader = ({src , width , quality }) => {
-        return `http://localhost:3002${src}?w=${width}&q=${quality || 75}` ; 
-    }
 
     return(
         <div className={styles.bannerContainer}>
             <Slider {...settings} >
                 {
                     data?.map((item , index)=>{
-                        console.log("BANNER IMAGE " , item.image );
-
                         return(
                             <div key={`slickBanner${item._id}`} className={styles.subContainer}>
                                 <div className={styles.textContainer}>
@@ -97,13 +93,11 @@ const Banner = ({data}) => {
                                 </div>
                                 <div className={styles.imageContainer}>
                                     <Image 
-                                    src={item.image} 
+                                    src={makeImageUrl(item?.uploadedFile?.path)} 
                                     width={300} 
                                     height={300} 
-                                    alt={item.image} 
-                                    loader={imageLoader}
+                                    alt={item?.uploadedFile?.path}  
                                     /> 
-                                    
                                 </div>
                          </div>
                         )
