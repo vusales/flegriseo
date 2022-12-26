@@ -1,6 +1,6 @@
 import axios from "axios";
+import {BASE_URL} from "./constants"; 
 
-const BASE_URL = "http://localhost:3002/api";
 
 const handleError = (error) => {
   const { response } = error;
