@@ -1,24 +1,20 @@
-import React from "react"; 
+import React ,  {
+    useEffect , 
+    useState , 
+}from "react"; 
 import styles from "./index.module.scss";
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  solid,
-  regular,
-  brands,
-  icon
-} from '@fortawesome/fontawesome-svg-core/import.macro';
-
+import {generateDynamicIcon} from "../../utils/helper"; 
 
 const AnouncmentCard = ({data}) =>{
-    const {icon , title , description } =data ;
+    const {icon , title , description } = data ;
+    const IconComponent = generateDynamicIcon(icon);
+
     return (
         <div className={styles.cardContiner}>
-            <FontAwesomeIcon icon={solid('coffee')} size="lg" />
+            <IconComponent />
             <p className={styles.title}>{title}</p>
             <p>{description}</p>
         </div>
     )
 }
-
 export default AnouncmentCard ;
