@@ -5,8 +5,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    loader: 'custom',
-    loaderFile: './imageLoader/loader.js',
+    // loader: 'custom',
+    // loaderFile: './imageLoader/loader.js',
     // domains:['upload.wikimedia.org' ,  "localhost"],
     domains:["localhost"],
   },
