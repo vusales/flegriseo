@@ -4,6 +4,8 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Link from "next/link";
 import InstagramIcon from '@mui/icons-material/Instagram';
+import Image from "next/image";
+import {makeImageUrl}  from "../../utils/helper"; 
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import ArticleIcon from '@mui/icons-material/Article';
 
@@ -33,7 +35,16 @@ const SubScription = ({data}) => {
                                         className={styles.socialCon}
                                         key={`subscriptions${index}`}
                                         >
-                                            <InstagramIcon/>
+                                            {
+                                                item?.image ? 
+                                                <Image 
+                                                src={makeImageUrl(item.image)}
+                                                height={50}
+                                                width={50}
+                                                />
+                                                :null
+                                            }
+                                            
                                             <p>{item.title} subscriptions</p>
                                             <Link 
                                             href={{

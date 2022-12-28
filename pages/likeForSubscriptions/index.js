@@ -29,25 +29,25 @@ import { getCatalogData } from "../../api/catalogContent";
 const specialAnounc = [
     {
         id:1 , 
-        icon: <ShoppingBasketIcon /> , 
+        icon: "ShopTwo" , 
         description: "Affordable SMM promotion", 
     }, 
 
     {
         id:1 , 
-        icon: <ShoppingBasketIcon /> , 
+        icon: "ShopTwo" , 
         description: "Affordable SMM promotion", 
     }, 
 
     {
         id:1 , 
-        icon: <ShoppingBasketIcon /> , 
+        icon: "ShopTwo" , 
         description: "Affordable SMM promotion", 
     }, 
 
     {
         id:1 , 
-        icon: <ShoppingBasketIcon /> , 
+        icon: "ShopTwo" , 
         description: "Affordable SMM promotion", 
     }, 
 

@@ -28,7 +28,6 @@ const CheapServices = ({catalog , cheapServicess , banners  }) => {
         setBanner(banner) ; 
     }
 
-    
     return (
         <CommonLayout catalog={catalog}>
             <Container>

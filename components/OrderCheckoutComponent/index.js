@@ -11,7 +11,6 @@ import InputMask from 'react-input-mask';
 
 
 const OrderCheckoutComponent = ({ callBackFunction , states }) => {
-    console.log("states" , states );
     return (
         <Grid item xs={12} >
             <Grid container spacing={2} p={2}  >

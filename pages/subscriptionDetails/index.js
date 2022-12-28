@@ -18,6 +18,7 @@ import { getAuthToken } from "../../api/loginSignUp";
 import OrderValidator from "../../validation/orderValidation";
 import SubscriptionValidator from "../../validation/SubscriptionValidation";
 import Alert from "../../ui/Alert";
+import { makeImageUrl } from "../../utils/helper";
 
 
 
@@ -35,8 +36,6 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
 
     useEffect(()=>{
         setSubscriptions(data);
-        console.log("allChoosenServicess" ,    allChoosenServicess );
-        console.log("subscriptions" ,    subscriptions );
     } , []) ; 
 
     const totalAmount = () => {
@@ -51,7 +50,6 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
         try {
 
             let token = await getAuthToken(); 
-            console.log("token in u=s" , token  ); 
 
             let body = {
                 "token": `${token}`,
@@ -60,7 +58,6 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                 selected_services: allChoosenServicess , 
             }
 
-            console.log("body" , body );
 
             const isValid = SubscriptionValidator.validate(body); 
             if(isValid) {
@@ -91,6 +88,7 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
         }
     }
 
+
     return(
         <CommonLayout  catalog={catalog}>
             <Alert
@@ -105,7 +103,11 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                         <Grid item xs={12} mb={3}>
                             <div className={styles.addLinkContainer} >
                                 <DesktopTablet>
-                                    <Image src="/cardImg.png" width={70} height={70} alt="subscription product image"/>
+                                    {
+                                        data?.image ? 
+                                        <Image src={makeImageUrl(data?.image)} width={70} height={70} alt="subscription product image"/>
+                                        :null
+                                    }
                                 </DesktopTablet>
                                 <div>
                                     <h1>{data.title}: укажите ссылку на страницу</h1>
@@ -123,7 +125,6 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                                         />
                                     </div>
                                 </div>
-
                             </div>
                         </Grid>
                         {

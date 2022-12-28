@@ -12,7 +12,6 @@ const Search = () => {
   const  [searchText , setSearcText ] = useState(""); 
 
   useEffect(()=>{
-    console.log("searchText" ,  searchText );
   },[searchText]);
 
   return(

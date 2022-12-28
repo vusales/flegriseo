@@ -11,7 +11,7 @@ const SpecialAnouncment = ({data}) => {
                         <SpecialAnouncementCard
                         key={`specialAnounc${index}`}
                         icon={item?.icon}
-                        description={item?.title}
+                        description={item?.description}
                         />
                     )
                 })

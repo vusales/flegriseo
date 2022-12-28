@@ -16,7 +16,6 @@ export const login = async (body) => {
 export const signUpApi = async (body) => {
     try {
         const result =  await postRequest("/auth/register" , body ); 
-        console.log("result in register" , result );
         if(result){
             return result?.result ; 
         }else {

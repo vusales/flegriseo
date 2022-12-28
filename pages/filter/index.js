@@ -32,9 +32,7 @@ const Filter = ({products , catalog , query }) => {
     const getFilteredData = async () => {
         try {
             if(query.categoryId || query.subCategoryId ){
-                console.log("Query in Filter" , query );
                 const filteredProducts =  await filter(query); 
-                console.log("filtered products" ,  filteredProducts  );
                 setDynamicProducts(filteredProducts.products); 
             }
         }catch(err) {
