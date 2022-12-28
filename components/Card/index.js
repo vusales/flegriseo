@@ -3,6 +3,7 @@ import styles from "./index.module.scss";
 import { Grid } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image"; 
+import {makeImageUrl} from "../../utils/helper"; 
 
 
 
@@ -36,8 +37,12 @@ const Card = ({data , xs , md , containerStyle }) => {
                 }}
                 >
                     <a>
-                        {/* <Image src={data?.image} width={120} height={120} /> */}
-                        <Image src="/cardImg.png" width={120} height={120} />
+                        {
+                            data.image ? 
+                            <Image src={makeImageUrl(data.image)} width={120} height={120} />
+                            :
+                            <Image src="/noimg.svg" width={120} height={120} />
+                        }
                     </a>
                 </Link>
                 
