@@ -27,6 +27,7 @@ const initialValues  =  {
     service_name: "" , 
     subscription_period: "" , 
     agreement: false , 
+    image: "" , 
 }
 
 const reducer = (state , action) => {
@@ -41,13 +42,14 @@ const Order = ({catalog}) => {
         alertDescription: "" , 
         type: "" , 
     }); 
-    const { price , serviceAmount , serviceName , title } = router.query ; 
+    const { price , serviceAmount , serviceName , title , image } = router.query ; 
 
     useEffect(()=>{
         dispatch({
             quantity: serviceAmount , 
             price: price , 
             service_name: serviceName , 
+            image : image , 
         }); 
     } , []); 
 
@@ -118,6 +120,7 @@ const Order = ({catalog}) => {
                             serviceAmount , 
                         }}
                         price={price}
+                        image={image}
                         />
                         <OrderCheckoutComponent 
                         states={state}

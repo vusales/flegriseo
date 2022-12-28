@@ -6,9 +6,10 @@ import Link from "next/link";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { DesktopTablet ,  Mobile } from "../../ui/Breakpoints";
+import { makeImageUrl } from "../../utils/helper";
 
 
-const OrderListComponent = ({ name , qty , price }) => {
+const OrderListComponent = ({ name , qty , price ,  image }) => {
     return (
         <Grid item xs={12}>
             <DesktopTablet>
@@ -20,12 +21,15 @@ const OrderListComponent = ({ name , qty , price }) => {
                     {/* </div> */}
                 </Grid>
             </DesktopTablet>
-            
-
+        
             <Grid container>
                 <Grid item xs={12} sm={12} md={6}>
                     <div className={styles.listItemContainer}>
-                        <Image src="/cardImg.png" width={50} height={50} alt="product details"/>
+                        {
+                            image ? 
+                            <Image src={makeImageUrl(image)} width={50} height={50} alt="product details" />
+                            :null
+                        }
                         <Link href="/productDetails">
                             <a className={styles.productName}> {name} </a>
                         </Link>

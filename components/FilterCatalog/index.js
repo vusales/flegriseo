@@ -4,6 +4,7 @@ import ListIcon from '@mui/icons-material/List';
 import Link from "next/link";
 import { DesktopTablet , Desktop} from "../../ui/Breakpoints";
 import Image from 'next/image'; 
+import { makeImageUrl } from "../../utils/helper";
 
 
 const FilterCatalog = ({data}) => {
@@ -27,12 +28,17 @@ const FilterCatalog = ({data}) => {
                         }}
                         >
                             <a className={styles.catalogItem}>
-                                <Image
-                                src="/cardImg.png"
-                                alt="category logo image"
-                                width={20}
-                                height={20}
-                                />
+                                {
+                                    item.image ? 
+                                    <Image
+                                    src={makeImageUrl(item.image)}
+                                    alt="category logo image"
+                                    width={20}
+                                    height={20}
+                                    />
+                                    :null
+                                }
+                                
                                 {/* {item?.icon} */}
                                 <p>{item.categoryName}</p>
                             </a>

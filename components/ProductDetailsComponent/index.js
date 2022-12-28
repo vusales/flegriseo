@@ -7,6 +7,7 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useRouter } from "next/router";
+import { makeImageUrl } from "../../utils/helper";
 
 
 
@@ -19,6 +20,7 @@ const ProductDetailsComponent = ({data}) => {
         setServiceAmount(data?.options?.serviceAmount); 
         setStep(data?.options?.serviceAmount); 
     }, []); 
+
 
 
     const Promotion = (decription , color) => {
@@ -53,7 +55,11 @@ const ProductDetailsComponent = ({data}) => {
                     data?.promotions.map((item , index)=>Promotion(item?.promotion , item?.color))
                     : null 
                     }
-                    <Image src="/cardImg.png" width={150} height={150} />
+                    {
+                        data.image ? 
+                        <Image src={makeImageUrl(data?.image)} width={150} height={150} />
+                        :null 
+                    }
                 </div>
             </Grid>
             <Grid item xs={12} md={9} >
@@ -67,7 +73,7 @@ const ProductDetailsComponent = ({data}) => {
                             <p className={styles.price}>{data?.price*serviceAmount}₼</p>
                         }
                         <div className={styles.addRemoveContainer}>
-                            <button onClick={()=>  decreaseServiceAmount()  }> <RemoveIcon/> </button>
+                            <button onClick={()=> decreaseServiceAmount()  }> <RemoveIcon/> </button>
                             <div>
                                 <p>{serviceAmount}</p>
                                 <p>{data?.options?.serviceName}</p>
@@ -99,6 +105,7 @@ const ProductDetailsComponent = ({data}) => {
                                 serviceName: data?.options?.serviceName, 
                                 title: data?.title ,
                                 price:  data?.discountPrice? data?.discountPrice*serviceAmount : data?.price*serviceAmount,
+                                image: data.image ,
                             },
                         })}
                         >

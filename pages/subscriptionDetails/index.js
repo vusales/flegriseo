@@ -18,6 +18,7 @@ import { getAuthToken } from "../../api/loginSignUp";
 import OrderValidator from "../../validation/orderValidation";
 import SubscriptionValidator from "../../validation/SubscriptionValidation";
 import Alert from "../../ui/Alert";
+import { makeImageUrl } from "../../utils/helper";
 
 
 
@@ -87,6 +88,7 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
         }
     }
 
+
     return(
         <CommonLayout  catalog={catalog}>
             <Alert
@@ -101,7 +103,11 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                         <Grid item xs={12} mb={3}>
                             <div className={styles.addLinkContainer} >
                                 <DesktopTablet>
-                                    <Image src="/cardImg.png" width={70} height={70} alt="subscription product image"/>
+                                    {
+                                        data?.image ? 
+                                        <Image src={makeImageUrl(data?.image)} width={70} height={70} alt="subscription product image"/>
+                                        :null
+                                    }
                                 </DesktopTablet>
                                 <div>
                                     <h1>{data.title}: укажите ссылку на страницу</h1>
@@ -119,7 +125,6 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                                         />
                                     </div>
                                 </div>
-
                             </div>
                         </Grid>
                         {
