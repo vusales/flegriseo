@@ -49,7 +49,6 @@ const Order = ({catalog}) => {
             price: price , 
             service_name: serviceName , 
         }); 
-        console.log("state in Order"  , state );
     } , []); 
 
     const completeOrder = async () => {

@@ -23,7 +23,6 @@ const SearchDetails = ({
 
    
     useEffect(()=>{
-        console.log( "searchResults" ,  searchResults );
         refreshData();
     },[]);
 

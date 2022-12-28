@@ -35,8 +35,6 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
 
     useEffect(()=>{
         setSubscriptions(data);
-        console.log("allChoosenServicess" ,    allChoosenServicess );
-        console.log("subscriptions" ,    subscriptions );
     } , []) ; 
 
     const totalAmount = () => {
@@ -51,7 +49,6 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
         try {
 
             let token = await getAuthToken(); 
-            console.log("token in u=s" , token  ); 
 
             let body = {
                 "token": `${token}`,
@@ -60,7 +57,6 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
                 selected_services: allChoosenServicess , 
             }
 
-            console.log("body" , body );
 
             const isValid = SubscriptionValidator.validate(body); 
             if(isValid) {

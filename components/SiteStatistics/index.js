@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./index.module.scss";
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import {generateDynamicIcon} from "../../utils/helper"; 
 
 const SiteStatistics = ({data}) => {
     return (
@@ -15,11 +16,16 @@ const SiteStatistics = ({data}) => {
                 </Grid>
                 {
                     data?.map((item , index)=>{
+                        const Icons = generateDynamicIcon(item.icon);
                         return(
                             <Grid key={`${item.id}${index}-statistics`} item xs={6} md={3}>
                                 <div className={styles.descriptionCon}>
                                     <div className={styles.iconCon}>
-                                        {item.icon}
+                                        {
+                                            item.icon?
+                                            <Icons/>
+                                            :null
+                                        }
                                     </div>
                                     <p>{item.amount}+</p>
                                     <p>{item.description}</p>
@@ -28,7 +34,6 @@ const SiteStatistics = ({data}) => {
                         )
                     })
                 }
-                
             </Grid>
         </Paper>
     )

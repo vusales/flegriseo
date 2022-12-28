@@ -44,14 +44,11 @@ const SignUp = ({catalog}) => {
 
     const signUp = async () => {
         try{
-            console.log("state" ,  state) ; 
             const isValid =  await RegistrationValidation.validate(state) ; 
             if(isValid){
                 if(state.password === state.repeatPassword){
                     let body =  cloneDeep(state);
                     delete body.repeatPassword ; 
-
-                    console.log("body" , body );
 
                     await signUpApi(body).then((result)=>{
                         if(result) {
@@ -94,12 +91,13 @@ const SignUp = ({catalog}) => {
             }
         }
         catch(error) {
-            console.log("error" , error ); 
-            setAlert({
-                showAlert: true , 
-                alertDescription: "error" , 
-                type: "error" , 
-            })
+            if(error){
+                setAlert({
+                    showAlert: true , 
+                    alertDescription: error , 
+                    type: "error" , 
+                })
+            }
         }
     }
 
@@ -174,7 +172,6 @@ const SignUp = ({catalog}) => {
                                             let value = e.target.value.trim().split("-");
                                             let filteredString = value.filter((item)=> /\S/.test(item));
                                             let result = filteredString.join('');
-                                            console.log("result in Phone" ,  result ); 
                                             dispatch({phone: result });
                                         }}
                                         >

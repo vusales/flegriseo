@@ -67,7 +67,6 @@ const AddRemoveComponent = ({
     const setBaseArray  = () => {
         // check main array 
         const baseArray =  cloneDeep(allChoosens); 
-        console.log("baseArray" , baseArray );
         let chosenBefore =  baseArray.find((item)=> item.service_id === id); 
         if(chosenBefore) {
             baseArray.map((item)=>{

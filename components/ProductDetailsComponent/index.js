@@ -16,8 +16,6 @@ const ProductDetailsComponent = ({data}) => {
     const [step , setStep ] = useState(); 
 
     useEffect(()=>{
-        console.log("serviceAmount" , serviceAmount );
-        console.log("step" , step );
         setServiceAmount(data?.options?.serviceAmount); 
         setStep(data?.options?.serviceAmount); 
     }, []); 
