@@ -103,7 +103,7 @@ return (
 
                             <input  
                             type="text"
-                            placeholder="Password"
+                            placeholder="New password"
                             value={state.password}
                             onChange={(e)=>{dispatch({password: e.target.value }) }}
                             />
@@ -116,7 +116,7 @@ return (
 
                             <input  
                             type="text"
-                            placeholder="New password"
+                            placeholder="Repeat new password"
                             value={state.newpassword}
                             onChange={(e)=>{dispatch({newpassword: e.target.value }) }}
                             />
