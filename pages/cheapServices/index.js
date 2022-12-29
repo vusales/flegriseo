@@ -20,7 +20,7 @@ const CheapServices = ({catalog , cheapServicess , banners  }) => {
     const [banner , setBanner ] = useState(null); 
 
     useEffect(()=> {
-        getSuitableBanner("Cheap Services") ; 
+        getSuitableBanner("1") ; 
     }, []); 
 
     const getSuitableBanner = (currentBanner) => {

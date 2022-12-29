@@ -92,7 +92,7 @@ const SmmForBusiness = ({catalog , banners , smmForBusiness }) => {
     const [banner , setBanner ] = useState(null); 
 
     useEffect(()=> {
-        getSuitableBanner("SMM for business") ; 
+        getSuitableBanner("3") ; 
     }, []); 
 
     const getSuitableBanner = (currentBanner) => {

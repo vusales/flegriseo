@@ -20,7 +20,7 @@ const BigBrands =({catalog ,  banners , bigBrands  })=> {
     const [banner , setBanner ] = useState(null); 
 
     useEffect(()=> {
-        getSuitableBanner("Big brands") ; 
+        getSuitableBanner("4") ; 
     }, []); 
 
     const getSuitableBanner = (currentBanner) => {

@@ -16,46 +16,6 @@ import { getProductById } from "../../api/productContent";
 import {getCatalogData} from "../../api/catalogContent"; 
 // ***
 
-const detailsCardDemo = [
-    {
-        id:1 , 
-        icon: <BusinessCenterIcon /> , 
-        title: "Тариф" , 
-        detail: "Стандарт", 
-    },
-    {
-        id:2 , 
-        icon: <PeopleOutlineIcon /> , 
-        title: "География" , 
-        detail: "Все страны", 
-    },
-    {
-        id:3 , 
-        icon: <AvTimerIcon/> , 
-        title: "Время запуска" , 
-        detail: "В течении ± 2 часов", 
-    },
-    {
-        id:4, 
-        icon: <CreditCardIcon/> , 
-        title: "Источник" , 
-        detail: "Официальные источники", 
-    },
-]; 
-
-const demoComments = [
-    {
-    image: "/cardImg.png" , 
-    title: "Дарья Шапошник" , 
-    comment: "Супер смм-сервис. Очень оперативно работают. Обратилась к ним, чтоб раскрутили мой аккаунт в Инстаграм и помогли набрать целевую аудиторию. Они с поставленной задачей справились. Всё сделали качественно, быстро и самое главное недорого. Очень довольна, что обратилась именно к ним. Спасибо." , 
-    },
-    {
-    image: "" , 
-    title: "Дарья Шапошник" , 
-    comment: "Очень оперативно работают. Спасибо." , 
-    },
-]
-
 const ProductDetails = ({ catalog , selectedProduct }) => {
 
     return (
