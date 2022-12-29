@@ -21,7 +21,7 @@ const UserChoice = ({ catalog, userChoice , banners  }) => {
     const [banner , setBanner ] = useState(null); 
 
     useEffect(()=> {
-        getSuitableBanner("User Choice") ; 
+        getSuitableBanner("2") ; 
     }, []); 
 
     const getSuitableBanner = (currentBanner) => {
