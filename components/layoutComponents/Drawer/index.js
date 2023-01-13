@@ -5,50 +5,14 @@ import Drawer from '@mui/material/Drawer';
 import Image from "next/image";
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import Link from "next/link";
+import { makeImageUrl } from "../../../utils/helper";
+import CatalogButton from "../Catalog/CatalogButton";
 
 
 const drawerWidth = 250 ;
 
+const DrawerItem = ({catalog}) => {
 
-const catalogData = [
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "Instagram ", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "Smth", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "Smth 2 ", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "Smth 3", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "smth 4", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "smth4 ", 
-    }, 
-    {
-        id: 1 , 
-        icon :  <SportsBasketballIcon /> , 
-        title: "Smth 3", 
-    }, 
-]; 
-
-const DrawerItem = () => {
     return (
         <div className={styles.drawerItemContainer} >
             <Image  src="/logo-dark.svg" width={100} height={50} alt="logo" />
@@ -75,22 +39,35 @@ const DrawerItem = () => {
             <div>
                 <div className={styles.categoryTitle}>Service categories</div>
                 {
-                    catalogData.map((catalog ,  index)=>
-                    (
-                        <div key={index} className={styles.categoryLinksContainer} >
-                            {catalog.icon}
-                            <Link href="/productDetails">
-                                <a className={styles.catalogLinks} >{catalog.title}</a>
-                            </Link>
-                        </div>
-                    )
+                    catalog?.map((catalog ,  index)=>{
+                        console.log("catalog" ,  catalog );
+                    return (
+                        // <div key={index} className={styles.categoryLinksContainer} >
+                        //     {catalog.icon}
+                        //     {
+                        //         catalog.icon ? 
+                        //         <Image src={makeImageUrl(catalog.icon)} width={120} height={120} />
+                        //         :
+                        //         <Image src="/noimg.svg" width={120} height={120} />
+                        //     }
+                        //     <Link href="/productDetails">
+                        //         <a className={styles.catalogLinks} >{catalog.categoryName}</a>
+                        //     </Link>
+                        // </div>
+                        <CatalogButton
+                        key={index}
+                        data={catalog} 
+                        hideHoveredElement={true}
+
+                        />
+                    )}
                 )}
             </div>
         </div>
     )
 }
 
-const DrawerComponent = () => {
+const DrawerComponent = ({catalog}) => {
     const [openDrawer , setOpenDrawer ] =  useState(false); 
 
     return (
@@ -112,7 +89,7 @@ const DrawerComponent = () => {
                 '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
             }}
             >
-                <DrawerItem/>
+                <DrawerItem catalog={catalog} />
             </Drawer>
         </div>
     )

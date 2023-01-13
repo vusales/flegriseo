@@ -11,10 +11,12 @@
     @include breakpoint-down("medium-grid"){
         display: flex;
         overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none !important;
+        -webkit-scrollbar-width : none !important; 
+        -moz-scrollbar-width: none !important;
+        -ms-scrollbar-width: none !important;
     }
-
-    
-
 }
 
 .titleContainer {

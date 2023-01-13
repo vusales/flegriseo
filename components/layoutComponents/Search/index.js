@@ -7,7 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import {searchApi } from "../../../api/productContent";
 import { useRouter } from "next/router";
 
-const Search = () => {
+const Search = ({containerStyle}) => {
   const router  =  useRouter(); 
   const  [searchText , setSearcText ] = useState(""); 
 
@@ -15,7 +15,7 @@ const Search = () => {
   },[searchText]);
 
   return(
-      <div className={styles.searchContainer}>
+      <div className={styles.searchContainer}  style={containerStyle}>
         <div className={styles.form}>
           <input 
           type="text" 

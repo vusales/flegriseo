@@ -23,7 +23,7 @@ const Card = ({data , xs , md , containerStyle }) => {
 
 
     return (
-        <Grid item xs={xs ? xs : 12} md={md ? md : 3}  >
+        <Grid item xs={xs ? xs : 12}  sm = {6} md={md ? md : 3}  >
             <div className={ containerStyle ? `${styles.container} ${containerStyle}` :styles.container}>
                 { 
                 data?.promotions?.length ? 

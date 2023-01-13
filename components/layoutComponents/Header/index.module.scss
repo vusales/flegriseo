@@ -121,3 +121,11 @@
         background-color: $subtext;
     }
 }
+
+
+.mobileSearch {
+    width: 100%; 
+    background-color: $main ;
+    padding: 0px 10px 10px 10px ; 
+    @include center ; 
+}

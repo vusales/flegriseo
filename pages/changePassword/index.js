@@ -100,7 +100,6 @@ return (
                             <div className={styles.iconContainer}>
                                 <LockOpenIcon />
                             </div>
-
                             <input  
                             type="text"
                             placeholder="New password"
@@ -113,7 +112,6 @@ return (
                             <div className={styles.iconContainer}>
                                 <LockOpenIcon />
                             </div>
-
                             <input  
                             type="text"
                             placeholder="Repeat new password"
@@ -123,7 +121,6 @@ return (
                         </div>
                     </div>
                 </Grid>  
-
 
                 <Grid item xs={12}>
                     <div className={styles.buttons}>
