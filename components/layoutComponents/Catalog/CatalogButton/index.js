@@ -11,7 +11,7 @@ import {
   } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 
-const CatalogButton =({data})=>{
+const CatalogButton =({data ,  hideHoveredElement })=>{
 
     return(
         <div 
@@ -41,39 +41,43 @@ const CatalogButton =({data})=>{
                 
                 <p>{data.categoryName}</p>
             </a>
-            <div className={styles.catalogHoveredElement}>
-                {
-                    data?.subCategories?.map((item ,  index )=>{
-                        return (
-                            <a
-                            key={`subCategories${index}`}
-                            onClick={(e)=>{
-                                e.preventDefault();
-                                Router.push(
-                                    {
-                                        pathname: '/filter',
-                                        query: { subCategoryId : item._id },
-                                    }
-                                )
-                            }}
-                            >
-                                <div 
-                                key={`catBut${index}`}
+            {
+                hideHoveredElement ? 
+                null:
+                <div className={styles.catalogHoveredElement}>
+                    {
+                        data?.subCategories?.map((item ,  index )=>{
+                            return (
+                                <a
+                                key={`subCategories${index}`}
+                                onClick={(e)=>{
+                                    e.preventDefault();
+                                    Router.push(
+                                        {
+                                            pathname: '/filter',
+                                            query: { subCategoryId : item._id },
+                                        }
+                                    )
+                                }}
                                 >
-                                    {/* <HouseboatIcon/> */}
-                                    <Image
-                                    src="/cardImg.png"
-                                    alt="category logo image"
-                                    width={20}
-                                    height={20}
-                                    />
-                                    <p>{item.categoryName}</p>
-                                </div>
-                            </a>
-                        )
-                    })
-                }
-            </div>
+                                    <div 
+                                    key={`catBut${index}`}
+                                    >
+                                        {/* <HouseboatIcon/> */}
+                                        <Image
+                                        src="/cardImg.png"
+                                        alt="category logo image"
+                                        width={20}
+                                        height={20}
+                                        />
+                                        <p>{item.categoryName}</p>
+                                    </div>
+                                </a>
+                            )
+                        })
+                    }
+                </div>
+            }
         </div>
     )
 }

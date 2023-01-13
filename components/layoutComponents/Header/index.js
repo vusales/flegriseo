@@ -55,7 +55,10 @@ const Header = ({catalog}) => {
                                 </div>
                             </button>
                         </Desktop>
-                        <Search/>
+
+                        <DesktopTablet>
+                            <Search/>
+                        </DesktopTablet>
                     </div>
                     <div
                     className={styles.loginButtonContainer}
@@ -92,12 +95,28 @@ const Header = ({catalog}) => {
                         }
                     </div>
                     <Mobile>
-                        <DrawerComponent/>
+                        <DrawerComponent catalog={catalog} />
                     </Mobile>
                 </div> 
                 <DesktopTablet>
                     <Subheader/> 
                 </DesktopTablet>
+
+
+
+                <Mobile>
+                    <div className={styles.mobileSearch} >
+                        <Search 
+                        containerStyle={{
+                            width: "100%" ,
+                            backGroundColor: "red" ,
+                        }}
+                        />
+                    </div>
+                </Mobile>
+                
+
+                
 
             </header>
         </Container>

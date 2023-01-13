@@ -59,7 +59,8 @@ const SearchDetails = ({
                                     return (
                                         <Card
                                         key={`${index}cardsinsearch`}
-                                        xs={3}
+                                        xs={12}
+                                        sm={6}
                                         md={3}
                                         data={item}
                                         containerStyle={styles.cardContainerCustomDesign}

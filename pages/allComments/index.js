@@ -41,7 +41,7 @@ const AllComments = ({catalog}) => {
                             <div className={styles.line}></div>
                         </div>
                     </Grid>
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                         {
                             demoComments.map(
                             (comment, index)=>
@@ -52,7 +52,7 @@ const AllComments = ({catalog}) => {
                             />
                             )
                         }
-                    </Grid>
+                    </Grid> */}
                     <Grid item xs={12} >
                         <div className={styles.paginationCon}>
                             <Pagination 
