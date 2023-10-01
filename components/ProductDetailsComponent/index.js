@@ -57,7 +57,7 @@ const ProductDetailsComponent = ({data}) => {
                     }
                     {
                         data.image ? 
-                        <Image src={makeImageUrl(data?.image)} width={150} height={150} />
+                        <Image src={makeImageUrl(data?.image)} width={150} height={150} alt="image"/>
                         :null 
                     }
                 </div>

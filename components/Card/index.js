@@ -39,9 +39,9 @@ const Card = ({data , xs , md , containerStyle }) => {
                     <a>
                         {
                             data.image ? 
-                            <Image src={makeImageUrl(data.image)} width={120} height={120} />
+                            <Image src={makeImageUrl(data.image)} width={120} height={120} alt="image" />
                             :
-                            <Image src="/noimg.svg" width={120} height={120} />
+                            <Image src="/noimg.svg" width={120} height={120} alt="image" />
                         }
                     </a>
                 </Link>
