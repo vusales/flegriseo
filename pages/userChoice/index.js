@@ -22,7 +22,7 @@ const UserChoice = ({ catalog, userChoice , banners  }) => {
 
     useEffect(()=> {
         getSuitableBanner("2") ; 
-    }, []); 
+    }); 
 
     const getSuitableBanner = (currentBanner) => {
         let banner =  banners?.filter((item)=> item.pageName === currentBanner)[0].pageContent ; 

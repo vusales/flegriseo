@@ -93,7 +93,7 @@ const SmmForBusiness = ({catalog , banners , smmForBusiness }) => {
 
     useEffect(()=> {
         getSuitableBanner("3") ; 
-    }, []); 
+    }); 
 
     const getSuitableBanner = (currentBanner) => {
         let banner =  banners?.filter((item)=> item.pageName === currentBanner)[0].pageContent ; 

@@ -36,7 +36,7 @@ const SubscriptionDetails = ({id, catalog , data  }) => {
 
     useEffect(()=>{
         setSubscriptions(data);
-    } , []) ; 
+    }); 
 
     const totalAmount = () => {
         let amount=0 ; 

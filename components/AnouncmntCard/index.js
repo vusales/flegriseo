@@ -1,7 +1,4 @@
-import React ,  {
-    useEffect , 
-    useState , 
-}from "react"; 
+import React from "react"; 
 import styles from "./index.module.scss";
 import {generateDynamicIcon} from "../../utils/helper"; 
 

@@ -24,7 +24,7 @@ const SearchDetails = ({
    
     useEffect(()=>{
         refreshData();
-    },[]);
+    });
 
     useEffect(() => {
         setSearchedResults(searchResults); 

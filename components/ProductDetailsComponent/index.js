@@ -19,7 +19,7 @@ const ProductDetailsComponent = ({data}) => {
     useEffect(()=>{
         setServiceAmount(data?.options?.serviceAmount); 
         setStep(data?.options?.serviceAmount); 
-    }, []); 
+    }); 
 
 
 

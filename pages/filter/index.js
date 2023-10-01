@@ -22,7 +22,7 @@ const Filter = ({products , catalog , query }) => {
     const [ dynamicProducts , setDynamicProducts ] = useState([]); 
     const [ subCategories , setSubCategories ] = useState([]); 
 
-    useEffect(()=>{setDynamicProducts(products)},[]);
+    useEffect(()=>{setDynamicProducts(products)});
 
     useEffect(()=> {
         getFilteredData(); 

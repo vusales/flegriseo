@@ -24,7 +24,7 @@ const AddRemoveComponent = ({
 
     useEffect(()=> {
         setDefaults();
-    }, []) ; 
+    }) ; 
 
     useEffect(()=> {
         setChoosenQuantity();

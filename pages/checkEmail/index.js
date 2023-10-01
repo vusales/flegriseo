@@ -1,8 +1,7 @@
 import React ,  {
-    useReducer , 
-    useRef, 
+    
     useState  , 
-    useEffect 
+   
 } from "react";
 import styles from "./index.module.scss";
 import { Grid , Container , Paper , Input  } from "@mui/material";

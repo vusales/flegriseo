@@ -51,7 +51,7 @@ const Order = ({catalog}) => {
             service_name: serviceName , 
             image : image , 
         }); 
-    } , []); 
+    }); 
 
     const completeOrder = async () => {
         try {

@@ -53,7 +53,7 @@ const CheckEmail = ({
             }); 
         }
 
-    } , []) ; 
+    }) ; 
 
 
     const verfyNumber = async () => {
