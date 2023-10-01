@@ -55,7 +55,7 @@ const DrawerItem = ({catalog}) => {
                         //     </Link>
                         // </div>
                         <CatalogButton
-                        key={index}
+                        key={index + "ctlgpg"}
                         data={catalog} 
                         hideHoveredElement={true}
 

@@ -112,7 +112,7 @@ const AddRemoveComponent = ({
                             incrementValues?.map((item, index) => {
                                 return (
                                     <MenuItem 
-                                    key={index} 
+                                    key={index + "jvj"} 
                                     value={item}>{item}</MenuItem>
                                 )
                             })

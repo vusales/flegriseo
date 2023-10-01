@@ -23,10 +23,10 @@ const ProductDetailsComponent = ({data}) => {
 
 
 
-    const Promotion = (decription , color) => {
+    const Promotion = (decription , color , key ) => {
         if(decription){
             return (
-                <div className={styles.promotion} style={color ? {backgroundColor: color} : null }>
+                <div key={key} className={styles.promotion} style={color ? {backgroundColor: color} : null }>
                     {decription}
                 </div>
             )
@@ -52,7 +52,7 @@ const ProductDetailsComponent = ({data}) => {
                 <div className={styles.imageContainer}>
                     { 
                     data?.promotions?.length ? 
-                    data?.promotions.map((item , index)=>Promotion(item?.promotion , item?.color))
+                    data?.promotions.map((item , index)=>Promotion(item?.promotion , item?.color , index +"jkn"))
                     : null 
                     }
                     {

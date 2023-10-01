@@ -9,10 +9,10 @@ import {makeImageUrl} from "../../utils/helper";
 
 const Card = ({data , xs , md , containerStyle }) => {
 
-    const Promotion = (decription , color) => {
+    const Promotion = (decription , color , key ) => {
         if(decription){
             return (
-                <div className={styles.promotion} style={color ? {backgroundColor: color} : null }>
+                <div key={key} className={styles.promotion} style={color ? {backgroundColor: color} : null }>
                     {decription}
                 </div>
             )
@@ -27,7 +27,7 @@ const Card = ({data , xs , md , containerStyle }) => {
             <div className={ containerStyle ? `${styles.container} ${containerStyle}` :styles.container}>
                 { 
                 data?.promotions?.length ? 
-                data?.promotions.map((item ,  index)=>Promotion(item?.promotion , item?.color))
+                data?.promotions.map((item ,  index)=>Promotion(item?.promotion , item?.color , index+"jhbj"))
                 : null 
                 }
                 <Link 

@@ -151,8 +151,8 @@ const LikeForSubscriptions = ({catalog}) => {
                                     <Grid container flexDirection="column" spacing={2}> 
                                         {
                                             demoData.map((item , index)=>
-                                            <Grid item xs={12} mb={4} >
-                                                <IconRightCardComponent key={`cards-${index}`} icon={item.icon} title={item.title} description={item.description} />
+                                            <Grid item xs={12} mb={4} key={`cards-${index}`}  >
+                                                <IconRightCardComponent icon={item.icon} title={item.title} description={item.description} />
                                             </Grid>)
                                         }
                                     </Grid>
@@ -169,7 +169,7 @@ const LikeForSubscriptions = ({catalog}) => {
                                     <Grid container flexDirection="column" spacing={2}> 
                                         {
                                             demoData.map((item , index)=>
-                                            <Grid item xs={12} mb={4}>
+                                            <Grid item xs={12} mb={4} key={`cards-${index}`} >
                                                 <IconRightCardComponent key={`cards-${index}`} icon={item.icon} title={item.title} description={item.description} />
                                             </Grid>)
                                         }
@@ -249,7 +249,7 @@ const LikeForSubscriptions = ({catalog}) => {
 
                                 {
                                     againDemo.map((item , index)=>(
-                                    <Grid item xs={12} md={4} key={index}>
+                                    <Grid item xs={12} md={4} key={index+"bj"}>
                                         <div 
                                         className={styles.exclusiveItem}
                                         >

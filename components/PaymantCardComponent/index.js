@@ -14,10 +14,10 @@ const controlProps = (item) => ({
 
 
 
-const PaymantCardComponent = ({data , title }) => {
+const PaymantCardComponent = ({data , title , key }) => {
     const { image , cardName } = data ;
     return(
-        <div className={styles.cardContainer}>
+        <div key={key} className={styles.cardContainer}>
             <div>
                 <Radio
                 {...controlProps()}
