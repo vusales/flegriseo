@@ -46,10 +46,7 @@ const checkEmail = ({
             });  
         }
     }
-
-
-    
-    
+ 
 return (
     <CommonLayout catalog={catalog}>
         <Alert

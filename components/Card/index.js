@@ -37,7 +37,7 @@ const Card = ({data , xs , md }) => {
                 >
                     <a>
                         {/* <Image src={data?.image} width={120} height={120} /> */}
-                        <Image src="/cardImg.png" width={120} height={120} />
+                        <Image src="/cardImg.png" width={120} height={120} alt="" />
                     </a>
                 </Link>
                 

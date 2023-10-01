@@ -51,7 +51,7 @@ const ProductDetailsComponent = ({data}) => {
                     data?.promotions.map((item , index)=>Promotion(item?.promotion , item?.color))
                     : null 
                     }
-                    <Image src="/cardImg.png" width={150} height={150} />
+                    <Image src="/cardImg.png" width={150} height={150} alt=""/>
                 </div>
             </Grid>
             <Grid item xs={12} md={9} >
