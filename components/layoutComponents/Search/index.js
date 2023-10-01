@@ -29,7 +29,7 @@ const Search = ({containerStyle}) => {
         <button 
         className={styles.submitButton}
         onClick={()=> router.push({
-          pathname: "/searchDetails",
+          pathname: "/SearchDetails",
           query: { searchText: searchText },
         })}
         > 

@@ -30,7 +30,7 @@ const OrderListComponent = ({ name , qty , price ,  image }) => {
                             <Image src={makeImageUrl(image)} width={50} height={50} alt="product details" />
                             :null
                         }
-                        <Link href="/productDetails">
+                        <Link href="/ProductDetails">
                             <a className={styles.productName}> {name} </a>
                         </Link>
                     </div>

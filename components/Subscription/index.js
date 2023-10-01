@@ -48,7 +48,7 @@ const SubScription = ({data}) => {
                                             <p>{item.title} subscriptions</p>
                                             <Link 
                                             href={{
-                                                pathname: "/subscriptionDetails" ,
+                                                pathname: "/SubscriptionDetails" ,
                                                 query: { id: item._id },
                                             }}
                                             >

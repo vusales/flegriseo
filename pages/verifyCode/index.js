@@ -30,7 +30,7 @@ const codeReducer = (state , action) => {
     return {...state , ...action}
 }
 
-const checkEmail = ({
+const CheckEmail = ({
     catalog,
 }) => {
     const router = useRouter();
@@ -65,7 +65,7 @@ const checkEmail = ({
             await verifyCodeApi(body).then((result)=>{
                 if(result) {
                     router.push({
-                        pathname: "/changePassword",
+                        pathname: "/ChangePassword",
                         query: { email: email },
                     }); 
                 }else {
@@ -171,4 +171,4 @@ export const getStaticProps = async (context) => {
     }
 }
 
-export default checkEmail;
+export default CheckEmail;

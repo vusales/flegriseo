@@ -21,7 +21,7 @@ const CatalogButton =({data ,  hideHoveredElement })=>{
             onClick={()=>{
                 Router.push(
                     {
-                        pathname: '/filter',
+                        pathname: '/Filter',
                         query: { categoryId : data._id },
                     }
                 )
@@ -54,7 +54,7 @@ const CatalogButton =({data ,  hideHoveredElement })=>{
                                     e.preventDefault();
                                     Router.push(
                                         {
-                                            pathname: '/filter',
+                                            pathname: '/Filter',
                                             query: { subCategoryId : item._id },
                                         }
                                     )

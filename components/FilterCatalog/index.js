@@ -23,7 +23,7 @@ const FilterCatalog = ({data}) => {
                         <Link 
                         key={`filtrCat${index}`}
                         href={{
-                            pathname: '/filter',
+                            pathname: '/Filter',
                             query: { categoryId: item._id },
                         }}
                         >

@@ -11,7 +11,7 @@ const SingleFilterButton = ({data}) => {
         className={styles.singleButton}
         onClick={()=>{
             Router.push({
-                pathname: '/filter',
+                pathname: '/Filter',
                 query: { subCategoryId : data._id },  
             })
         }}

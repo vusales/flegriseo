@@ -59,7 +59,7 @@ const SignUp = ({catalog}) => {
                             }); 
                             dispatch(initialState); 
                             setTimeout(() => {
-                                router.push("/login"); 
+                                router.push("/Login"); 
                             }, 3000);
                         }else {
                             setAlert({
@@ -218,7 +218,7 @@ const SignUp = ({catalog}) => {
                                 {/* <Link href="/">
                                     <a  className={styles.bannerButton}>Forgot Password?</a>
                                 </Link> */}
-                                <Link href="/login">
+                                <Link href="/Login">
                                     <a  className={styles.bannerButton}>Login</a>
                                 </Link>
                             </div>

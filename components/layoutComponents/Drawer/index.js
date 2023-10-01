@@ -17,22 +17,22 @@ const DrawerItem = ({catalog}) => {
         <div className={styles.drawerItemContainer} >
             <Image  src="/logo-dark.svg" width={100} height={50} alt="logo" />
             <div className={styles.linksContainer}>
-                <Link href="/filter">
+                <Link href="/Filter">
                     <a className={styles.catalogLinks} >All services</a>
                 </Link>
-                <Link href="/cheapServices">
+                <Link href="/CheapServices">
                     <a className={styles.catalogLinks} >Cheap services</a>
                 </Link>
-                <Link href="/userChoice">
+                <Link href="/UserChoice">
                     <a className={styles.catalogLinks} >User choice</a>
                 </Link>
-                <Link href="/smmForBusiness">
+                <Link href="/SmmForBusiness">
                     <a className={styles.catalogLinks} >SMM for business</a>
                 </Link>
-                <Link href="/bigBrands">
+                <Link href="/BigBrands">
                     <a className={styles.catalogLinks} >Big brands</a>
                 </Link>
-                <Link href="/likeForSubscriptions">
+                <Link href="/LikeForSubscriptions">
                     <a className={styles.subHeaderButton} >Like subscription</a>
                 </Link>
             </div>

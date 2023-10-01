@@ -59,7 +59,7 @@ const ChangePassword = ({
                                 alertDescription: "Şifrəniz uğurla dəyişdirildi!" , 
                                 type: "success" , 
                             }); 
-                            router.push("/login");
+                            router.push("/Login");
                         }else {
                             setAlert({
                                 showAlert: true , 

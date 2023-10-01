@@ -43,7 +43,7 @@ const CommentsComponent = ({data}) => {
 
             <Grid item xs={12}>
                 <div className={styles.buttons}>
-                    <Link href="/allComments">
+                    <Link href="/AllComments">
                         <a>
                             All Reviews 
                         </a>

@@ -17,7 +17,7 @@ import { getCatalogData } from "../../api/catalogContent";
 import {login , getAuthToken , signOut , checkEmailApi } from "../../api/loginSignUp"; 
 import { useRouter } from 'next/router';
 
-const checkEmail = ({
+const CheckEmail = ({
     catalog,
 }) => {
 
@@ -45,7 +45,7 @@ const checkEmail = ({
                 if(result){
                     router.push(
                         {
-                            pathname: "/verifyCode",
+                            pathname: "/VerifyCode",
                             query: { email: email },
                         }); 
                 }else {
@@ -132,4 +132,4 @@ export const getStaticProps = async (context) => {
     }
 }
 
-export default checkEmail;
+export default CheckEmail;

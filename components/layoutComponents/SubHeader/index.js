@@ -12,32 +12,32 @@ const Subheader =  () => {
         <div className={styles.subHeaderContainer}>
             <ul className={styles.servicesContainer}>
                 <li className={currentRoute === "/filter" ?  `${styles.servicesLi} , ${styles.activeLink}` : styles.servicesLi }>
-                    <Link href="/filter">
+                    <Link href="/Filter">
                         <a className={styles.items}>Services</a>
                     </Link>
                 </li>
                 <li className={currentRoute === "/cheapServices" ?  `${styles.servicesLi} , ${styles.activeLink}` : styles.servicesLi }>
-                    <Link href="/cheapServices">
+                    <Link href="/CheapServices">
                         <a className={styles.items}>Cheap services</a>
                     </Link>
                 </li>
                 <li className={currentRoute === "/userChoice" ?  `${styles.servicesLi} , ${styles.activeLink}` : styles.servicesLi }>
-                    <Link href="/userChoice">
+                    <Link href="/UserChoice">
                         <a className={styles.items}>User Choice</a>
                     </Link>
                 </li>
                 <li className={currentRoute === "/smmForBusiness" ?  `${styles.servicesLi} , ${styles.activeLink}` : styles.servicesLi }>
-                    <Link href="/smmForBusiness">
+                    <Link href="/SmmForBusiness">
                         <a className={styles.items}>SMM for business</a>
                     </Link>
                 </li>
                 <li className={currentRoute === "/bigBrands" ?  `${styles.servicesLi} , ${styles.activeLink}` : styles.servicesLi }>
-                    <Link href="/bigBrands">
+                    <Link href="/BigBrands">
                         <a className={styles.items}>Big brands</a>
                     </Link>
                 </li>
             </ul>
-            <Link href="/likeForSubscriptions">
+            <Link href="/LikeForSubscriptions">
                 <a className={styles.subHeaderButton} >Like subscription</a>
             </Link>
         </div>

@@ -79,7 +79,7 @@ const againDemo = [
     {
         title: "Гарантия исполнения"  , 
         description: "Высокая скорость выполнения каждого заказа с гарантией.", 
-        link:"/priceList"
+        link:"/PriceList"
     }, 
     {
         title: "Бонусы и скидки"  , 

@@ -78,13 +78,13 @@ const Header = ({catalog}) => {
                             <div
                             className={styles.smallModal}
                             >
-                                <Link href="/login">
+                                <Link href="/Login">
                                     <a className={styles.loginsignupLinks}>
                                         <AccountBoxIcon/>
                                         Log in
                                     </a>
                                 </Link>
-                                <Link href="/signUp">
+                                <Link href="/SignUp">
                                     <a className={styles.loginsignupLinks}>
                                         <AppRegistrationIcon/>
                                         Sign up
